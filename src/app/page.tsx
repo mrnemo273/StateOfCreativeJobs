@@ -16,10 +16,8 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   const [selectedSlug, setSelectedSlug] = useState("creative-director");
-  const [snapshot, setSnapshot] = useState<JobHealthSnapshot | null>(() =>
-    getSnapshot(selectedSlug),
-  );
-  const [loading, setLoading] = useState(false);
+  const [snapshot, setSnapshot] = useState<JobHealthSnapshot | null>(null);
+  const [loading, setLoading] = useState(true);
   const allTitles = getAllTitles();
 
   const fetchLiveData = useCallback(async (slug: string) => {

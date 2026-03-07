@@ -44,7 +44,7 @@ export const SLUG_TO_SOC: Record<string, string> = {
  */
 function buildSeriesId(soc: string, dataType: string): string {
   const socNoDash = soc.replace("-", "");
-  return `OEUN000000000000${socNoDash}${dataType}`;
+  return `OEUN0000000000000${socNoDash}${dataType}`;
 }
 
 /**
@@ -69,14 +69,14 @@ export async function fetchSalaryData(
   }
 
   try {
-    // Data type suffixes for OES national series:
-    // 0000013 = annual mean wage
-    // 0000017 = annual 10th percentile wage
-    // 0000021 = annual 90th percentile wage
+    // Data type suffixes for OES national series (2-digit codes):
+    // 04 = annual mean wage
+    // 12 = annual 10th percentile wage
+    // 15 = annual 75th percentile wage
     const seriesIds = [
-      buildSeriesId(soc, "0000013"), // annual mean wage
-      buildSeriesId(soc, "0000017"), // 10th percentile
-      buildSeriesId(soc, "0000021"), // 90th percentile
+      buildSeriesId(soc, "04"), // annual mean wage
+      buildSeriesId(soc, "12"), // 10th percentile
+      buildSeriesId(soc, "15"), // 75th percentile
     ];
 
     const body: Record<string, unknown> = {
