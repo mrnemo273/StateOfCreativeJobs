@@ -140,32 +140,41 @@ export default function Home() {
               <AIImpactSection snapshot={snapshot} />
             </div>
 
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
-
             {/* Skills Signal Section */}
-            <div className="col-span-12">
-              <SkillsSignalSection snapshot={snapshot} />
-            </div>
-
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
+            {(snapshot.skills.rising.length > 0 || snapshot.skills.declining.length > 0) && (
+              <>
+                <div className="col-span-12 my-4">
+                  <HairlineRule />
+                </div>
+                <div className="col-span-12">
+                  <SkillsSignalSection snapshot={snapshot} />
+                </div>
+              </>
+            )}
 
             {/* Sentiment & News */}
-            <div className="col-span-12">
-              <SentimentSection snapshot={snapshot} />
-            </div>
-
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
+            {(snapshot.sentiment.recentHeadlines.length > 0 || snapshot.sentiment.score !== 0) && (
+              <>
+                <div className="col-span-12 my-4">
+                  <HairlineRule />
+                </div>
+                <div className="col-span-12">
+                  <SentimentSection snapshot={snapshot} />
+                </div>
+              </>
+            )}
 
             {/* Posting Analysis */}
-            <div className="col-span-12">
-              <PostingAnalysisSection snapshot={snapshot} />
-            </div>
+            {(snapshot.postingAnalysis.topSkills.length > 0 || snapshot.postingAnalysis.commonResponsibilities.length > 0) && (
+              <>
+                <div className="col-span-12 my-4">
+                  <HairlineRule />
+                </div>
+                <div className="col-span-12">
+                  <PostingAnalysisSection snapshot={snapshot} />
+                </div>
+              </>
+            )}
 
           </>
         )}

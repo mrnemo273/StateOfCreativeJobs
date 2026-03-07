@@ -2,6 +2,7 @@ type BLSResult = {
   annualMeanWage: number;
   percentile10: number;
   percentile90: number;
+  yoyChange: number;
 };
 
 /**
@@ -134,12 +135,17 @@ export async function fetchSalaryData(
       return null;
     }
 
-    // Each series should have at least one data point. Take the most recent.
-    const getLatestValue = (
+    // Extract value for a specific year from a series, or the latest if year is omitted.
+    const getValue = (
       s: { data: { year: string; value: string }[] } | undefined,
+      year?: string,
     ): number | null => {
       if (!s || s.data.length === 0) return null;
-      const val = parseFloat(s.data[0].value);
+      const entry = year
+        ? s.data.find((d) => d.year === year)
+        : s.data[0];
+      if (!entry) return null;
+      const val = parseFloat(entry.value);
       return isNaN(val) ? null : val;
     };
 
@@ -154,9 +160,9 @@ export async function fetchSalaryData(
       (s) => s.seriesID === seriesIds[2],
     );
 
-    const annualMeanWage = getLatestValue(meanSeries);
-    const percentile10 = getLatestValue(p10Series);
-    const percentile90 = getLatestValue(p90Series);
+    const annualMeanWage = getValue(meanSeries);
+    const percentile10 = getValue(p10Series);
+    const percentile90 = getValue(p90Series);
 
     if (annualMeanWage === null || percentile10 === null || percentile90 === null) {
       console.error(
@@ -165,10 +171,19 @@ export async function fetchSalaryData(
       return null;
     }
 
+    // Compute YoY change from 2023 → 2024 mean wage
+    const mean2024 = getValue(meanSeries, "2024");
+    const mean2023 = getValue(meanSeries, "2023");
+    const yoyChange =
+      mean2024 !== null && mean2023 !== null && mean2023 !== 0
+        ? Math.round(((mean2024 - mean2023) / mean2023) * 1000) / 10
+        : 0;
+
     return {
       annualMeanWage,
       percentile10,
       percentile90,
+      yoyChange,
     };
   } catch (error) {
     console.error(

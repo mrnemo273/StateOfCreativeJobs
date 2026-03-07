@@ -26,7 +26,7 @@ export async function fetchNews(
   }
 
   const query = encodeURIComponent(title);
-  const url = `https://gnews.io/api/v4/search?q=${query}&lang=en&max=6&apikey=${key}`;
+  const url = `https://gnews.io/api/v4/search?q=${query}&lang=en&country=us&max=6&apikey=${key}`;
 
   try {
     const res = await fetch(url, {

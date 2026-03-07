@@ -11,6 +11,10 @@ type Props = {
 export default function SkillsSignalSection({ snapshot }: Props) {
   const { skills } = snapshot;
 
+  if (skills.rising.length === 0 && skills.declining.length === 0) {
+    return null;
+  }
+
   return (
     <section>
       <SectionLabel className="mb-6">Skills Signal</SectionLabel>

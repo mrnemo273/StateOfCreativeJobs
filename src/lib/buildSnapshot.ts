@@ -96,7 +96,7 @@ export async function buildSnapshot(
         rangeMin: blsResult.percentile10,
         rangeMax: blsResult.percentile90,
         trend: mock?.salary.trend ?? generateFlatTrend(blsResult.annualMeanWage),
-        yoyChange: mock?.salary.yoyChange ?? 0,
+        yoyChange: blsResult.yoyChange,
         topPayingIndustries: mock?.salary.topPayingIndustries ?? [],
       }
     : mock?.salary ?? {

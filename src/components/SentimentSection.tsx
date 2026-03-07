@@ -11,6 +11,11 @@ type Props = {
 
 export default function SentimentSection({ snapshot }: Props) {
   const { sentiment } = snapshot;
+
+  if (sentiment.recentHeadlines.length === 0 && sentiment.score === 0) {
+    return null;
+  }
+
   const normalized = (sentiment.score + 100) / 2; // -100..+100 → 0..100
 
   return (

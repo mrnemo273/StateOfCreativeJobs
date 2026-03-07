@@ -11,6 +11,10 @@ type Props = {
 export default function PostingAnalysisSection({ snapshot }: Props) {
   const { postingAnalysis } = snapshot;
 
+  if (postingAnalysis.topSkills.length === 0 && postingAnalysis.commonResponsibilities.length === 0) {
+    return null;
+  }
+
   return (
     <section>
       <SectionLabel className="mb-6">Posting Analysis</SectionLabel>
