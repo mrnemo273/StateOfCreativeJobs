@@ -30,8 +30,7 @@ export async function fetchJobDemand(
 
     const url = `https://api.adzuna.com/v1/api/jobs/us/search/1?${params.toString()}`;
 
-    console.log(`[Adzuna] Fetching: ${title}, appId=${appId.slice(0, 4)}...`);
-    const res = await fetch(url, { cache: "no-store" });
+    const res = await fetch(url, { next: { revalidate: 86400 } });
 
     if (!res.ok) {
       console.error(
@@ -61,7 +60,6 @@ export async function fetchJobDemand(
       .slice(0, 5)
       .map(([location]) => location);
 
-    console.log(`[Adzuna] Success: count=${data.count}, locations=${topLocations.length}`);
     return {
       count: data.count,
       topLocations,
