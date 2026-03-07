@@ -17,7 +17,7 @@ function formatSentimentScore(score: number): string {
 
 export default function HealthScoreSummary({ snapshot }: Props) {
   return (
-    <div className="grid grid-cols-4 gap-[var(--grid-gutter)]">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-[var(--grid-gutter)]">
       <StatCard
         label="Demand"
         value={snapshot.demand.openingsCount.toLocaleString()}

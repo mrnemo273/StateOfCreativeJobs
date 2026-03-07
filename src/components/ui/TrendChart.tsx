@@ -53,7 +53,7 @@ export default function TrendChart({
 
   return (
     <ResponsiveContainer width="100%" height={height}>
-      <LineChart data={data}>
+      <LineChart data={data} margin={{ top: 5, right: 5, left: -10, bottom: 5 }}>
         <CartesianGrid
           horizontal={true}
           vertical={false}
@@ -68,6 +68,7 @@ export default function TrendChart({
           }}
         />
         <YAxis
+          width={50}
           tick={{
             fontFamily: 'var(--font-mono)',
             fontSize: 10,

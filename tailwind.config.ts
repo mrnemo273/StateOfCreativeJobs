@@ -62,6 +62,7 @@ const config: Config = {
         "display-lg": "clamp(2rem, 4vw, 3.5rem)",
         "display-md": "clamp(1.5rem, 2.5vw, 2rem)",
         "data-xl": "clamp(2.5rem, 5vw, 5rem)",
+        "data-hero": "clamp(2.25rem, 4.5vw, 3.75rem)",
         "data-lg": "clamp(1.5rem, 3vw, 2.5rem)",
         "data-md": "1.125rem",
         "data-sm": "0.875rem",

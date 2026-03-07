@@ -12,6 +12,7 @@ import SkillsSignalSection from "@/components/SkillsSignalSection";
 import SentimentSection from "@/components/SentimentSection";
 import PostingAnalysisSection from "@/components/PostingAnalysisSection";
 import HairlineRule from "@/components/ui/HairlineRule";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [selectedSlug, setSelectedSlug] = useState("creative-director");
@@ -69,7 +70,7 @@ export default function Home() {
           <select
             value={selectedSlug}
             onChange={(e) => setSelectedSlug(e.target.value)}
-            className="border border-ink bg-paper px-4 py-2 font-mono text-body text-ink cursor-pointer hover:bg-faint transition-colors duration-75 appearance-none pr-10 uppercase tracking-widest"
+            className="border border-ink bg-paper px-4 py-2 font-mono text-body text-ink cursor-pointer hover:bg-faint transition-colors duration-75 appearance-none pr-10 uppercase tracking-widest w-full md:w-auto"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' fill='none' stroke='%230A0A0A' stroke-width='1.5'/%3E%3C/svg%3E")`,
               backgroundRepeat: "no-repeat",
@@ -101,7 +102,7 @@ export default function Home() {
               <span className="text-label-md text-mid uppercase tracking-widest font-mono block mb-2">
                 {snapshot.cluster.replace("-", " ")}
               </span>
-              <h2 className="font-mono text-display-lg text-ink leading-none">
+              <h2 className="font-mono text-ink leading-none" style={{ fontSize: "clamp(3rem, 6vw, 5rem)" }}>
                 {snapshot.title}
               </h2>
               <p className="text-body-sm text-mid mt-3 max-w-[65ch] leading-relaxed">
@@ -168,18 +169,11 @@ export default function Home() {
               <PostingAnalysisSection snapshot={snapshot} />
             </div>
 
-            {/* Footer */}
-            <div className="col-span-12 mt-8 mb-4">
-              <HairlineRule />
-              <p className="text-label-sm text-mid font-mono mt-4">
-                Design Job Health Tracker — Data sourced from Adzuna, BLS, GNews
-                &amp; O*NET. Falls back to illustrative data when API keys are not
-                configured.
-              </p>
-            </div>
           </>
         )}
       </main>
+
+      {snapshot && !loading && <Footer />}
     </div>
   );
 }

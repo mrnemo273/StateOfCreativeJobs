@@ -16,7 +16,7 @@ export default function PostingAnalysisSection({ snapshot }: Props) {
       <SectionLabel className="mb-6">Posting Analysis</SectionLabel>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         {/* Skills frequency table */}
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-6">
           <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
             Top Skills in Postings
           </span>
@@ -51,7 +51,7 @@ export default function PostingAnalysisSection({ snapshot }: Props) {
         </div>
 
         {/* Responsibilities + role definition */}
-        <div className="col-span-6 flex flex-col gap-6">
+        <div className="col-span-12 md:col-span-6 flex flex-col gap-6 mt-6 md:mt-0">
           <div>
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
               Common Responsibilities

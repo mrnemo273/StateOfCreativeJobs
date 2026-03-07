@@ -23,9 +23,11 @@ export default function StatCard({
   sparklineColor,
 }: Props) {
   return (
-    <div className="border border-light p-6">
+    <div className="border border-light p-3 md:p-6">
       <SectionLabel>{label}</SectionLabel>
-      <DataValue value={value} className="text-data-lg font-display" />
+      <div className="text-[1.75rem] md:text-data-lg">
+        <DataValue value={value} className="font-display" />
+      </div>
       {sublabel && (
         <span className="text-label-md text-mid font-mono uppercase tracking-widest block mt-1">
           {sublabel}

@@ -65,7 +65,7 @@ export default function SentimentSection({ snapshot }: Props) {
         <div className="col-span-12 mt-6">
           <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
             {sentiment.recentHeadlines.map((item, i) => (
-              <div key={i} className="col-span-4">
+              <div key={i} className="col-span-12 md:col-span-4">
                 <NewsCard
                   headline={item.headline}
                   source={item.source}

@@ -36,6 +36,7 @@
   --text-display-lg: clamp(2rem, 4vw, 3.5rem);
   --text-display-md: clamp(1.5rem, 2.5vw, 2rem);
   --text-data-xl: clamp(2.5rem, 5vw, 5rem);
+  --text-data-hero: clamp(2.25rem, 4.5vw, 3.75rem);
   --text-data-lg: clamp(1.5rem, 3vw, 2.5rem);
   --text-data-md: 1.125rem;
   --text-data-sm: 0.875rem;

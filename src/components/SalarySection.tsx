@@ -24,7 +24,7 @@ export default function SalarySection({ snapshot }: Props) {
     <section>
       <SectionLabel className="mb-6">Salary Trends</SectionLabel>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
-        <div className="col-span-8">
+        <div className="col-span-12 md:col-span-8">
           <TrendChart
             data={salary.trend}
             height={280}
@@ -32,7 +32,7 @@ export default function SalarySection({ snapshot }: Props) {
             tooltipFormatter={(v) => `$${v.toLocaleString()}`}
           />
         </div>
-        <div className="col-span-4 flex flex-col gap-6">
+        <div className="col-span-12 md:col-span-4 flex flex-col gap-6">
           <div>
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-1">
               Median Salary

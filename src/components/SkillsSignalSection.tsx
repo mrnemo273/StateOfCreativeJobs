@@ -15,7 +15,7 @@ export default function SkillsSignalSection({ snapshot }: Props) {
     <section>
       <SectionLabel className="mb-6">Skills Signal</SectionLabel>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-6">
           <span className="text-label-sm text-up uppercase tracking-widest block mb-4 font-medium">
             Rising Skills
           </span>
@@ -30,7 +30,7 @@ export default function SkillsSignalSection({ snapshot }: Props) {
             ))}
           </div>
         </div>
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-6 mt-6 md:mt-0">
           <span className="text-label-sm text-down uppercase tracking-widest block mb-4 font-medium">
             Declining Skills
           </span>

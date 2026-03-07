@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <header className="border-b border-ink">
-      <div className="flex items-center justify-between px-6 py-3">
+      <div className="hidden md:flex items-center justify-between px-6 py-3">
         <span className="font-mono text-label-sm text-mid uppercase tracking-widest">
           {dateStr}
         </span>
@@ -23,6 +23,14 @@ export default function Header() {
         </span>
         <span className="font-mono text-label-sm text-mid uppercase tracking-widest">
           Last updated {dateStr}
+        </span>
+      </div>
+      <div className="flex md:hidden flex-col items-center gap-1 px-4 py-3">
+        <span className="font-mono text-label-sm text-mid uppercase tracking-widest">
+          {dateStr}
+        </span>
+        <span className="font-mono text-label-lg text-ink uppercase tracking-widest font-bold text-center">
+          {year} State of Creative Jobs Report
         </span>
       </div>
     </header>

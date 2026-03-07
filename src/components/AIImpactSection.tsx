@@ -16,7 +16,7 @@ export default function AIImpactSection({ snapshot }: Props) {
     <section>
       <SectionLabel className="mb-6">AI Impact Assessment</SectionLabel>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
-        <div className="col-span-8">
+        <div className="col-span-12 md:col-span-8">
           <ScoreGauge score={aiImpact.score} label={aiImpact.scoreLabel} />
           <div className="mt-6">
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-2">
@@ -39,7 +39,7 @@ export default function AIImpactSection({ snapshot }: Props) {
             />
           </div>
         </div>
-        <div className="col-span-4 flex flex-col gap-6">
+        <div className="col-span-12 md:col-span-4 flex flex-col gap-6">
           <div>
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
               Risk Factors
