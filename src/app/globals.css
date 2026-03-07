@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base */
+  --color-ink: #0A0A0A;
+  --color-paper: #F5F3EE;
+  --color-white: #FFFFFF;
+
+  /* Tones */
+  --color-dark: #1A1A1A;
+  --color-mid: #6B6B6B;
+  --color-light: #C8C4BC;
+  --color-faint: #ECEAE4;
+
+  /* Signal Colors */
+  --color-up: #1A6B3A;
+  --color-up-bg: #EAF4EE;
+  --color-down: #8B1A1A;
+  --color-down-bg: #F7EAEA;
+  --color-neutral: #5A4E2A;
+  --color-neutral-bg: #F5F0E4;
+
+  /* Accent */
+  --color-accent: #1A1A6B;
+  --color-accent-bg: #EAEAF7;
+
+  /* Typography */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-sans: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+
+  /* Type Scale */
+  --text-display-xl: clamp(3rem, 6vw, 6rem);
+  --text-display-lg: clamp(2rem, 4vw, 3.5rem);
+  --text-display-md: clamp(1.5rem, 2.5vw, 2rem);
+  --text-data-xl: clamp(2.5rem, 5vw, 5rem);
+  --text-data-lg: clamp(1.5rem, 3vw, 2.5rem);
+  --text-data-md: 1.125rem;
+  --text-data-sm: 0.875rem;
+  --text-label-lg: 0.875rem;
+  --text-label-md: 0.75rem;
+  --text-label-sm: 0.625rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+
+  /* Grid */
+  --grid-columns: 12;
+  --grid-gutter: clamp(1rem, 2vw, 1.5rem);
+  --grid-margin: clamp(1.5rem, 4vw, 4rem);
+  --grid-unit: 0.25rem;
+}
+
+body {
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enforce tabular nums globally on mono */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
