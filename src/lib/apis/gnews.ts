@@ -25,7 +25,7 @@ export async function fetchNews(
     return null;
   }
 
-  const query = encodeURIComponent(`"${title}" jobs`);
+  const query = encodeURIComponent(title);
   const url = `https://gnews.io/api/v4/search?q=${query}&lang=en&max=6&apikey=${key}`;
 
   try {
