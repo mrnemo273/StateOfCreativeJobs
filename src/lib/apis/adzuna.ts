@@ -55,7 +55,7 @@ export async function fetchJobDemand(
     }
 
     // Sort by frequency descending and take top 5
-    const topLocations = [...locationCounts.entries()]
+    const topLocations = Array.from(locationCounts.entries())
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5)
       .map(([location]) => location);

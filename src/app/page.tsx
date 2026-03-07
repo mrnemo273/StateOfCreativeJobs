@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { getSnapshot, getAllTitles, getAvailableSlugs } from "@/lib/dataService";
-import type { JobTitle } from "@/types";
+import { useState, useEffect, useCallback } from "react";
+import { getSnapshot, getAllTitles } from "@/lib/dataService";
+import type { JobHealthSnapshot, JobTitle } from "@/types";
 import Header from "@/components/Header";
 import HealthScoreSummary from "@/components/HealthScoreSummary";
 import DemandSection from "@/components/DemandSection";
@@ -15,11 +15,37 @@ import HairlineRule from "@/components/ui/HairlineRule";
 
 export default function Home() {
   const [selectedSlug, setSelectedSlug] = useState("creative-director");
-  const snapshot = getSnapshot(selectedSlug);
+  const [snapshot, setSnapshot] = useState<JobHealthSnapshot | null>(() =>
+    getSnapshot(selectedSlug),
+  );
+  const [loading, setLoading] = useState(false);
   const allTitles = getAllTitles();
-  const availableSlugs = getAvailableSlugs();
 
-  if (!snapshot) {
+  const fetchLiveData = useCallback(async (slug: string) => {
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/snapshot/${slug}`);
+      if (res.ok) {
+        const data: JobHealthSnapshot = await res.json();
+        setSnapshot(data);
+      } else {
+        // API failed — fall back to mock
+        const mock = getSnapshot(slug);
+        setSnapshot(mock);
+      }
+    } catch {
+      const mock = getSnapshot(slug);
+      setSnapshot(mock);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchLiveData(selectedSlug);
+  }, [selectedSlug, fetchLiveData]);
+
+  if (!snapshot && !loading) {
     return (
       <div className="min-h-screen bg-paper flex items-center justify-center">
         <p className="font-mono text-mid">No data available for this title.</p>
@@ -50,108 +76,109 @@ export default function Home() {
               backgroundPosition: "right 12px center",
             }}
           >
-            {allTitles
-              .filter((t: JobTitle) => availableSlugs.includes(t.slug))
-              .map((t: JobTitle) => (
-                <option key={t.slug} value={t.slug}>
-                  {t.title}
-                </option>
-              ))}
-            {allTitles.filter((t: JobTitle) => !availableSlugs.includes(t.slug))
-              .length > 0 && (
-              <optgroup label="Coming Soon">
-                {allTitles
-                  .filter((t: JobTitle) => !availableSlugs.includes(t.slug))
-                  .map((t: JobTitle) => (
-                    <option key={t.slug} value={t.slug} disabled>
-                      {t.title}
-                    </option>
-                  ))}
-              </optgroup>
-            )}
+            {allTitles.map((t: JobTitle) => (
+              <option key={t.slug} value={t.slug}>
+                {t.title}
+              </option>
+            ))}
           </select>
         </div>
 
-        {/* Hero title */}
-        <div className="col-span-12 mb-4">
-          <span className="text-label-md text-mid uppercase tracking-widest font-mono block mb-2">
-            {snapshot.cluster.replace("-", " ")}
-          </span>
-          <h2 className="font-mono text-display-lg text-ink leading-none">
-            {snapshot.title}
-          </h2>
-          <p className="text-body-sm text-mid mt-3 max-w-[65ch] leading-relaxed">
-            {snapshot.description}
-          </p>
-        </div>
+        {/* Loading state */}
+        {loading && (
+          <div className="col-span-12 py-16 flex items-center justify-center">
+            <span className="font-mono text-label-md text-mid uppercase tracking-widest animate-pulse">
+              Loading live data...
+            </span>
+          </div>
+        )}
 
-        {/* Health Score Summary — 4-up stat cards */}
-        <div className="col-span-12 mb-2">
-          <HealthScoreSummary snapshot={snapshot} />
-        </div>
+        {/* Dashboard content */}
+        {snapshot && !loading && (
+          <>
+            {/* Hero title */}
+            <div className="col-span-12 mb-4">
+              <span className="text-label-md text-mid uppercase tracking-widest font-mono block mb-2">
+                {snapshot.cluster.replace("-", " ")}
+              </span>
+              <h2 className="font-mono text-display-lg text-ink leading-none">
+                {snapshot.title}
+              </h2>
+              <p className="text-body-sm text-mid mt-3 max-w-[65ch] leading-relaxed">
+                {snapshot.description}
+              </p>
+            </div>
 
-        <div className="col-span-12 my-4">
-          <HairlineRule />
-        </div>
+            {/* Health Score Summary — 4-up stat cards */}
+            <div className="col-span-12 mb-2">
+              <HealthScoreSummary snapshot={snapshot} />
+            </div>
 
-        {/* Demand Section */}
-        <div className="col-span-12">
-          <DemandSection snapshot={snapshot} />
-        </div>
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
 
-        <div className="col-span-12 my-4">
-          <HairlineRule />
-        </div>
+            {/* Demand Section */}
+            <div className="col-span-12">
+              <DemandSection snapshot={snapshot} />
+            </div>
 
-        {/* Salary Section */}
-        <div className="col-span-12">
-          <SalarySection snapshot={snapshot} />
-        </div>
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
 
-        <div className="col-span-12 my-4">
-          <HairlineRule />
-        </div>
+            {/* Salary Section */}
+            <div className="col-span-12">
+              <SalarySection snapshot={snapshot} />
+            </div>
 
-        {/* AI Impact Section */}
-        <div className="col-span-12">
-          <AIImpactSection snapshot={snapshot} />
-        </div>
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
 
-        <div className="col-span-12 my-4">
-          <HairlineRule />
-        </div>
+            {/* AI Impact Section */}
+            <div className="col-span-12">
+              <AIImpactSection snapshot={snapshot} />
+            </div>
 
-        {/* Skills Signal Section */}
-        <div className="col-span-12">
-          <SkillsSignalSection snapshot={snapshot} />
-        </div>
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
 
-        <div className="col-span-12 my-4">
-          <HairlineRule />
-        </div>
+            {/* Skills Signal Section */}
+            <div className="col-span-12">
+              <SkillsSignalSection snapshot={snapshot} />
+            </div>
 
-        {/* Sentiment & News */}
-        <div className="col-span-12">
-          <SentimentSection snapshot={snapshot} />
-        </div>
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
 
-        <div className="col-span-12 my-4">
-          <HairlineRule />
-        </div>
+            {/* Sentiment & News */}
+            <div className="col-span-12">
+              <SentimentSection snapshot={snapshot} />
+            </div>
 
-        {/* Posting Analysis */}
-        <div className="col-span-12">
-          <PostingAnalysisSection snapshot={snapshot} />
-        </div>
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
 
-        {/* Footer */}
-        <div className="col-span-12 mt-8 mb-4">
-          <HairlineRule />
-          <p className="text-label-sm text-mid font-mono mt-4">
-            Design Job Health Tracker — Phase 1 Mock Data. Data shown is
-            illustrative and will be replaced with live API sources in Phase 2.
-          </p>
-        </div>
+            {/* Posting Analysis */}
+            <div className="col-span-12">
+              <PostingAnalysisSection snapshot={snapshot} />
+            </div>
+
+            {/* Footer */}
+            <div className="col-span-12 mt-8 mb-4">
+              <HairlineRule />
+              <p className="text-label-sm text-mid font-mono mt-4">
+                Design Job Health Tracker — Data sourced from Adzuna, BLS, GNews
+                &amp; O*NET. Falls back to illustrative data when API keys are not
+                configured.
+              </p>
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
