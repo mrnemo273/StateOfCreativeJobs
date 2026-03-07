@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { buildSnapshot } from "@/lib/buildSnapshot";
 import { TRACKED_JOB_TITLES } from "@/data/jobTitles";
 
-export const revalidate = 86400; // ISR: revalidate every 24 hours
+export const revalidate = 0; // temporarily disable cache to pick up new env vars
 
 export async function GET(
   _request: Request,
