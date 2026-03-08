@@ -5,6 +5,7 @@ import { fetchJobDemand } from "./apis/adzuna";
 import { fetchSalaryData } from "./apis/bls";
 import { fetchNews } from "./apis/gnews";
 import { fetchOnetData, computeAIImpactScore } from "./apis/onet";
+import { fetchGoogleTrends } from "./apis/googletrends";
 import { scoreOverallSentiment } from "./apis/sentiment";
 
 /** Short description per role used in the hero section. */
@@ -67,25 +68,32 @@ export async function buildSnapshot(
   const today = new Date().toISOString().split("T")[0];
 
   // Fire all API calls in parallel
-  const [adzunaResult, blsResult, newsResult, onetResult] = await Promise.all([
+  const [adzunaResult, blsResult, newsResult, onetResult, trendsResult] = await Promise.all([
     fetchJobDemand(title),
     fetchSalaryData(slug),
     fetchNews(title),
     fetchOnetData(slug),
+    fetchGoogleTrends(slug),
   ]);
 
   // --- Demand ---
+  const trendLine: TrendPoint[] = trendsResult
+    ? trendsResult.interestOverTime
+    : mock?.demand.openingsTrend ?? (adzunaResult ? generateFlatTrend(adzunaResult.count) : []);
+
+  const demandYoy = trendsResult?.yoyChange ?? mock?.demand.yoyChange ?? 0;
+
   const demand = adzunaResult
     ? {
         openingsCount: adzunaResult.count,
-        openingsTrend: mock?.demand.openingsTrend ?? generateFlatTrend(adzunaResult.count),
-        yoyChange: mock?.demand.yoyChange ?? 0,
+        openingsTrend: trendLine,
+        yoyChange: demandYoy,
         topHiringLocations: adzunaResult.topLocations,
       }
     : mock?.demand ?? {
         openingsCount: 0,
-        openingsTrend: [],
-        yoyChange: 0,
+        openingsTrend: trendLine,
+        yoyChange: demandYoy,
         topHiringLocations: [],
       };
 
