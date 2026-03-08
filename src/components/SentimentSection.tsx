@@ -10,9 +10,9 @@ export default function SentimentSection({ snapshot }: Props) {
   const { sentiment } = snapshot;
 
   const hasHeadlines = sentiment.recentHeadlines.length > 0;
-  const hasReddit = sentiment.redditPosts.length > 0;
+  const hasCommunity = sentiment.communityPosts.length > 0;
 
-  if (!hasHeadlines && !hasReddit && sentiment.score === 0) {
+  if (!hasHeadlines && !hasCommunity && sentiment.score === 0) {
     return null;
   }
 
@@ -84,8 +84,8 @@ export default function SentimentSection({ snapshot }: Props) {
           </div>
         )}
 
-        {/* From the Community — Reddit data */}
-        {hasReddit && (
+        {/* Community data — Hacker News */}
+        {hasCommunity && (
           <div className="col-span-12 mt-8">
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-4 font-medium">
               What Practitioners Are Saying
@@ -114,18 +114,15 @@ export default function SentimentSection({ snapshot }: Props) {
             </div>
 
             {/* Quote cards */}
-            {sentiment.redditQuotes.length > 0 && (
+            {sentiment.communityQuotes.length > 0 && (
               <div className="grid grid-cols-12 gap-[var(--grid-gutter)] mb-6">
-                {sentiment.redditQuotes.map((q, i) => (
+                {sentiment.communityQuotes.map((q, i) => (
                   <div key={i} className="col-span-12 md:col-span-6">
-                    <div className="border border-light p-4">
-                      <p className="text-body-sm font-sans italic">{q.text}</p>
-                      <div className="mt-2 flex items-center justify-between">
+                    <div className="border border-light p-4 h-full flex flex-col">
+                      <p className="text-body-sm font-sans italic flex-1">{q.text}</p>
+                      <div className="mt-2">
                         <span className="text-label-sm text-mid font-mono">
-                          r/{q.subreddit}
-                        </span>
-                        <span className="text-label-sm text-mid font-mono tabular-nums">
-                          {q.score} upvotes
+                          {q.source}
                         </span>
                       </div>
                     </div>
@@ -135,13 +132,13 @@ export default function SentimentSection({ snapshot }: Props) {
             )}
 
             {/* Keyword pills */}
-            {sentiment.redditKeywords.length > 0 && (
+            {sentiment.communityKeywords.length > 0 && (
               <div>
                 <span className="text-label-sm text-mid uppercase tracking-widest block mb-4 font-medium">
                   Tools &amp; Trends Detected
                 </span>
                 <div className="flex flex-wrap gap-2">
-                  {sentiment.redditKeywords.map((kw) => (
+                  {sentiment.communityKeywords.map((kw) => (
                     <span
                       key={kw.word}
                       className="inline-flex items-center gap-1.5 px-3 py-1 text-label-sm font-mono bg-black/10"

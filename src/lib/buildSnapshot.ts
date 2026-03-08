@@ -6,7 +6,7 @@ import { fetchSalaryData } from "./apis/bls";
 import { fetchNews } from "./apis/gnews";
 import { fetchOnetData, computeAIImpactScore } from "./apis/onet";
 import { fetchGoogleTrends } from "./apis/googletrends";
-import { fetchRedditData } from "./apis/reddit";
+import { fetchHackerNewsData } from "./apis/hackernews";
 import { scoreOverallSentiment } from "./apis/sentiment";
 
 /** Short description per role used in the hero section. */
@@ -69,13 +69,13 @@ export async function buildSnapshot(
   const today = new Date().toISOString().split("T")[0];
 
   // Fire all API calls in parallel
-  const [adzunaResult, blsResult, newsResult, onetResult, trendsResult, redditResult] = await Promise.all([
+  const [adzunaResult, blsResult, newsResult, onetResult, trendsResult, communityResult] = await Promise.all([
     fetchJobDemand(title),
     fetchSalaryData(slug),
     fetchNews(title),
     fetchOnetData(slug),
     fetchGoogleTrends(slug),
-    fetchRedditData(slug, title, cluster),
+    fetchHackerNewsData(slug, title, cluster),
   ]);
 
   // --- Demand ---
@@ -168,10 +168,10 @@ export async function buildSnapshot(
       }))
     : mock?.sentiment.recentHeadlines ?? [];
 
-  // Blend GNews headlines + Reddit post titles for overall sentiment (equal weight)
+  // Blend GNews headlines + HN story titles for overall sentiment (equal weight)
   const allSentimentTexts = [
     ...headlines.map((h) => h.headline),
-    ...(redditResult ? redditResult.posts.map((p) => p.title) : []),
+    ...(communityResult ? communityResult.posts.map((p) => p.title) : []),
   ];
 
   const overallSentiment = allSentimentTexts.length > 0
@@ -184,7 +184,7 @@ export async function buildSnapshot(
     ...(headlines.length > 0
       ? Array.from(new Set(headlines.map((h) => h.source)))
       : mock?.sentiment.sources ?? []),
-    ...(redditResult ? ["Reddit"] : []),
+    ...(communityResult ? ["Hacker News"] : []),
   ];
 
   const sentiment = {
@@ -192,12 +192,12 @@ export async function buildSnapshot(
     label: overallSentiment.label,
     recentHeadlines: headlines,
     sources: sentimentSources,
-    redditPosts: redditResult?.posts ?? [],
-    redditQuotes: redditResult?.quotes ?? [],
-    redditKeywords: redditResult?.topWords ?? [],
-    layoffMentions: redditResult?.layoffMentions ?? 0,
-    hiringMentions: redditResult?.hiringMentions ?? 0,
-    aiMentions: redditResult?.aiMentions ?? 0,
+    communityPosts: communityResult?.posts ?? [],
+    communityQuotes: communityResult?.quotes ?? [],
+    communityKeywords: communityResult?.topWords ?? [],
+    layoffMentions: communityResult?.layoffMentions ?? 0,
+    hiringMentions: communityResult?.hiringMentions ?? 0,
+    aiMentions: communityResult?.aiMentions ?? 0,
   };
 
   // --- Posting Analysis ---

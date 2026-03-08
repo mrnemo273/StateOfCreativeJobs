@@ -76,9 +76,9 @@ export type JobHealthSnapshot = {
     label: "Negative" | "Mixed" | "Neutral" | "Positive";
     recentHeadlines: NewsItem[];
     sources: string[];
-    redditPosts: { title: string; subreddit: string; url: string; score: number; created: string }[];
-    redditQuotes: { text: string; subreddit: string; score: number }[];
-    redditKeywords: { word: string; count: number }[];
+    communityPosts: { title: string; source: string; url: string; score: number; created: string }[];
+    communityQuotes: { text: string; source: string; score: number }[];
+    communityKeywords: { word: string; count: number }[];
     layoffMentions: number;
     hiringMentions: number;
     aiMentions: number;
