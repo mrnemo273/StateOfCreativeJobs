@@ -15,8 +15,8 @@ const sentimentStyles = {
 
 export default function NewsCard({ headline, source, date, sentiment }: Props) {
   return (
-    <div className="border border-light p-4">
-      <p className="text-body-sm font-sans font-medium">{headline}</p>
+    <div className="border border-light p-4 h-full flex flex-col">
+      <p className="text-body-sm font-sans font-medium flex-1">{headline}</p>
       <div className="mt-2 flex items-center justify-between">
         <span className="text-label-sm text-mid font-mono">
           {source} &middot; {date}

@@ -154,6 +154,12 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
         "Digiday",
         "Design Week",
       ],
+      redditPosts: [],
+      redditQuotes: [],
+      redditKeywords: [],
+      layoffMentions: 0,
+      hiringMentions: 0,
+      aiMentions: 0,
     },
     postingAnalysis: {
       topSkills: [
@@ -331,6 +337,12 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
         "Fast Company",
         "Design Week",
       ],
+      redditPosts: [],
+      redditQuotes: [],
+      redditKeywords: [],
+      layoffMentions: 0,
+      hiringMentions: 0,
+      aiMentions: 0,
     },
     postingAnalysis: {
       topSkills: [
@@ -508,6 +520,12 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
         "LinkedIn Economic Graph",
         "Fast Company",
       ],
+      redditPosts: [],
+      redditQuotes: [],
+      redditKeywords: [],
+      layoffMentions: 0,
+      hiringMentions: 0,
+      aiMentions: 0,
     },
     postingAnalysis: {
       topSkills: [

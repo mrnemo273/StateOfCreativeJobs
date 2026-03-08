@@ -6,6 +6,7 @@ import { fetchSalaryData } from "./apis/bls";
 import { fetchNews } from "./apis/gnews";
 import { fetchOnetData, computeAIImpactScore } from "./apis/onet";
 import { fetchGoogleTrends } from "./apis/googletrends";
+import { fetchRedditData } from "./apis/reddit";
 import { scoreOverallSentiment } from "./apis/sentiment";
 
 /** Short description per role used in the hero section. */
@@ -68,12 +69,13 @@ export async function buildSnapshot(
   const today = new Date().toISOString().split("T")[0];
 
   // Fire all API calls in parallel
-  const [adzunaResult, blsResult, newsResult, onetResult, trendsResult] = await Promise.all([
+  const [adzunaResult, blsResult, newsResult, onetResult, trendsResult, redditResult] = await Promise.all([
     fetchJobDemand(title),
     fetchSalaryData(slug),
-    fetchNews(title),
+    fetchNews(title, cluster),
     fetchOnetData(slug),
     fetchGoogleTrends(slug),
+    fetchRedditData(slug, title, cluster),
   ]);
 
   // --- Demand ---
@@ -166,19 +168,36 @@ export async function buildSnapshot(
       }))
     : mock?.sentiment.recentHeadlines ?? [];
 
-  const overallSentiment = headlines.length > 0
-    ? scoreOverallSentiment(headlines.map((h) => h.headline))
+  // Blend GNews headlines + Reddit post titles for overall sentiment (equal weight)
+  const allSentimentTexts = [
+    ...headlines.map((h) => h.headline),
+    ...(redditResult ? redditResult.posts.map((p) => p.title) : []),
+  ];
+
+  const overallSentiment = allSentimentTexts.length > 0
+    ? scoreOverallSentiment(allSentimentTexts)
     : mock
       ? { score: mock.sentiment.score, label: mock.sentiment.label }
       : { score: 0, label: "Neutral" as const };
+
+  const sentimentSources = [
+    ...(headlines.length > 0
+      ? Array.from(new Set(headlines.map((h) => h.source)))
+      : mock?.sentiment.sources ?? []),
+    ...(redditResult ? ["Reddit"] : []),
+  ];
 
   const sentiment = {
     score: overallSentiment.score,
     label: overallSentiment.label,
     recentHeadlines: headlines,
-    sources: headlines.length > 0
-      ? Array.from(new Set(headlines.map((h) => h.source)))
-      : mock?.sentiment.sources ?? [],
+    sources: sentimentSources,
+    redditPosts: redditResult?.posts ?? [],
+    redditQuotes: redditResult?.quotes ?? [],
+    redditKeywords: redditResult?.topWords ?? [],
+    layoffMentions: redditResult?.layoffMentions ?? 0,
+    hiringMentions: redditResult?.hiringMentions ?? 0,
+    aiMentions: redditResult?.aiMentions ?? 0,
   };
 
   // --- Posting Analysis ---

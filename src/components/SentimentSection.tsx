@@ -1,10 +1,7 @@
-"use client";
-
 import type { JobHealthSnapshot } from "@/types";
 import SectionLabel from "./ui/SectionLabel";
 import DataValue from "./ui/DataValue";
 import NewsCard from "./ui/NewsCard";
-
 type Props = {
   snapshot: JobHealthSnapshot;
 };
@@ -12,7 +9,10 @@ type Props = {
 export default function SentimentSection({ snapshot }: Props) {
   const { sentiment } = snapshot;
 
-  if (sentiment.recentHeadlines.length === 0 && sentiment.score === 0) {
+  const hasHeadlines = sentiment.recentHeadlines.length > 0;
+  const hasReddit = sentiment.redditPosts.length > 0;
+
+  if (!hasHeadlines && !hasReddit && sentiment.score === 0) {
     return null;
   }
 
@@ -20,7 +20,7 @@ export default function SentimentSection({ snapshot }: Props) {
 
   return (
     <section>
-      <SectionLabel className="mb-6">Sentiment &amp; News</SectionLabel>
+      <SectionLabel className="mb-6">Industry Signals</SectionLabel>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         <div className="col-span-12">
           {/* Sentiment bar */}
@@ -67,20 +67,94 @@ export default function SentimentSection({ snapshot }: Props) {
         </div>
 
         {/* News cards */}
-        <div className="col-span-12 mt-6">
-          <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
-            {sentiment.recentHeadlines.map((item, i) => (
-              <div key={i} className="col-span-12 md:col-span-4">
-                <NewsCard
-                  headline={item.headline}
-                  source={item.source}
-                  date={item.date}
-                  sentiment={item.sentiment}
-                />
-              </div>
-            ))}
+        {hasHeadlines && (
+          <div className="col-span-12 mt-6">
+            <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
+              {sentiment.recentHeadlines.map((item, i) => (
+                <div key={i} className="col-span-12 md:col-span-4">
+                  <NewsCard
+                    headline={item.headline}
+                    source={item.source}
+                    date={item.date}
+                    sentiment={item.sentiment}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* From the Community — Reddit data */}
+        {hasReddit && (
+          <div className="col-span-12 mt-8">
+            <span className="text-label-sm text-mid uppercase tracking-widest block mb-4 font-medium">
+              What Practitioners Are Saying
+            </span>
+
+            {/* Signal pills */}
+            <div className="flex flex-wrap gap-3 mb-6">
+              {sentiment.layoffMentions > 0 && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-label-sm font-mono uppercase bg-black/10">
+                  <span>Layoffs</span>
+                  <span className="tabular-nums">{sentiment.layoffMentions}</span>
+                </span>
+              )}
+              {sentiment.hiringMentions > 0 && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-label-sm font-mono uppercase bg-black/10">
+                  <span>Hiring</span>
+                  <span className="tabular-nums">{sentiment.hiringMentions}</span>
+                </span>
+              )}
+              {sentiment.aiMentions > 0 && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-label-sm font-mono uppercase bg-black/10">
+                  <span>AI</span>
+                  <span className="tabular-nums">{sentiment.aiMentions}</span>
+                </span>
+              )}
+            </div>
+
+            {/* Quote cards */}
+            {sentiment.redditQuotes.length > 0 && (
+              <div className="grid grid-cols-12 gap-[var(--grid-gutter)] mb-6">
+                {sentiment.redditQuotes.map((q, i) => (
+                  <div key={i} className="col-span-12 md:col-span-6">
+                    <div className="border border-light p-4">
+                      <p className="text-body-sm font-sans italic">{q.text}</p>
+                      <div className="mt-2 flex items-center justify-between">
+                        <span className="text-label-sm text-mid font-mono">
+                          r/{q.subreddit}
+                        </span>
+                        <span className="text-label-sm text-mid font-mono tabular-nums">
+                          {q.score} upvotes
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Keyword pills */}
+            {sentiment.redditKeywords.length > 0 && (
+              <div>
+                <span className="text-label-sm text-mid uppercase tracking-widest block mb-4 font-medium">
+                  Tools &amp; Trends Detected
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {sentiment.redditKeywords.map((kw) => (
+                    <span
+                      key={kw.word}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 text-label-sm font-mono bg-black/10"
+                    >
+                      <span>{kw.word}</span>
+                      <span className="text-mid tabular-nums">{kw.count}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -153,7 +153,7 @@ export default function Home() {
             )}
 
             {/* Sentiment & News */}
-            {(snapshot.sentiment.recentHeadlines.length > 0 || snapshot.sentiment.score !== 0) && (
+            {(snapshot.sentiment.recentHeadlines.length > 0 || snapshot.sentiment.redditPosts.length > 0 || snapshot.sentiment.score !== 0) && (
               <>
                 <div className="col-span-12 my-4">
                   <HairlineRule />

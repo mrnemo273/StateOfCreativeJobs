@@ -1,6 +1,7 @@
-// GNews API client for fetching news headlines related to creative job titles.
+// GNews API client for fetching industry news relevant to creative roles.
 // API docs: https://gnews.io/docs/v4
 
+import type { JobCluster } from "@/types";
 import { scoreSentiment } from "./sentiment";
 
 type GNewsArticle = {
@@ -11,12 +12,20 @@ type GNewsArticle = {
   sentiment: "positive" | "neutral" | "negative";
 };
 
+// On GNews free plan, complex boolean queries return 0 recent articles.
+// We fall back to the job title as the query — it returns results, though
+// some may be tangentially related (celebrity mentions, etc.).
+// A paid plan would allow industry-context queries like:
+//   "creative director" AND (design OR agency OR AI)
+
 /**
- * Fetch up to 6 recent news articles about a given job title.
+ * Fetch up to 6 recent news articles relevant to a job role's industry context.
+ * Uses cluster-based queries to surface industry trends rather than name mentions.
  * Returns null if the API key is missing or the request fails.
  */
 export async function fetchNews(
   title: string,
+  cluster: JobCluster,
 ): Promise<GNewsArticle[] | null> {
   const key = process.env.GNEWS_API_KEY;
 
@@ -42,6 +51,12 @@ export async function fetchNews(
 
     if (!data.articles || !Array.isArray(data.articles)) {
       console.error("[GNews] Unexpected response structure");
+      return null;
+    }
+
+    // Free plan strips historical articles, sometimes leaving an empty array
+    if (data.articles.length === 0) {
+      console.warn("[GNews] No recent articles returned (free plan limitation)");
       return null;
     }
 

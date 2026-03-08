@@ -45,7 +45,7 @@ export default function DemandSection({ snapshot }: Props) {
               {demand.topHiringLocations.map((loc) => (
                 <span
                   key={loc}
-                  className="border border-light px-2 py-1 text-label-md font-mono text-dark"
+                  className="bg-black/10 px-3 py-1 text-label-sm font-mono"
                 >
                   {loc}
                 </span>
