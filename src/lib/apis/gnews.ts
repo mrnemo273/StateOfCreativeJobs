@@ -1,7 +1,6 @@
 // GNews API client for fetching industry news relevant to creative roles.
 // API docs: https://gnews.io/docs/v4
 
-import type { JobCluster } from "@/types";
 import { scoreSentiment } from "./sentiment";
 
 type GNewsArticle = {
@@ -25,7 +24,6 @@ type GNewsArticle = {
  */
 export async function fetchNews(
   title: string,
-  cluster: JobCluster,
 ): Promise<GNewsArticle[] | null> {
   const key = process.env.GNEWS_API_KEY;
 

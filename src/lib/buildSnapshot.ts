@@ -72,7 +72,7 @@ export async function buildSnapshot(
   const [adzunaResult, blsResult, newsResult, onetResult, trendsResult, redditResult] = await Promise.all([
     fetchJobDemand(title),
     fetchSalaryData(slug),
-    fetchNews(title, cluster),
+    fetchNews(title),
     fetchOnetData(slug),
     fetchGoogleTrends(slug),
     fetchRedditData(slug, title, cluster),
