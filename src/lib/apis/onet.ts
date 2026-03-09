@@ -1,5 +1,5 @@
-// O*NET Web Services API client for skills data and AI impact scoring.
-// API: https://services.onetcenter.org/ws/
+// O*NET Web Services API v2 client for skills data and AI impact scoring.
+// API: https://api-v2.onetcenter.org/
 
 type OnetSkillsResult = {
   skills: { skill: string; importance: number }[];
@@ -31,7 +31,7 @@ export const SLUG_TO_ONET: Record<string, string> = {
   "content-designer": "15-1255.00",
 };
 
-const ONET_BASE = "https://services.onetcenter.org/ws/online/occupations";
+const ONET_BASE = "https://api-v2.onetcenter.org/online/occupations";
 
 /**
  * Fetch skills, tasks, and technology skills from O*NET for a given job slug.
@@ -40,11 +40,10 @@ const ONET_BASE = "https://services.onetcenter.org/ws/online/occupations";
 export async function fetchOnetData(
   slug: string,
 ): Promise<OnetSkillsResult | null> {
-  const username = process.env.ONET_USERNAME;
-  const password = process.env.ONET_PASSWORD;
+  const apiKey = process.env.ONET_API_KEY;
 
-  if (!username || !password) {
-    console.error("[O*NET] ONET_USERNAME or ONET_PASSWORD is not set");
+  if (!apiKey) {
+    console.error("[O*NET] ONET_API_KEY is not set");
     return null;
   }
 
@@ -55,9 +54,8 @@ export async function fetchOnetData(
     return null;
   }
 
-  const authHeader = `Basic ${btoa(username + ":" + password)}`;
   const headers = {
-    Authorization: authHeader,
+    "X-API-Key": apiKey,
     Accept: "application/json",
   };
   const fetchOptions = {
@@ -65,28 +63,25 @@ export async function fetchOnetData(
     next: { revalidate: 604800 } as { revalidate: number }, // Cache for 7 days
   };
 
-  // Fetch skills
+  // Fetch skills (v2 returns them pre-sorted; no score.value in summary)
   let skills: { skill: string; importance: number }[] = [];
   try {
     const res = await fetch(
-      `${ONET_BASE}/${socCode}/summary/skills`,
+      `${ONET_BASE}/${socCode}/summary/skills?end=50`,
       fetchOptions,
     );
 
     if (res.ok) {
       const data = await res.json();
       if (data.element && Array.isArray(data.element)) {
-        skills = data.element
-          .map(
-            (el: { name: string; score: { value: number } }) => ({
-              skill: el.name,
-              importance: el.score?.value ?? 0,
-            }),
-          )
-          .sort(
-            (a: { importance: number }, b: { importance: number }) =>
-              b.importance - a.importance,
-          );
+        const total = data.element.length;
+        skills = data.element.map(
+          (el: { name: string }, index: number) => ({
+            skill: el.name,
+            // Assign decreasing importance based on position (API pre-sorts)
+            importance: Math.round(((total - index) / total) * 7 * 10) / 10,
+          }),
+        );
       }
     } else {
       console.error(
@@ -97,11 +92,11 @@ export async function fetchOnetData(
     console.error("[O*NET] Failed to fetch skills:", error);
   }
 
-  // Fetch tasks
+  // Fetch tasks (v2 uses `title` instead of `statement`)
   let tasks: string[] = [];
   try {
     const res = await fetch(
-      `${ONET_BASE}/${socCode}/summary/tasks`,
+      `${ONET_BASE}/${socCode}/summary/tasks?end=50`,
       fetchOptions,
     );
 
@@ -109,7 +104,7 @@ export async function fetchOnetData(
       const data = await res.json();
       if (data.task && Array.isArray(data.task)) {
         tasks = data.task.map(
-          (t: { statement: string }) => t.statement,
+          (t: { title: string }) => t.title,
         );
       }
     } else {
@@ -121,11 +116,11 @@ export async function fetchOnetData(
     console.error("[O*NET] Failed to fetch tasks:", error);
   }
 
-  // Fetch technology skills
+  // Fetch technology skills (v2: category.title is a string, example[].title)
   let techSkills: { skill: string; importance: number }[] = [];
   try {
     const res = await fetch(
-      `${ONET_BASE}/${socCode}/summary/technology_skills`,
+      `${ONET_BASE}/${socCode}/summary/technology_skills?end=50`,
       fetchOptions,
     );
 
@@ -133,8 +128,8 @@ export async function fetchOnetData(
       const data = await res.json();
       if (data.category && Array.isArray(data.category)) {
         techSkills = data.category.map(
-          (cat: { title: { name: string }; example: { name: string }[] }) => ({
-            skill: cat.title?.name ?? "Unknown",
+          (cat: { title: string; example: { title: string }[] }) => ({
+            skill: cat.title ?? "Unknown",
             importance: cat.example?.length ?? 0,
           }),
         );
