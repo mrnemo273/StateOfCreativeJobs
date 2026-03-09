@@ -16,21 +16,24 @@ function formatSentimentScore(score: number): string {
 }
 
 export default function HealthScoreSummary({ snapshot }: Props) {
+  const hasDemand = snapshot.demand.openingsCount > 0;
+  const hasSalary = snapshot.salary.medianUSD > 0;
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-[var(--grid-gutter)]">
       <StatCard
         label="Demand"
-        value={snapshot.demand.openingsCount.toLocaleString()}
-        trend={snapshot.demand.yoyChange}
+        value={hasDemand ? snapshot.demand.openingsCount.toLocaleString() : "N/A"}
+        trend={hasDemand ? snapshot.demand.yoyChange : 0}
         trendFormat="percent"
-        sparklineData={snapshot.demand.openingsTrend}
+        sparklineData={hasDemand ? snapshot.demand.openingsTrend : undefined}
       />
       <StatCard
         label="Salary"
-        value={formatCurrency(snapshot.salary.medianUSD)}
-        trend={snapshot.salary.yoyChange}
+        value={hasSalary ? formatCurrency(snapshot.salary.medianUSD) : "N/A"}
+        trend={hasSalary ? snapshot.salary.yoyChange : 0}
         trendFormat="percent"
-        sparklineData={snapshot.salary.trend}
+        sparklineData={hasSalary ? snapshot.salary.trend : undefined}
       />
       <StatCard
         label="AI Risk"

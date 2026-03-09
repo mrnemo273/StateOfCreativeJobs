@@ -12,45 +12,64 @@ type Props = {
 
 export default function DemandSection({ snapshot }: Props) {
   const { demand } = snapshot;
+  const hasData = demand.openingsCount > 0;
 
   return (
     <section>
       <SectionLabel className="mb-6">Demand</SectionLabel>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         <div className="col-span-12 md:col-span-8">
-          <TrendChart
-            data={demand.openingsTrend}
-            height={280}
-            yAxisFormatter={(v) => v.toLocaleString()}
-            tooltipFormatter={(v) => `${v.toLocaleString()} openings`}
-          />
+          {hasData && demand.openingsTrend.length > 0 ? (
+            <TrendChart
+              data={demand.openingsTrend}
+              height={280}
+              yAxisFormatter={(v) => v.toLocaleString()}
+              tooltipFormatter={(v) => `${v.toLocaleString()} openings`}
+            />
+          ) : (
+            <div className="h-[280px] bg-faint flex items-center justify-center">
+              <span className="text-label-md text-mid font-mono uppercase tracking-widest">
+                Not Available
+              </span>
+            </div>
+          )}
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6">
           <div>
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-1">
               Open Roles
             </span>
-            <DataValue
-              value={demand.openingsCount.toLocaleString()}
-              className="text-data-lg font-display block"
-            />
-            <TrendBadge value={demand.yoyChange} format="percent" />
-            <span className="text-label-sm text-mid ml-2">vs last year</span>
+            {hasData ? (
+              <>
+                <DataValue
+                  value={demand.openingsCount.toLocaleString()}
+                  className="text-data-lg font-display block"
+                />
+                <TrendBadge value={demand.yoyChange} format="percent" />
+                <span className="text-label-sm text-mid ml-2">vs last year</span>
+              </>
+            ) : (
+              <span className="text-label-md text-mid font-mono">N/A</span>
+            )}
           </div>
           <div>
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-2">
               Top Hiring Locations
             </span>
-            <div className="flex flex-wrap gap-2">
-              {demand.topHiringLocations.map((loc) => (
-                <span
-                  key={loc}
-                  className="bg-black/10 px-3 py-1 text-label-sm font-mono"
-                >
-                  {loc}
-                </span>
-              ))}
-            </div>
+            {demand.topHiringLocations.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {demand.topHiringLocations.map((loc) => (
+                  <span
+                    key={loc}
+                    className="bg-black/10 px-3 py-1 text-label-sm font-mono"
+                  >
+                    {loc}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <span className="text-label-sm text-mid font-mono">N/A</span>
+            )}
           </div>
         </div>
       </div>

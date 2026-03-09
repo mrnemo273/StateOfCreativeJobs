@@ -61,9 +61,11 @@ export default function SentimentSection({ snapshot }: Props) {
             <span>0</span>
             <span>+100</span>
           </div>
-          <p className="text-label-sm text-mid mt-1">
-            Based on {sentiment.sources.join(", ")}
-          </p>
+          {sentiment.sources.length > 0 && (
+            <p className="text-label-sm text-mid mt-1">
+              Based on {sentiment.sources.join(", ")}
+            </p>
+          )}
         </div>
 
         {/* News cards */}

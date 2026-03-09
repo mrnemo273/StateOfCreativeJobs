@@ -44,31 +44,39 @@ export default function AIImpactSection({ snapshot }: Props) {
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
               Risk Factors
             </span>
-            <ul className="space-y-2">
-              {aiImpact.riskFactors.map((f, i) => (
-                <li key={i} className="text-body-sm text-dark flex gap-2">
-                  <span className="text-down font-mono text-label-md mt-0.5 shrink-0">
-                    ↑
-                  </span>
-                  {f}
-                </li>
-              ))}
-            </ul>
+            {aiImpact.riskFactors.length > 0 ? (
+              <ul className="space-y-2">
+                {aiImpact.riskFactors.map((f, i) => (
+                  <li key={i} className="text-body-sm text-dark flex gap-2">
+                    <span className="text-down font-mono text-label-md mt-0.5 shrink-0">
+                      ↑
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <span className="text-label-sm text-mid font-mono">N/A</span>
+            )}
           </div>
           <div>
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
               Protective Factors
             </span>
-            <ul className="space-y-2">
-              {aiImpact.protectiveFactors.map((f, i) => (
-                <li key={i} className="text-body-sm text-dark flex gap-2">
-                  <span className="text-up font-mono text-label-md mt-0.5 shrink-0">
-                    ↓
-                  </span>
-                  {f}
-                </li>
-              ))}
-            </ul>
+            {aiImpact.protectiveFactors.length > 0 ? (
+              <ul className="space-y-2">
+                {aiImpact.protectiveFactors.map((f, i) => (
+                  <li key={i} className="text-body-sm text-dark flex gap-2">
+                    <span className="text-up font-mono text-label-md mt-0.5 shrink-0">
+                      ↓
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <span className="text-label-sm text-mid font-mono">N/A</span>
+            )}
           </div>
         </div>
       </div>

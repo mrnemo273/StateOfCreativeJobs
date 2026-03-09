@@ -24,34 +24,38 @@ export default function PostingAnalysisSection({ snapshot }: Props) {
           <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
             Top Skills in Postings
           </span>
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-ink">
-                <th className="text-left text-label-md text-mid uppercase tracking-widest py-2 font-medium">
-                  Skill
-                </th>
-                <th className="text-right text-label-md text-mid uppercase tracking-widest py-2 font-medium">
-                  Frequency
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {postingAnalysis.topSkills.map((s) => (
-                <tr
-                  key={s.skill}
-                  className="border-b border-faint hover:bg-faint transition-colors duration-75"
-                >
-                  <td className="py-2 text-body-sm text-dark">{s.skill}</td>
-                  <td className="py-2 text-right">
-                    <DataValue
-                      value={`${s.frequencyPercent}%`}
-                      className="text-data-sm"
-                    />
-                  </td>
+          {postingAnalysis.topSkills.length > 0 ? (
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-ink">
+                  <th className="text-left text-label-md text-mid uppercase tracking-widest py-2 font-medium">
+                    Skill
+                  </th>
+                  <th className="text-right text-label-md text-mid uppercase tracking-widest py-2 font-medium">
+                    Frequency
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {postingAnalysis.topSkills.map((s) => (
+                  <tr
+                    key={s.skill}
+                    className="border-b border-faint hover:bg-faint transition-colors duration-75"
+                  >
+                    <td className="py-2 text-body-sm text-dark">{s.skill}</td>
+                    <td className="py-2 text-right">
+                      <DataValue
+                        value={`${s.frequencyPercent}%`}
+                        className="text-data-sm"
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <span className="text-label-sm text-mid font-mono">N/A</span>
+          )}
         </div>
 
         {/* Responsibilities + role definition */}
@@ -60,16 +64,20 @@ export default function PostingAnalysisSection({ snapshot }: Props) {
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
               Common Responsibilities
             </span>
-            <ul className="space-y-2">
-              {postingAnalysis.commonResponsibilities.map((r, i) => (
-                <li key={i} className="text-body-sm text-dark flex gap-2">
-                  <span className="text-mid font-mono text-label-md mt-0.5 shrink-0">
-                    —
-                  </span>
-                  {r}
-                </li>
-              ))}
-            </ul>
+            {postingAnalysis.commonResponsibilities.length > 0 ? (
+              <ul className="space-y-2">
+                {postingAnalysis.commonResponsibilities.map((r, i) => (
+                  <li key={i} className="text-body-sm text-dark flex gap-2">
+                    <span className="text-mid font-mono text-label-md mt-0.5 shrink-0">
+                      —
+                    </span>
+                    {r}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <span className="text-label-sm text-mid font-mono">N/A</span>
+            )}
           </div>
           <div>
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
