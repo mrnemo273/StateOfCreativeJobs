@@ -13,7 +13,7 @@ export default function Footer() {
           className="font-mono text-ink leading-none mb-10"
           style={{ fontSize: "clamp(3rem, 6vw, 5rem)" }}
         >
-          {year} State of Creative Jobs Report
+          State of Creative Jobs
         </h2>
 
         <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
@@ -76,7 +76,7 @@ export default function Footer() {
 
         <div className="border-t border-light mt-8 pt-4">
           <span className="text-label-sm text-mid font-mono">
-            &copy; {year} State of Creative Jobs Report
+            &copy; {year} State of Creative Jobs
           </span>
         </div>
       </div>

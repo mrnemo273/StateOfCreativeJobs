@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-paper">
-      <Header />
+      <Header lastUpdated={snapshot?.lastUpdated} />
 
       <main
         className="grid grid-cols-12 gap-[var(--grid-gutter)] max-w-[1440px] mx-auto"

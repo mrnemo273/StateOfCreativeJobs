@@ -24,8 +24,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Design Job Health Tracker",
-  description: "Real-time health signals for design roles",
+  title: "State of Creative Jobs",
+  description: "Real-time health signals for creative roles",
 };
 
 export default function RootLayout({
