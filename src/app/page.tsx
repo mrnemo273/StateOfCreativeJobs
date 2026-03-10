@@ -9,6 +9,7 @@ import DemandSection from "@/components/DemandSection";
 import SalarySection from "@/components/SalarySection";
 import AIImpactSection from "@/components/AIImpactSection";
 import SkillsSignalSection from "@/components/SkillsSignalSection";
+import RoleIntelligence from "@/components/RoleIntelligence";
 import SentimentSection from "@/components/SentimentSection";
 import PostingAnalysisSection from "@/components/PostingAnalysisSection";
 import HairlineRule from "@/components/ui/HairlineRule";
@@ -151,6 +152,14 @@ export default function Home() {
                 </div>
               </>
             )}
+
+            {/* Role Intelligence */}
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
+            <div className="col-span-12">
+              <RoleIntelligence slug={selectedSlug} />
+            </div>
 
             {/* Sentiment & News */}
             {(snapshot.sentiment.recentHeadlines.length > 0 || snapshot.sentiment.communityPosts.length > 0 || snapshot.sentiment.score !== 0) && (

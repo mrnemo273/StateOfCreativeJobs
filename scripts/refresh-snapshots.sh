@@ -6,7 +6,9 @@ set -euo pipefail
 
 PORT=3000
 SNAPSHOT_DIR="src/data/snapshots"
+INTELLIGENCE_DIR="src/data/intelligence"
 BASE_URL="http://localhost:${PORT}/api/snapshot"
+INTELLIGENCE_URL="http://localhost:${PORT}/api/role-intelligence"
 REFRESH_SECRET="${REFRESH_SECRET:-}"
 
 # All 20 slugs from src/data/jobTitles.ts
@@ -33,8 +35,9 @@ SLUGS=(
   content-designer
 )
 
-# Ensure output directory exists
+# Ensure output directories exist
 mkdir -p "$SNAPSHOT_DIR"
+mkdir -p "$INTELLIGENCE_DIR"
 
 # Start Next.js production server in background
 echo "Starting Next.js server on port ${PORT}..."
@@ -95,10 +98,49 @@ for slug in "${SLUGS[@]}"; do
 done
 
 echo ""
-echo "Done: ${SUCCESS} succeeded, ${FAIL} failed out of ${#SLUGS[@]} total"
+echo "Snapshots: ${SUCCESS} succeeded, ${FAIL} failed out of ${#SLUGS[@]} total"
 
 # Fail the workflow if more than half failed
 if [ "$FAIL" -gt 10 ]; then
-  echo "ERROR: Too many failures (${FAIL}/${#SLUGS[@]}). Something is wrong."
+  echo "ERROR: Too many snapshot failures (${FAIL}/${#SLUGS[@]}). Something is wrong."
   exit 1
+fi
+
+# --- Phase 2: Role Intelligence (requires ANTHROPIC_API_KEY) ---
+if [ -z "${ANTHROPIC_API_KEY:-}" ]; then
+  echo ""
+  echo "Skipping role intelligence refresh (ANTHROPIC_API_KEY not set)"
+else
+  echo ""
+  echo "=== Refreshing Role Intelligence ==="
+  INT_SUCCESS=0
+  INT_FAIL=0
+
+  for slug in "${SLUGS[@]}"; do
+    echo -n "Intelligence ${slug}... "
+
+    HTTP_CODE=$(curl -sf -w "%{http_code}" -o "${INTELLIGENCE_DIR}/${slug}.json" \
+      "${INTELLIGENCE_URL}/${slug}?live=true" 2>/dev/null) || HTTP_CODE="000"
+
+    if [ "$HTTP_CODE" = "200" ]; then
+      if python3 -c "import json; json.load(open('${INTELLIGENCE_DIR}/${slug}.json'))" 2>/dev/null; then
+        echo "OK (${HTTP_CODE})"
+        INT_SUCCESS=$((INT_SUCCESS + 1))
+      else
+        echo "INVALID JSON (${HTTP_CODE})"
+        rm -f "${INTELLIGENCE_DIR}/${slug}.json"
+        INT_FAIL=$((INT_FAIL + 1))
+      fi
+    else
+      echo "FAILED (${HTTP_CODE})"
+      rm -f "${INTELLIGENCE_DIR}/${slug}.json"
+      INT_FAIL=$((INT_FAIL + 1))
+    fi
+
+    # Longer delay — Anthropic API calls take more time
+    sleep 5
+  done
+
+  echo ""
+  echo "Intelligence: ${INT_SUCCESS} succeeded, ${INT_FAIL} failed out of ${#SLUGS[@]} total"
 fi

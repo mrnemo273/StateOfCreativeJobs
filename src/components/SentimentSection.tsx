@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import type { JobHealthSnapshot } from "@/types";
 import SectionLabel from "./ui/SectionLabel";
 import DataValue from "./ui/DataValue";
@@ -8,6 +11,7 @@ type Props = {
 
 export default function SentimentSection({ snapshot }: Props) {
   const { sentiment } = snapshot;
+  const [newsOpen, setNewsOpen] = useState(false);
 
   const hasHeadlines = sentiment.recentHeadlines.length > 0;
   const hasCommunity = sentiment.communityPosts.length > 0;
@@ -67,24 +71,6 @@ export default function SentimentSection({ snapshot }: Props) {
             </p>
           )}
         </div>
-
-        {/* News cards */}
-        {hasHeadlines && (
-          <div className="col-span-12 mt-6">
-            <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
-              {sentiment.recentHeadlines.map((item, i) => (
-                <div key={i} className="col-span-12 md:col-span-4">
-                  <NewsCard
-                    headline={item.headline}
-                    source={item.source}
-                    date={item.date}
-                    sentiment={item.sentiment}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Community data — Hacker News */}
         {hasCommunity && (
@@ -148,6 +134,40 @@ export default function SentimentSection({ snapshot }: Props) {
                       <span>{kw.word}</span>
                       <span className="text-mid tabular-nums">{kw.count}</span>
                     </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* News Sources — collapsible accordion */}
+        {hasHeadlines && (
+          <div className="col-span-12 mt-6">
+            <button
+              onClick={() => setNewsOpen(!newsOpen)}
+              className="flex items-center gap-2 text-label-sm text-mid uppercase tracking-widest font-medium cursor-pointer hover:text-ink transition-colors"
+            >
+              <span
+                className="inline-block transition-transform duration-200"
+                style={{ transform: newsOpen ? "rotate(90deg)" : "rotate(0deg)" }}
+              >
+                &#9654;
+              </span>
+              News Sources ({sentiment.recentHeadlines.length})
+            </button>
+            {newsOpen && (
+              <div className="mt-4">
+                <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
+                  {sentiment.recentHeadlines.map((item, i) => (
+                    <div key={i} className="col-span-12 md:col-span-4">
+                      <NewsCard
+                        headline={item.headline}
+                        source={item.source}
+                        date={item.date}
+                        sentiment={item.sentiment}
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
