@@ -12,6 +12,12 @@ type Props = {
 export default function AIImpactSection({ snapshot }: Props) {
   const { aiImpact } = snapshot;
 
+  // Deduplicate: remove any protective factors that also appear in risk factors
+  const riskSet = new Set(aiImpact.riskFactors);
+  const protectiveFactors = aiImpact.protectiveFactors.filter(
+    (f) => !riskSet.has(f),
+  );
+
   return (
     <section>
       <SectionLabel className="mb-6">AI Impact Assessment</SectionLabel>
@@ -63,9 +69,9 @@ export default function AIImpactSection({ snapshot }: Props) {
             <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
               Protective Factors
             </span>
-            {aiImpact.protectiveFactors.length > 0 ? (
+            {protectiveFactors.length > 0 ? (
               <ul className="space-y-2">
-                {aiImpact.protectiveFactors.map((f, i) => (
+                {protectiveFactors.map((f, i) => (
                   <li key={i} className="text-body-sm text-dark flex gap-2">
                     <span className="text-up font-mono text-label-md mt-0.5 shrink-0">
                       ↓

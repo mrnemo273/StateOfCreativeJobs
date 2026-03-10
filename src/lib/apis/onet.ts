@@ -240,18 +240,13 @@ export function computeAIImpactScore(tasks: string[]): {
       }
     }
 
-    // If a task matches both, classify as protective (ambiguous → protective)
-    if (isAutomatable && isProtected) {
-      isAutomatable = false;
-    }
-
-    if (isAutomatable) {
+    // Classify into exactly one bucket — never both
+    if (isAutomatable && !isProtected) {
       automatableCount++;
       if (riskTasks.length < 3) {
         riskTasks.push(task);
       }
-    }
-    if (isProtected) {
+    } else if (isProtected) {
       protectedCount++;
       if (protectedTasks.length < 3) {
         protectedTasks.push(task);
