@@ -1,7 +1,24 @@
 import Anthropic from "@anthropic-ai/sdk";
 import type { JobHealthSnapshot } from "@/types";
+import fs from "fs";
+import path from "path";
 
-const client = new Anthropic(); // uses ANTHROPIC_API_KEY from env
+function getApiKey(): string | undefined {
+  // process.env works in production; in dev, Next.js webpack inlining
+  // may not cover keys added after initial env load, so read .env.local directly.
+  if (process.env.ANTHROPIC_API_KEY) return process.env.ANTHROPIC_API_KEY;
+  try {
+    const envFile = fs.readFileSync(path.join(process.cwd(), ".env.local"), "utf-8");
+    const match = envFile.match(/^ANTHROPIC_API_KEY=(.+)$/m);
+    return match?.[1]?.trim();
+  } catch {
+    return undefined;
+  }
+}
+
+function getClient() {
+  return new Anthropic({ apiKey: getApiKey() });
+}
 
 export interface ComparableRole {
   slug: string;
@@ -54,6 +71,8 @@ export async function getRoleIntelligence(
     n > 0 ? `$${Math.round(n / 1000)}k` : "N/A";
   const formatYoY = (n: number) =>
     n > 0 ? `+${n.toFixed(1)}%` : `${n.toFixed(1)}%`;
+
+  const client = getClient();
 
   // Call 1 — Role Outlook
   const outlookResponse = await client.messages.create({

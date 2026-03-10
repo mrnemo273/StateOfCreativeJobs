@@ -32,7 +32,6 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
-
   const validSlugs = TRACKED_JOB_TITLES.map((t) => t.slug);
   if (!validSlugs.includes(slug)) {
     return NextResponse.json(EMPTY_RESPONSE, { status: 404 });
