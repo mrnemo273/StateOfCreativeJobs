@@ -228,9 +228,6 @@ export function computeAIImpactScore(tasks: string[]): {
     for (const keyword of AUTOMATABLE_KEYWORDS) {
       if (lower.includes(keyword)) {
         isAutomatable = true;
-        if (riskTasks.length < 3) {
-          riskTasks.push(task);
-        }
         break;
       }
     }
@@ -239,15 +236,27 @@ export function computeAIImpactScore(tasks: string[]): {
     for (const keyword of PROTECTED_KEYWORDS) {
       if (lower.includes(keyword)) {
         isProtected = true;
-        if (protectedTasks.length < 3) {
-          protectedTasks.push(task);
-        }
         break;
       }
     }
 
-    if (isAutomatable) automatableCount++;
-    if (isProtected) protectedCount++;
+    // If a task matches both, classify as protective (ambiguous → protective)
+    if (isAutomatable && isProtected) {
+      isAutomatable = false;
+    }
+
+    if (isAutomatable) {
+      automatableCount++;
+      if (riskTasks.length < 3) {
+        riskTasks.push(task);
+      }
+    }
+    if (isProtected) {
+      protectedCount++;
+      if (protectedTasks.length < 3) {
+        protectedTasks.push(task);
+      }
+    }
   }
 
   // Calculate base ratio from automatable tasks

@@ -5,6 +5,7 @@ import { fetchJobDemand } from "./apis/adzuna";
 import { fetchSalaryData } from "./apis/bls";
 import { fetchNews } from "./apis/gnews";
 import { fetchOnetData, computeAIImpactScore } from "./apis/onet";
+import { computeAIRiskScore, getRiskLabel, getDisplacingTools } from "./aiScoring";
 import { fetchGoogleTrends } from "./apis/googletrends";
 import { fetchHackerNewsData } from "./apis/hackernews";
 import { scoreOverallSentiment } from "./apis/sentiment";
@@ -124,20 +125,27 @@ export async function buildSnapshot(
       ? computeAIImpactScore(onetResult.tasks)
       : null;
 
+  const tools = getDisplacingTools(slug);
+
   const aiImpact = aiImpactFromOnet
-    ? {
-        score: aiImpactFromOnet.score,
-        scoreLabel: aiImpactFromOnet.scoreLabel,
-        riskFactors: aiImpactFromOnet.riskFactors,
-        protectiveFactors: aiImpactFromOnet.protectiveFactors,
-        trend: mock?.aiImpact.trend ?? generateFlatTrend(aiImpactFromOnet.score),
-        scoreExplainer: `Based on analysis of ${onetResult!.tasks.length} task descriptions from O*NET. Score reflects the ratio of automatable vs. human-centric tasks.`,
-      }
+    ? (() => {
+        const compositeScore = computeAIRiskScore(aiImpactFromOnet.score, slug);
+        return {
+          score: compositeScore,
+          scoreLabel: getRiskLabel(compositeScore),
+          riskFactors: aiImpactFromOnet.riskFactors,
+          protectiveFactors: aiImpactFromOnet.protectiveFactors,
+          tools,
+          trend: mock?.aiImpact.trend ?? generateFlatTrend(compositeScore),
+          scoreExplainer: `Based on analysis of ${onetResult!.tasks.length} O*NET task descriptions (40% weight) combined with tool displacement index (60% weight).`,
+        };
+      })()
     : mock?.aiImpact ?? {
         score: 50,
         scoreLabel: "Moderate" as const,
         riskFactors: [],
         protectiveFactors: [],
+        tools,
         trend: [],
         scoreExplainer: "Insufficient data for analysis.",
       };

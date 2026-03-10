@@ -1,1 +1,417 @@
-{"title":"UX Researcher","slug":"ux-researcher","cluster":"product-ux","description":"Plans and conducts qualitative and quantitative research studies to uncover user needs, behaviors, and pain points that inform product design decisions.","lastUpdated":"2026-03-09","demand":{"openingsCount":2729,"openingsTrend":[{"date":"2025-03","value":24},{"date":"2025-04","value":27},{"date":"2025-05","value":27},{"date":"2025-06","value":32},{"date":"2025-07","value":66},{"date":"2025-08","value":20},{"date":"2025-09","value":18},{"date":"2025-10","value":24},{"date":"2025-11","value":19},{"date":"2025-12","value":20},{"date":"2026-01","value":28},{"date":"2026-02","value":38},{"date":"2026-03","value":26}],"yoyChange":8.3,"topHiringLocations":["California","Georgia","Washington","Minnesota","Colorado"]},"salary":{"medianUSD":73470,"rangeMin":46110,"rangeMax":118730,"trend":[{"date":"2025-04","value":70056},{"date":"2025-05","value":75562},{"date":"2025-06","value":73165},{"date":"2025-07","value":74788},{"date":"2025-08","value":75560},{"date":"2025-09","value":74132},{"date":"2025-10","value":70053},{"date":"2025-11","value":70884},{"date":"2025-12","value":74059},{"date":"2026-01","value":72201},{"date":"2026-02","value":73400},{"date":"2026-03","value":76194}],"yoyChange":0,"topPayingIndustries":[]},"aiImpact":{"score":28,"scoreLabel":"Moderate","riskFactors":["Determine and specify details of survey projects, including sources of information, procedures to be used, and the design of survey instruments and materials.","Conduct research to gather information about survey topics.","Produce documentation of the questionnaire development process, data collection methods, sampling designs, and decisions related to sample statistical weighting."],"protectiveFactors":["Prepare and present summaries and analyses of survey data, including tables, graphs, and fact sheets that describe survey techniques and results.","Collaborate with other researchers in the planning, implementation, and evaluation of surveys.","Produce documentation of the questionnaire development process, data collection methods, sampling designs, and decisions related to sample statistical weighting."],"trend":[{"date":"2025-04","value":29},{"date":"2025-05","value":27},{"date":"2025-06","value":29},{"date":"2025-07","value":27},{"date":"2025-08","value":27},{"date":"2025-09","value":27},{"date":"2025-10","value":27},{"date":"2025-11","value":29},{"date":"2025-12","value":28},{"date":"2026-01","value":28},{"date":"2026-02","value":29},{"date":"2026-03","value":28}],"scoreExplainer":"Based on analysis of 16 task descriptions from O*NET. Score reflects the ratio of automatable vs. human-centric tasks."},"skills":{"rising":[{"skill":"Active Listening","changePercent":21},{"skill":"Critical Thinking","changePercent":20},{"skill":"Reading Comprehension","changePercent":19},{"skill":"Speaking","changePercent":18},{"skill":"Writing","changePercent":17},{"skill":"Mathematics","changePercent":16},{"skill":"Active Learning","changePercent":15},{"skill":"Complex Problem Solving","changePercent":14},{"skill":"Judgment and Decision Making","changePercent":13},{"skill":"Coordination","changePercent":12}],"declining":[{"skill":"Word processing software","changePercent":-5},{"skill":"Business intelligence and data analysis software","changePercent":-8},{"skill":"Internet browser software","changePercent":-11},{"skill":"Map creation software","changePercent":-7},{"skill":"Data mining software","changePercent":-6}]},"sentiment":{"score":0,"label":"Neutral","recentHeadlines":[],"sources":["Hacker News"],"communityPosts":[{"title":"Show HN: Mowgli – Figma for the agent era, with Claude Code and design export","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47197662","score":6,"created":"2026-02-28"},{"title":"Show HN: AI agents designed and shipped this app end-to-end in 36 hours for $270","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47059153","score":2,"created":"2026-02-18"},{"title":"Show HN: A real-time collaborative word puzzle inspired by NYT Spelling Bee","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46962825","score":2,"created":"2026-02-10"},{"title":"Show HN: I built a daily affirmation iOS app solo — what AI actually helped with","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47260470","score":2,"created":"2026-03-05"},{"title":"Show HN: Skales – Local AI agent desktop app (.exe/.dmg, 300MB idle RAM)","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47299856","score":2,"created":"2026-03-08"},{"title":"Show HN: Tilnote – An AI note workspace from rough ideas to publishable content","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47303845","score":1,"created":"2026-03-09"},{"title":"Show HN: I make Designgud to help founders with wide scope design needs","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46954959","score":1,"created":"2026-02-10"},{"title":"Nano Banana 2 Is Really Coming! Here's How to Access It Early","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47178063","score":1,"created":"2026-02-27"},{"title":"Show HN: EncroGram – Messaging When You Assume Everything Will Be Looked At","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46995951","score":1,"created":"2026-02-12"}],"communityQuotes":[{"text":"Location: Copenhagen, Denmark (UTC+1) Remote: Yes (Europe timezones) Willing to relocate: No Role: UX Researcher Experience: 3+ years Email: rvbceilx0@mozmail.com I research how people actually use AI products — then make them better. Cognitive science background (MSc), 3+ yea...","source":"Hacker News","score":0},{"text":"Stack Influence | Multiple Openings: Full Stack Developer, Technical Product Manager, Product Designer & UX Research | Full-time | Remote (Worldwide) We’re a VC-backed, fully-remote, fast-growing creator marketplace connecting eCommerce brands with everyday social media users....","source":"Hacker News","score":0},{"text":"I think part of this is preempting concerns that the EU could ban or limit X &#x2F; Twitter. They've already fined X heavily for lacking transparency, like not providing a database of advertisers or allowing researchers to access internal data to evaluate misinformation concer...","source":"Hacker News","score":0},{"text":"Location: Europe Remote: Yes Willing to relocate: Possibly Technologies: Java (Spring, Swing, FX), JavaScript (Node, React, D3), Python, various SQL & NoSQL data stores, ETL platforms, UI&#x2F;UX design tools, AI&#x2F;LLM tools, Git, AWS, etc. Résumé&#x2F;CV: www.linkedin.com&...","source":"Hacker News","score":0}],"communityKeywords":[{"word":"Claude","count":1},{"word":"Figma","count":1}],"layoffMentions":0,"hiringMentions":0,"aiMentions":7},"postingAnalysis":{"topSkills":[{"skill":"Active Listening","frequencyPercent":98},{"skill":"Critical Thinking","frequencyPercent":94},{"skill":"Reading Comprehension","frequencyPercent":88},{"skill":"Speaking","frequencyPercent":84},{"skill":"Writing","frequencyPercent":78},{"skill":"Mathematics","frequencyPercent":74},{"skill":"Active Learning","frequencyPercent":69},{"skill":"Complex Problem Solving","frequencyPercent":64}],"commonResponsibilities":["Conduct surveys and collect data, using methods such as interviews, questionnaires, focus groups, market analysis surveys, public opinion polls, literature reviews, and file reviews.","Prepare and present summaries and analyses of survey data, including tables, graphs, and fact sheets that describe survey techniques and results.","Consult with clients to identify survey needs and specific requirements, such as special samples.","Determine and specify details of survey projects, including sources of information, procedures to be used, and the design of survey instruments and materials.","Support, plan, and coordinate operations for single or multiple surveys.","Monitor and evaluate survey progress and performance, using sample disposition reports and response rate calculations."],"roleDefinition":"Plans and conducts qualitative and quantitative research studies to uncover user needs, behaviors, and pain points that inform product design decisions."}}
+{
+  "title": "UX Researcher",
+  "slug": "ux-researcher",
+  "cluster": "product-ux",
+  "description": "Plans and conducts qualitative and quantitative research studies to uncover user needs, behaviors, and pain points that inform product design decisions.",
+  "lastUpdated": "2026-03-09",
+  "demand": {
+    "openingsCount": 2729,
+    "openingsTrend": [
+      {
+        "date": "2025-03",
+        "value": 24
+      },
+      {
+        "date": "2025-04",
+        "value": 27
+      },
+      {
+        "date": "2025-05",
+        "value": 27
+      },
+      {
+        "date": "2025-06",
+        "value": 32
+      },
+      {
+        "date": "2025-07",
+        "value": 66
+      },
+      {
+        "date": "2025-08",
+        "value": 20
+      },
+      {
+        "date": "2025-09",
+        "value": 18
+      },
+      {
+        "date": "2025-10",
+        "value": 24
+      },
+      {
+        "date": "2025-11",
+        "value": 19
+      },
+      {
+        "date": "2025-12",
+        "value": 20
+      },
+      {
+        "date": "2026-01",
+        "value": 28
+      },
+      {
+        "date": "2026-02",
+        "value": 38
+      },
+      {
+        "date": "2026-03",
+        "value": 26
+      }
+    ],
+    "yoyChange": 8.3,
+    "topHiringLocations": [
+      "California",
+      "Georgia",
+      "Washington",
+      "Minnesota",
+      "Colorado"
+    ]
+  },
+  "salary": {
+    "medianUSD": 73470,
+    "rangeMin": 46110,
+    "rangeMax": 118730,
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 70056
+      },
+      {
+        "date": "2025-05",
+        "value": 75562
+      },
+      {
+        "date": "2025-06",
+        "value": 73165
+      },
+      {
+        "date": "2025-07",
+        "value": 74788
+      },
+      {
+        "date": "2025-08",
+        "value": 75560
+      },
+      {
+        "date": "2025-09",
+        "value": 74132
+      },
+      {
+        "date": "2025-10",
+        "value": 70053
+      },
+      {
+        "date": "2025-11",
+        "value": 70884
+      },
+      {
+        "date": "2025-12",
+        "value": 74059
+      },
+      {
+        "date": "2026-01",
+        "value": 72201
+      },
+      {
+        "date": "2026-02",
+        "value": 73400
+      },
+      {
+        "date": "2026-03",
+        "value": 76194
+      }
+    ],
+    "yoyChange": 0,
+    "topPayingIndustries": []
+  },
+  "aiImpact": {
+    "score": 29,
+    "scoreLabel": "Moderate",
+    "riskFactors": [
+      "Determine and specify details of survey projects, including sources of information, procedures to be used, and the design of survey instruments and materials.",
+      "Conduct research to gather information about survey topics.",
+      "Produce documentation of the questionnaire development process, data collection methods, sampling designs, and decisions related to sample statistical weighting."
+    ],
+    "protectiveFactors": [
+      "Prepare and present summaries and analyses of survey data, including tables, graphs, and fact sheets that describe survey techniques and results.",
+      "Collaborate with other researchers in the planning, implementation, and evaluation of surveys.",
+      "Produce documentation of the questionnaire development process, data collection methods, sampling designs, and decisions related to sample statistical weighting."
+    ],
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 30
+      },
+      {
+        "date": "2025-05",
+        "value": 28
+      },
+      {
+        "date": "2025-06",
+        "value": 30
+      },
+      {
+        "date": "2025-07",
+        "value": 28
+      },
+      {
+        "date": "2025-08",
+        "value": 28
+      },
+      {
+        "date": "2025-09",
+        "value": 28
+      },
+      {
+        "date": "2025-10",
+        "value": 28
+      },
+      {
+        "date": "2025-11",
+        "value": 30
+      },
+      {
+        "date": "2025-12",
+        "value": 29
+      },
+      {
+        "date": "2026-01",
+        "value": 29
+      },
+      {
+        "date": "2026-02",
+        "value": 30
+      },
+      {
+        "date": "2026-03",
+        "value": 29
+      }
+    ],
+    "scoreExplainer": "Based on analysis of 16 O*NET task descriptions (40% weight) combined with tool displacement index (60% weight).",
+    "tools": [
+      "Synthetic Users",
+      "AI interview summarizers"
+    ]
+  },
+  "skills": {
+    "rising": [
+      {
+        "skill": "Active Listening",
+        "changePercent": 21
+      },
+      {
+        "skill": "Critical Thinking",
+        "changePercent": 20
+      },
+      {
+        "skill": "Reading Comprehension",
+        "changePercent": 19
+      },
+      {
+        "skill": "Speaking",
+        "changePercent": 18
+      },
+      {
+        "skill": "Writing",
+        "changePercent": 17
+      },
+      {
+        "skill": "Mathematics",
+        "changePercent": 16
+      },
+      {
+        "skill": "Active Learning",
+        "changePercent": 15
+      },
+      {
+        "skill": "Complex Problem Solving",
+        "changePercent": 14
+      },
+      {
+        "skill": "Judgment and Decision Making",
+        "changePercent": 13
+      },
+      {
+        "skill": "Coordination",
+        "changePercent": 12
+      }
+    ],
+    "declining": [
+      {
+        "skill": "Word processing software",
+        "changePercent": -5
+      },
+      {
+        "skill": "Business intelligence and data analysis software",
+        "changePercent": -8
+      },
+      {
+        "skill": "Internet browser software",
+        "changePercent": -11
+      },
+      {
+        "skill": "Map creation software",
+        "changePercent": -7
+      },
+      {
+        "skill": "Data mining software",
+        "changePercent": -6
+      }
+    ]
+  },
+  "sentiment": {
+    "score": 0,
+    "label": "Neutral",
+    "recentHeadlines": [],
+    "sources": [
+      "Hacker News"
+    ],
+    "communityPosts": [
+      {
+        "title": "Show HN: Mowgli – Figma for the agent era, with Claude Code and design export",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47197662",
+        "score": 6,
+        "created": "2026-02-28"
+      },
+      {
+        "title": "Show HN: AI agents designed and shipped this app end-to-end in 36 hours for $270",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47059153",
+        "score": 2,
+        "created": "2026-02-18"
+      },
+      {
+        "title": "Show HN: A real-time collaborative word puzzle inspired by NYT Spelling Bee",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46962825",
+        "score": 2,
+        "created": "2026-02-10"
+      },
+      {
+        "title": "Show HN: I built a daily affirmation iOS app solo — what AI actually helped with",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47260470",
+        "score": 2,
+        "created": "2026-03-05"
+      },
+      {
+        "title": "Show HN: Skales – Local AI agent desktop app (.exe/.dmg, 300MB idle RAM)",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47299856",
+        "score": 2,
+        "created": "2026-03-08"
+      },
+      {
+        "title": "Show HN: Tilnote – An AI note workspace from rough ideas to publishable content",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47303845",
+        "score": 1,
+        "created": "2026-03-09"
+      },
+      {
+        "title": "Show HN: I make Designgud to help founders with wide scope design needs",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46954959",
+        "score": 1,
+        "created": "2026-02-10"
+      },
+      {
+        "title": "Nano Banana 2 Is Really Coming! Here's How to Access It Early",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47178063",
+        "score": 1,
+        "created": "2026-02-27"
+      },
+      {
+        "title": "Show HN: EncroGram – Messaging When You Assume Everything Will Be Looked At",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46995951",
+        "score": 1,
+        "created": "2026-02-12"
+      }
+    ],
+    "communityQuotes": [
+      {
+        "text": "Location: Copenhagen, Denmark (UTC+1) Remote: Yes (Europe timezones) Willing to relocate: No Role: UX Researcher Experience: 3+ years Email: rvbceilx0@mozmail.com I research how people actually use AI products — then make them better. Cognitive science background (MSc), 3+ yea...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "Stack Influence | Multiple Openings: Full Stack Developer, Technical Product Manager, Product Designer & UX Research | Full-time | Remote (Worldwide) We’re a VC-backed, fully-remote, fast-growing creator marketplace connecting eCommerce brands with everyday social media users....",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "I think part of this is preempting concerns that the EU could ban or limit X &#x2F; Twitter. They've already fined X heavily for lacking transparency, like not providing a database of advertisers or allowing researchers to access internal data to evaluate misinformation concer...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "Location: Europe Remote: Yes Willing to relocate: Possibly Technologies: Java (Spring, Swing, FX), JavaScript (Node, React, D3), Python, various SQL & NoSQL data stores, ETL platforms, UI&#x2F;UX design tools, AI&#x2F;LLM tools, Git, AWS, etc. Résumé&#x2F;CV: www.linkedin.com&...",
+        "source": "Hacker News",
+        "score": 0
+      }
+    ],
+    "communityKeywords": [
+      {
+        "word": "Claude",
+        "count": 1
+      },
+      {
+        "word": "Figma",
+        "count": 1
+      }
+    ],
+    "layoffMentions": 0,
+    "hiringMentions": 0,
+    "aiMentions": 7
+  },
+  "postingAnalysis": {
+    "topSkills": [
+      {
+        "skill": "Active Listening",
+        "frequencyPercent": 98
+      },
+      {
+        "skill": "Critical Thinking",
+        "frequencyPercent": 94
+      },
+      {
+        "skill": "Reading Comprehension",
+        "frequencyPercent": 88
+      },
+      {
+        "skill": "Speaking",
+        "frequencyPercent": 84
+      },
+      {
+        "skill": "Writing",
+        "frequencyPercent": 78
+      },
+      {
+        "skill": "Mathematics",
+        "frequencyPercent": 74
+      },
+      {
+        "skill": "Active Learning",
+        "frequencyPercent": 69
+      },
+      {
+        "skill": "Complex Problem Solving",
+        "frequencyPercent": 64
+      }
+    ],
+    "commonResponsibilities": [
+      "Conduct surveys and collect data, using methods such as interviews, questionnaires, focus groups, market analysis surveys, public opinion polls, literature reviews, and file reviews.",
+      "Prepare and present summaries and analyses of survey data, including tables, graphs, and fact sheets that describe survey techniques and results.",
+      "Consult with clients to identify survey needs and specific requirements, such as special samples.",
+      "Determine and specify details of survey projects, including sources of information, procedures to be used, and the design of survey instruments and materials.",
+      "Support, plan, and coordinate operations for single or multiple surveys.",
+      "Monitor and evaluate survey progress and performance, using sample disposition reports and response rate calculations."
+    ],
+    "roleDefinition": "Plans and conducts qualitative and quantitative research studies to uncover user needs, behaviors, and pain points that inform product design decisions."
+  }
+}

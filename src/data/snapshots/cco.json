@@ -1,1 +1,392 @@
-{"title":"Chief Creative Officer","slug":"cco","cluster":"design-leadership","description":"The most senior creative executive, responsible for the entire creative direction and brand experience of a company.","lastUpdated":"2026-03-09","demand":{"openingsCount":57,"openingsTrend":[{"date":"2025-03","value":0},{"date":"2025-04","value":0},{"date":"2025-05","value":0},{"date":"2025-06","value":0},{"date":"2025-07","value":0},{"date":"2025-08","value":20},{"date":"2025-09","value":0},{"date":"2025-10","value":0},{"date":"2025-11","value":0},{"date":"2025-12","value":0},{"date":"2026-01","value":0},{"date":"2026-02","value":0},{"date":"2026-03","value":0}],"yoyChange":0,"topHiringLocations":["New York","California","Pennsylvania","Utah"]},"salary":{"medianUSD":0,"rangeMin":0,"rangeMax":0,"trend":[],"yoyChange":0,"topPayingIndustries":[]},"aiImpact":{"score":3,"scoreLabel":"Low","riskFactors":["Inspect layouts and advertising copy, and edit scripts, audio, video, and other promotional material for adherence to specifications."],"protectiveFactors":["Direct, motivate, and monitor the mobilization of a campaign team to advance campaign goals.","Manage sales team, including setting goals, providing incentives, and evaluating employee performance.","Prepare and negotiate advertising and sales contracts."],"trend":[{"date":"2025-04","value":3},{"date":"2025-05","value":3},{"date":"2025-06","value":3},{"date":"2025-07","value":3},{"date":"2025-08","value":3},{"date":"2025-09","value":3},{"date":"2025-10","value":3},{"date":"2025-11","value":3},{"date":"2025-12","value":3},{"date":"2026-01","value":3},{"date":"2026-02","value":3},{"date":"2026-03","value":3}],"scoreExplainer":"Based on analysis of 30 task descriptions from O*NET. Score reflects the ratio of automatable vs. human-centric tasks."},"skills":{"rising":[{"skill":"Active Listening","changePercent":21},{"skill":"Critical Thinking","changePercent":20},{"skill":"Social Perceptiveness","changePercent":19},{"skill":"Speaking","changePercent":18},{"skill":"Judgment and Decision Making","changePercent":17},{"skill":"Reading Comprehension","changePercent":16},{"skill":"Writing","changePercent":15},{"skill":"Complex Problem Solving","changePercent":14},{"skill":"Coordination","changePercent":13},{"skill":"Time Management","changePercent":12}],"declining":[{"skill":"Internet browser software","changePercent":-9},{"skill":"Presentation software","changePercent":-8},{"skill":"Calendar and scheduling software","changePercent":-19},{"skill":"Inventory management software","changePercent":-10},{"skill":"Information retrieval or search software","changePercent":-11}]},"sentiment":{"score":-60,"label":"Negative","recentHeadlines":[{"headline":"The Blunt Reason Pixar’s Elio Cut Its LGBTQ+ Storyline","source":"CinemaBlend","url":"https://www.cinemablend.com/movies/the-blunt-reason-pixar-elio-cut-lgbtq-storyline","date":"2026-03-08","sentiment":"negative"},{"headline":"Pixar CCO Pete Docter on LGBTQ Themes Being Cut From 'Elio'","source":"The Hollywood Reporter","url":"https://www.hollywoodreporter.com/movies/movie-news/pete-docter-pixar-elio-cut-lgbtq-themes-1236524502/","date":"2026-03-08","sentiment":"negative"},{"headline":"Pete Docter On Cutting Queer 'Elio' Plot, Making 'Films Appeal To' All","source":"Deadline","url":"https://deadline.com/2026/03/pixar-pete-docter-elio-queer-storyline-cut-1236746748/","date":"2026-03-07","sentiment":"negative"},{"headline":"Charlie Puth Named Chief Music Officer at AI Platform Moises","source":"Billboard","url":"https://www.billboard.com/pro/charlie-puth-moises-chief-music-officer-ai-music-platform/","date":"2026-03-04","sentiment":"neutral"},{"headline":"Sarasota digital content agency names creative boss from Atlas Obscura","source":"Herald-Tribune","url":"https://www.heraldtribune.com/story/business/2026/03/02/sarasota-digital-content-agency-names-creative-boss-from-atlas-obscura/88505839007/","date":"2026-03-02","sentiment":"neutral"},{"headline":"Tape Room Music Names Alicia Pruitt Chief Creative Officer, President of A&R","source":"Billboard","url":"https://www.billboard.com/pro/tape-room-alicia-pruitt-chief-creative-officer/","date":"2026-02-26","sentiment":"neutral"}],"sources":["CinemaBlend","The Hollywood Reporter","Deadline","Billboard","Herald-Tribune","Hacker News"],"communityPosts":[{"title":"Show HN: Lobster.js – Extended Markdown with layout blocks and footnotes","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47299529","score":5,"created":"2026-03-08"},{"title":"Show HN: AI Code Review CLI","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47248299","score":5,"created":"2026-03-04"},{"title":"Show HN: AI Council v2 – multi-model deliberation, now with 35 personas","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47098810","score":3,"created":"2026-02-21"},{"title":"Show HN: Complying with California's AB 1043 via signal fusion, not ID uploads","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47299222","score":3,"created":"2026-03-08"},{"title":"Show HN: Filepack: a fast SHASUM/SFV/PGP alternative using BLAKE3","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47097590","score":2,"created":"2026-02-21"},{"title":"Show HN: Caliper – Auto Instrumented LLM Observability with Custom Metadata","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47296746","score":2,"created":"2026-03-08"},{"title":"Show HN: A video agent with Canvas2D code-gen and generative capabilities","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46992474","score":1,"created":"2026-02-12"},{"title":"Show HN: CreativeFlow – A Guided Brainstorming App","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47061769","score":1,"created":"2026-02-18"},{"title":"Show HN: Stoneforge – Open-source orchestration for parallel AI coding agents","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47267105","score":1,"created":"2026-03-05"},{"title":"Show HN: A lightweight, capture tool for Windows","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47174730","score":1,"created":"2026-02-27"}],"communityQuotes":[],"communityKeywords":[{"word":"Canva","count":1}],"layoffMentions":0,"hiringMentions":0,"aiMentions":4},"postingAnalysis":{"topSkills":[{"skill":"Active Listening","frequencyPercent":98},{"skill":"Critical Thinking","frequencyPercent":94},{"skill":"Social Perceptiveness","frequencyPercent":88},{"skill":"Speaking","frequencyPercent":84},{"skill":"Judgment and Decision Making","frequencyPercent":78},{"skill":"Reading Comprehension","frequencyPercent":74},{"skill":"Writing","frequencyPercent":69},{"skill":"Complex Problem Solving","frequencyPercent":64}],"commonResponsibilities":["Plan and prepare advertising and promotional material to increase sales of products or services, working with customers, company officials, sales departments, and advertising agencies.","Inspect layouts and advertising copy, and edit scripts, audio, video, and other promotional material for adherence to specifications.","Confer with department heads or staff to discuss topics such as contracts, selection of advertising media, or product to be advertised.","Coordinate with the media to disseminate advertising.","Coordinate activities of departments, such as sales, graphic arts, media, finance, and research.","Plan and execute advertising policies and strategies for organizations."],"roleDefinition":"The most senior creative executive, responsible for the entire creative direction and brand experience of a company."}}
+{
+  "title": "Chief Creative Officer",
+  "slug": "cco",
+  "cluster": "design-leadership",
+  "description": "The most senior creative executive, responsible for the entire creative direction and brand experience of a company.",
+  "lastUpdated": "2026-03-09",
+  "demand": {
+    "openingsCount": 57,
+    "openingsTrend": [
+      {
+        "date": "2025-03",
+        "value": 0
+      },
+      {
+        "date": "2025-04",
+        "value": 0
+      },
+      {
+        "date": "2025-05",
+        "value": 0
+      },
+      {
+        "date": "2025-06",
+        "value": 0
+      },
+      {
+        "date": "2025-07",
+        "value": 0
+      },
+      {
+        "date": "2025-08",
+        "value": 20
+      },
+      {
+        "date": "2025-09",
+        "value": 0
+      },
+      {
+        "date": "2025-10",
+        "value": 0
+      },
+      {
+        "date": "2025-11",
+        "value": 0
+      },
+      {
+        "date": "2025-12",
+        "value": 0
+      },
+      {
+        "date": "2026-01",
+        "value": 0
+      },
+      {
+        "date": "2026-02",
+        "value": 0
+      },
+      {
+        "date": "2026-03",
+        "value": 0
+      }
+    ],
+    "yoyChange": 0,
+    "topHiringLocations": [
+      "New York",
+      "California",
+      "Pennsylvania",
+      "Utah"
+    ]
+  },
+  "salary": {
+    "medianUSD": 0,
+    "rangeMin": 0,
+    "rangeMax": 0,
+    "trend": [],
+    "yoyChange": 0,
+    "topPayingIndustries": []
+  },
+  "aiImpact": {
+    "score": 7,
+    "scoreLabel": "Low",
+    "riskFactors": [
+      "Inspect layouts and advertising copy, and edit scripts, audio, video, and other promotional material for adherence to specifications."
+    ],
+    "protectiveFactors": [
+      "Direct, motivate, and monitor the mobilization of a campaign team to advance campaign goals.",
+      "Manage sales team, including setting goals, providing incentives, and evaluating employee performance.",
+      "Prepare and negotiate advertising and sales contracts."
+    ],
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 7
+      },
+      {
+        "date": "2025-05",
+        "value": 7
+      },
+      {
+        "date": "2025-06",
+        "value": 7
+      },
+      {
+        "date": "2025-07",
+        "value": 7
+      },
+      {
+        "date": "2025-08",
+        "value": 7
+      },
+      {
+        "date": "2025-09",
+        "value": 7
+      },
+      {
+        "date": "2025-10",
+        "value": 7
+      },
+      {
+        "date": "2025-11",
+        "value": 7
+      },
+      {
+        "date": "2025-12",
+        "value": 7
+      },
+      {
+        "date": "2026-01",
+        "value": 7
+      },
+      {
+        "date": "2026-02",
+        "value": 7
+      },
+      {
+        "date": "2026-03",
+        "value": 7
+      }
+    ],
+    "scoreExplainer": "Based on analysis of 30 O*NET task descriptions (40% weight) combined with tool displacement index (60% weight).",
+    "tools": []
+  },
+  "skills": {
+    "rising": [
+      {
+        "skill": "Active Listening",
+        "changePercent": 21
+      },
+      {
+        "skill": "Critical Thinking",
+        "changePercent": 20
+      },
+      {
+        "skill": "Social Perceptiveness",
+        "changePercent": 19
+      },
+      {
+        "skill": "Speaking",
+        "changePercent": 18
+      },
+      {
+        "skill": "Judgment and Decision Making",
+        "changePercent": 17
+      },
+      {
+        "skill": "Reading Comprehension",
+        "changePercent": 16
+      },
+      {
+        "skill": "Writing",
+        "changePercent": 15
+      },
+      {
+        "skill": "Complex Problem Solving",
+        "changePercent": 14
+      },
+      {
+        "skill": "Coordination",
+        "changePercent": 13
+      },
+      {
+        "skill": "Time Management",
+        "changePercent": 12
+      }
+    ],
+    "declining": [
+      {
+        "skill": "Internet browser software",
+        "changePercent": -9
+      },
+      {
+        "skill": "Presentation software",
+        "changePercent": -8
+      },
+      {
+        "skill": "Calendar and scheduling software",
+        "changePercent": -19
+      },
+      {
+        "skill": "Inventory management software",
+        "changePercent": -10
+      },
+      {
+        "skill": "Information retrieval or search software",
+        "changePercent": -11
+      }
+    ]
+  },
+  "sentiment": {
+    "score": -60,
+    "label": "Negative",
+    "recentHeadlines": [
+      {
+        "headline": "The Blunt Reason Pixar’s Elio Cut Its LGBTQ+ Storyline",
+        "source": "CinemaBlend",
+        "url": "https://www.cinemablend.com/movies/the-blunt-reason-pixar-elio-cut-lgbtq-storyline",
+        "date": "2026-03-08",
+        "sentiment": "negative"
+      },
+      {
+        "headline": "Pixar CCO Pete Docter on LGBTQ Themes Being Cut From 'Elio'",
+        "source": "The Hollywood Reporter",
+        "url": "https://www.hollywoodreporter.com/movies/movie-news/pete-docter-pixar-elio-cut-lgbtq-themes-1236524502/",
+        "date": "2026-03-08",
+        "sentiment": "negative"
+      },
+      {
+        "headline": "Pete Docter On Cutting Queer 'Elio' Plot, Making 'Films Appeal To' All",
+        "source": "Deadline",
+        "url": "https://deadline.com/2026/03/pixar-pete-docter-elio-queer-storyline-cut-1236746748/",
+        "date": "2026-03-07",
+        "sentiment": "negative"
+      },
+      {
+        "headline": "Charlie Puth Named Chief Music Officer at AI Platform Moises",
+        "source": "Billboard",
+        "url": "https://www.billboard.com/pro/charlie-puth-moises-chief-music-officer-ai-music-platform/",
+        "date": "2026-03-04",
+        "sentiment": "neutral"
+      },
+      {
+        "headline": "Sarasota digital content agency names creative boss from Atlas Obscura",
+        "source": "Herald-Tribune",
+        "url": "https://www.heraldtribune.com/story/business/2026/03/02/sarasota-digital-content-agency-names-creative-boss-from-atlas-obscura/88505839007/",
+        "date": "2026-03-02",
+        "sentiment": "neutral"
+      },
+      {
+        "headline": "Tape Room Music Names Alicia Pruitt Chief Creative Officer, President of A&R",
+        "source": "Billboard",
+        "url": "https://www.billboard.com/pro/tape-room-alicia-pruitt-chief-creative-officer/",
+        "date": "2026-02-26",
+        "sentiment": "neutral"
+      }
+    ],
+    "sources": [
+      "CinemaBlend",
+      "The Hollywood Reporter",
+      "Deadline",
+      "Billboard",
+      "Herald-Tribune",
+      "Hacker News"
+    ],
+    "communityPosts": [
+      {
+        "title": "Show HN: Lobster.js – Extended Markdown with layout blocks and footnotes",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47299529",
+        "score": 5,
+        "created": "2026-03-08"
+      },
+      {
+        "title": "Show HN: AI Code Review CLI",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47248299",
+        "score": 5,
+        "created": "2026-03-04"
+      },
+      {
+        "title": "Show HN: AI Council v2 – multi-model deliberation, now with 35 personas",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47098810",
+        "score": 3,
+        "created": "2026-02-21"
+      },
+      {
+        "title": "Show HN: Complying with California's AB 1043 via signal fusion, not ID uploads",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47299222",
+        "score": 3,
+        "created": "2026-03-08"
+      },
+      {
+        "title": "Show HN: Filepack: a fast SHASUM/SFV/PGP alternative using BLAKE3",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47097590",
+        "score": 2,
+        "created": "2026-02-21"
+      },
+      {
+        "title": "Show HN: Caliper – Auto Instrumented LLM Observability with Custom Metadata",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47296746",
+        "score": 2,
+        "created": "2026-03-08"
+      },
+      {
+        "title": "Show HN: A video agent with Canvas2D code-gen and generative capabilities",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46992474",
+        "score": 1,
+        "created": "2026-02-12"
+      },
+      {
+        "title": "Show HN: CreativeFlow – A Guided Brainstorming App",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47061769",
+        "score": 1,
+        "created": "2026-02-18"
+      },
+      {
+        "title": "Show HN: Stoneforge – Open-source orchestration for parallel AI coding agents",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47267105",
+        "score": 1,
+        "created": "2026-03-05"
+      },
+      {
+        "title": "Show HN: A lightweight, capture tool for Windows",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47174730",
+        "score": 1,
+        "created": "2026-02-27"
+      }
+    ],
+    "communityQuotes": [],
+    "communityKeywords": [
+      {
+        "word": "Canva",
+        "count": 1
+      }
+    ],
+    "layoffMentions": 0,
+    "hiringMentions": 0,
+    "aiMentions": 4
+  },
+  "postingAnalysis": {
+    "topSkills": [
+      {
+        "skill": "Active Listening",
+        "frequencyPercent": 98
+      },
+      {
+        "skill": "Critical Thinking",
+        "frequencyPercent": 94
+      },
+      {
+        "skill": "Social Perceptiveness",
+        "frequencyPercent": 88
+      },
+      {
+        "skill": "Speaking",
+        "frequencyPercent": 84
+      },
+      {
+        "skill": "Judgment and Decision Making",
+        "frequencyPercent": 78
+      },
+      {
+        "skill": "Reading Comprehension",
+        "frequencyPercent": 74
+      },
+      {
+        "skill": "Writing",
+        "frequencyPercent": 69
+      },
+      {
+        "skill": "Complex Problem Solving",
+        "frequencyPercent": 64
+      }
+    ],
+    "commonResponsibilities": [
+      "Plan and prepare advertising and promotional material to increase sales of products or services, working with customers, company officials, sales departments, and advertising agencies.",
+      "Inspect layouts and advertising copy, and edit scripts, audio, video, and other promotional material for adherence to specifications.",
+      "Confer with department heads or staff to discuss topics such as contracts, selection of advertising media, or product to be advertised.",
+      "Coordinate with the media to disseminate advertising.",
+      "Coordinate activities of departments, such as sales, graphic arts, media, finance, and research.",
+      "Plan and execute advertising policies and strategies for organizations."
+    ],
+    "roleDefinition": "The most senior creative executive, responsible for the entire creative direction and brand experience of a company."
+  }
+}

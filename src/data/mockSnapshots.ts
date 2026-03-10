@@ -55,7 +55,7 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
       ],
     },
     aiImpact: {
-      score: 48,
+      score: 32,
       scoreLabel: "Moderate",
       riskFactors: [
         "AI-generated visual content reducing junior production dependency",
@@ -67,6 +67,7 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
         "Cross-functional leadership and stakeholder management remain human",
         "Cultural taste arbitration and creative judgment command premium",
       ],
+      tools: ["Claude", "Midjourney"],
       trend: [
         { date: "2025-Q1", value: 38 },
         { date: "2025-Q2", value: 41 },
@@ -238,7 +239,7 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
       ],
     },
     aiImpact: {
-      score: 38,
+      score: 42,
       scoreLabel: "Moderate",
       riskFactors: [
         "AI prototyping tools reducing wireframing time",
@@ -250,6 +251,7 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
         "User empathy and qualitative synthesis resist automation",
         "Cross-functional product thinking remains distinctly human",
       ],
+      tools: ["Figma AI", "Galileo AI", "v0"],
       trend: [
         { date: "2025-Q1", value: 30 },
         { date: "2025-Q2", value: 33 },
@@ -421,8 +423,8 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
       ],
     },
     aiImpact: {
-      score: 72,
-      scoreLabel: "Elevated",
+      score: 78,
+      scoreLabel: "High",
       riskFactors: [
         "LLM-generated copy matching quality for routine content",
         "Brands reducing freelance copy budgets citing AI alternatives",
@@ -433,6 +435,7 @@ export const mockSnapshots: Record<string, JobHealthSnapshot> = {
         "Regulatory and legal copy demands accountability AI cannot provide",
         "Emotional storytelling and cultural resonance remain human strengths",
       ],
+      tools: ["GPT-4o", "Claude", "Gemini"],
       trend: [
         { date: "2025-Q1", value: 52 },
         { date: "2025-Q2", value: 59 },

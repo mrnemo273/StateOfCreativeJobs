@@ -1,1 +1,472 @@
-{"title":"Product Designer","slug":"product-designer","cluster":"product-ux","description":"Combines UX, UI, and interaction design to shape the end-to-end experience of digital products, working closely with product managers and engineers.","lastUpdated":"2026-03-09","demand":{"openingsCount":98721,"openingsTrend":[{"date":"2025-03","value":51},{"date":"2025-04","value":42},{"date":"2025-05","value":37},{"date":"2025-06","value":53},{"date":"2025-07","value":67},{"date":"2025-08","value":55},{"date":"2025-09","value":50},{"date":"2025-10","value":45},{"date":"2025-11","value":62},{"date":"2025-12","value":63},{"date":"2026-01","value":83},{"date":"2026-02","value":69},{"date":"2026-03","value":42}],"yoyChange":-17.6,"topHiringLocations":["Washington","New York","Pennsylvania","Ohio","North Carolina"]},"salary":{"medianUSD":88000,"rangeMin":62040,"rangeMax":134840,"trend":[{"date":"2025-04","value":87304},{"date":"2025-05","value":88473},{"date":"2025-06","value":84805},{"date":"2025-07","value":91935},{"date":"2025-08","value":92347},{"date":"2025-09","value":90364},{"date":"2025-10","value":85918},{"date":"2025-11","value":90688},{"date":"2025-12","value":84772},{"date":"2026-01","value":90041},{"date":"2026-02","value":92387},{"date":"2026-03","value":86281}],"yoyChange":0,"topPayingIndustries":[]},"aiImpact":{"score":23,"scoreLabel":"Low","riskFactors":["Prepare sketches of ideas, detailed drawings, illustrations, artwork, or blueprints, using drafting instruments, paints and brushes, or computer-aided design equipment.","Direct and coordinate the fabrication of models or samples and the drafting of working drawings and specification sheets from sketches.","Investigate product characteristics such as the product's safety and handling qualities, its market appeal, how efficiently it can be produced, and ways of distributing, using, and maintaining it."],"protectiveFactors":["Present designs and reports to customers or design committees for approval and discuss need for modification."],"trend":[{"date":"2025-04","value":24},{"date":"2025-05","value":24},{"date":"2025-06","value":23},{"date":"2025-07","value":23},{"date":"2025-08","value":23},{"date":"2025-09","value":23},{"date":"2025-10","value":24},{"date":"2025-11","value":23},{"date":"2025-12","value":24},{"date":"2026-01","value":24},{"date":"2026-02","value":22},{"date":"2026-03","value":23}],"scoreExplainer":"Based on analysis of 17 task descriptions from O*NET. Score reflects the ratio of automatable vs. human-centric tasks."},"skills":{"rising":[{"skill":"Active Listening","changePercent":21},{"skill":"Reading Comprehension","changePercent":20},{"skill":"Complex Problem Solving","changePercent":19},{"skill":"Critical Thinking","changePercent":17},{"skill":"Speaking","changePercent":16},{"skill":"Judgment and Decision Making","changePercent":15},{"skill":"Operations Analysis","changePercent":14},{"skill":"Time Management","changePercent":12},{"skill":"Coordination","changePercent":11},{"skill":"Monitoring","changePercent":10}],"declining":[{"skill":"Internet browser software","changePercent":-6},{"skill":"Presentation software","changePercent":-14},{"skill":"Data base user interface and query software","changePercent":-17},{"skill":"Project management software","changePercent":-12},{"skill":"Process mapping and design software","changePercent":-6}]},"sentiment":{"score":20,"label":"Neutral","recentHeadlines":[{"headline":"Jony Ive's First OpenAI Device Will Be Smart Speaker With Camera, 2027 Launch Planned","source":"MacRumors","url":"https://www.macrumors.com/2026/02/20/jony-ive-openai-smart-speaker-2027/","date":"2026-02-20","sentiment":"neutral"},{"headline":"Ferrari’s New Jony Ive-Designed EV Is Swathed in Glass and Aluminum","source":"WIRED","url":"https://www.wired.com/story/ferrari-ev-jony-ive-design/","date":"2026-02-09","sentiment":"neutral"}],"sources":["MacRumors","WIRED","Hacker News"],"communityPosts":[{"title":"Launch HN: TeamOut (YC W22) – AI agent for planning company retreats","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47151598","score":55,"created":"2026-02-25"},{"title":"The Human Root of Trust – public domain framework for agent accountability","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47100935","score":32,"created":"2026-02-21"},{"title":"Show HN: Quantifying opportunity cost with a deliberately \"simple\" web app","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47138631","score":28,"created":"2026-02-24"},{"title":"Show HN: Auctionnow.io – Launch a store to sell items via auction or buy-it-now","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47251709","score":7,"created":"2026-03-04"},{"title":"Show HN: Mowgli – Figma for the agent era, with Claude Code and design export","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47197662","score":6,"created":"2026-02-28"},{"title":"Show HN: Augno – a Stripe-like ERP for manufacturing","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47217878","score":5,"created":"2026-03-02"},{"title":"Show HN: Maestro App Factory – FOSS Agentic Engineering Orchestrator","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47074861","score":4,"created":"2026-02-19"},{"title":"Show HN: A design collaboration layer for local LLM CLIs","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46962290","score":3,"created":"2026-02-10"},{"title":"Show HN: ClawNet – Agent-first communication infrastructure (email, DMs, feed)","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47201068","score":3,"created":"2026-02-28"},{"title":"Show HN: Inconvo – open-source chat-with-data agent that doesn't generate SQL","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47078279","score":3,"created":"2026-02-19"}],"communityQuotes":[{"text":"As an engineer and a daily if not hourly user of Claude Code, I would never dream I could do the jobs of my product &#x2F; designer teammates. Not because I don’t have opinions on product or design, but simply because they do me the huge service of attending meetings so I don’...","source":"Hacker News","score":0},{"text":"DeepL | Full-time | London, Berlin&#x2F;Munich, New York | HYBRID At DeepL, we're building intelligent, trusted AI for language and beyond. Hiring for technical roles: Engineering (21 roles): Software Engineers (Backend, Full-Stack, API, Voice), Data Scientists, Analytics Engi...","source":"Hacker News","score":0},{"text":"SEEKING REMOTE UI&#x2F;UX DESIGN OPPORTUNITIES Location: India Remote: Yes Willing to relocate: Open to discuss Technologies: Figma, Canva, Figjam, Notion, Miro, Visily, Maze, Jitter, Asana, AI, Framer, Wireframing, Prototyping, Mockups, Microinteractions, User Research, Compe...","source":"Hacker News","score":0},{"text":"I was watching a film from 1959 where the main character just swaps headlights and tires from completely different cars like they were just nominally interchangeable. It feels like the era of standardization already came and went. It seems like product designers are now being ...","source":"Hacker News","score":0}],"communityKeywords":[{"word":"Figma","count":12},{"word":"Claude","count":7},{"word":"Framer","count":7},{"word":"Design Systems","count":4},{"word":"Canva","count":3},{"word":"FigJam","count":3},{"word":"Miro","count":3},{"word":"Notion","count":3},{"word":"Cursor","count":2},{"word":"Freelance","count":1}],"layoffMentions":0,"hiringMentions":3,"aiMentions":13},"postingAnalysis":{"topSkills":[{"skill":"Active Listening","frequencyPercent":98},{"skill":"Reading Comprehension","frequencyPercent":92},{"skill":"Complex Problem Solving","frequencyPercent":87},{"skill":"Critical Thinking","frequencyPercent":81},{"skill":"Speaking","frequencyPercent":76},{"skill":"Judgment and Decision Making","frequencyPercent":69},{"skill":"Operations Analysis","frequencyPercent":63},{"skill":"Time Management","frequencyPercent":57}],"commonResponsibilities":["Prepare sketches of ideas, detailed drawings, illustrations, artwork, or blueprints, using drafting instruments, paints and brushes, or computer-aided design equipment.","Modify and refine designs, using working models, to conform with customer specifications, production limitations, or changes in design trends.","Evaluate feasibility of design ideas, based on factors such as appearance, safety, function, serviceability, budget, production costs/methods, and market characteristics.","Confer with engineering, marketing, production, or sales departments, or with customers, to establish and evaluate design concepts for manufactured products.","Present designs and reports to customers or design committees for approval and discuss need for modification.","Research production specifications, costs, production materials, and manufacturing methods and provide cost estimates and itemized production requirements."],"roleDefinition":"Combines UX, UI, and interaction design to shape the end-to-end experience of digital products, working closely with product managers and engineers."}}
+{
+  "title": "Product Designer",
+  "slug": "product-designer",
+  "cluster": "product-ux",
+  "description": "Combines UX, UI, and interaction design to shape the end-to-end experience of digital products, working closely with product managers and engineers.",
+  "lastUpdated": "2026-03-09",
+  "demand": {
+    "openingsCount": 98721,
+    "openingsTrend": [
+      {
+        "date": "2025-03",
+        "value": 51
+      },
+      {
+        "date": "2025-04",
+        "value": 42
+      },
+      {
+        "date": "2025-05",
+        "value": 37
+      },
+      {
+        "date": "2025-06",
+        "value": 53
+      },
+      {
+        "date": "2025-07",
+        "value": 67
+      },
+      {
+        "date": "2025-08",
+        "value": 55
+      },
+      {
+        "date": "2025-09",
+        "value": 50
+      },
+      {
+        "date": "2025-10",
+        "value": 45
+      },
+      {
+        "date": "2025-11",
+        "value": 62
+      },
+      {
+        "date": "2025-12",
+        "value": 63
+      },
+      {
+        "date": "2026-01",
+        "value": 83
+      },
+      {
+        "date": "2026-02",
+        "value": 69
+      },
+      {
+        "date": "2026-03",
+        "value": 42
+      }
+    ],
+    "yoyChange": -17.6,
+    "topHiringLocations": [
+      "Washington",
+      "New York",
+      "Pennsylvania",
+      "Ohio",
+      "North Carolina"
+    ]
+  },
+  "salary": {
+    "medianUSD": 88000,
+    "rangeMin": 62040,
+    "rangeMax": 134840,
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 87304
+      },
+      {
+        "date": "2025-05",
+        "value": 88473
+      },
+      {
+        "date": "2025-06",
+        "value": 84805
+      },
+      {
+        "date": "2025-07",
+        "value": 91935
+      },
+      {
+        "date": "2025-08",
+        "value": 92347
+      },
+      {
+        "date": "2025-09",
+        "value": 90364
+      },
+      {
+        "date": "2025-10",
+        "value": 85918
+      },
+      {
+        "date": "2025-11",
+        "value": 90688
+      },
+      {
+        "date": "2025-12",
+        "value": 84772
+      },
+      {
+        "date": "2026-01",
+        "value": 90041
+      },
+      {
+        "date": "2026-02",
+        "value": 92387
+      },
+      {
+        "date": "2026-03",
+        "value": 86281
+      }
+    ],
+    "yoyChange": 0,
+    "topPayingIndustries": []
+  },
+  "aiImpact": {
+    "score": 40,
+    "scoreLabel": "Moderate",
+    "riskFactors": [
+      "Prepare sketches of ideas, detailed drawings, illustrations, artwork, or blueprints, using drafting instruments, paints and brushes, or computer-aided design equipment.",
+      "Direct and coordinate the fabrication of models or samples and the drafting of working drawings and specification sheets from sketches.",
+      "Investigate product characteristics such as the product's safety and handling qualities, its market appeal, how efficiently it can be produced, and ways of distributing, using, and maintaining it."
+    ],
+    "protectiveFactors": [
+      "Present designs and reports to customers or design committees for approval and discuss need for modification."
+    ],
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 42
+      },
+      {
+        "date": "2025-05",
+        "value": 42
+      },
+      {
+        "date": "2025-06",
+        "value": 40
+      },
+      {
+        "date": "2025-07",
+        "value": 40
+      },
+      {
+        "date": "2025-08",
+        "value": 40
+      },
+      {
+        "date": "2025-09",
+        "value": 40
+      },
+      {
+        "date": "2025-10",
+        "value": 42
+      },
+      {
+        "date": "2025-11",
+        "value": 40
+      },
+      {
+        "date": "2025-12",
+        "value": 42
+      },
+      {
+        "date": "2026-01",
+        "value": 42
+      },
+      {
+        "date": "2026-02",
+        "value": 38
+      },
+      {
+        "date": "2026-03",
+        "value": 40
+      }
+    ],
+    "scoreExplainer": "Based on analysis of 17 O*NET task descriptions (40% weight) combined with tool displacement index (60% weight).",
+    "tools": [
+      "v0",
+      "Galileo AI",
+      "Figma AI"
+    ]
+  },
+  "skills": {
+    "rising": [
+      {
+        "skill": "Active Listening",
+        "changePercent": 21
+      },
+      {
+        "skill": "Reading Comprehension",
+        "changePercent": 20
+      },
+      {
+        "skill": "Complex Problem Solving",
+        "changePercent": 19
+      },
+      {
+        "skill": "Critical Thinking",
+        "changePercent": 17
+      },
+      {
+        "skill": "Speaking",
+        "changePercent": 16
+      },
+      {
+        "skill": "Judgment and Decision Making",
+        "changePercent": 15
+      },
+      {
+        "skill": "Operations Analysis",
+        "changePercent": 14
+      },
+      {
+        "skill": "Time Management",
+        "changePercent": 12
+      },
+      {
+        "skill": "Coordination",
+        "changePercent": 11
+      },
+      {
+        "skill": "Monitoring",
+        "changePercent": 10
+      }
+    ],
+    "declining": [
+      {
+        "skill": "Internet browser software",
+        "changePercent": -6
+      },
+      {
+        "skill": "Presentation software",
+        "changePercent": -14
+      },
+      {
+        "skill": "Data base user interface and query software",
+        "changePercent": -17
+      },
+      {
+        "skill": "Project management software",
+        "changePercent": -12
+      },
+      {
+        "skill": "Process mapping and design software",
+        "changePercent": -6
+      }
+    ]
+  },
+  "sentiment": {
+    "score": 20,
+    "label": "Neutral",
+    "recentHeadlines": [
+      {
+        "headline": "Jony Ive's First OpenAI Device Will Be Smart Speaker With Camera, 2027 Launch Planned",
+        "source": "MacRumors",
+        "url": "https://www.macrumors.com/2026/02/20/jony-ive-openai-smart-speaker-2027/",
+        "date": "2026-02-20",
+        "sentiment": "neutral"
+      },
+      {
+        "headline": "Ferrari’s New Jony Ive-Designed EV Is Swathed in Glass and Aluminum",
+        "source": "WIRED",
+        "url": "https://www.wired.com/story/ferrari-ev-jony-ive-design/",
+        "date": "2026-02-09",
+        "sentiment": "neutral"
+      }
+    ],
+    "sources": [
+      "MacRumors",
+      "WIRED",
+      "Hacker News"
+    ],
+    "communityPosts": [
+      {
+        "title": "Launch HN: TeamOut (YC W22) – AI agent for planning company retreats",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47151598",
+        "score": 55,
+        "created": "2026-02-25"
+      },
+      {
+        "title": "The Human Root of Trust – public domain framework for agent accountability",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47100935",
+        "score": 32,
+        "created": "2026-02-21"
+      },
+      {
+        "title": "Show HN: Quantifying opportunity cost with a deliberately \"simple\" web app",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47138631",
+        "score": 28,
+        "created": "2026-02-24"
+      },
+      {
+        "title": "Show HN: Auctionnow.io – Launch a store to sell items via auction or buy-it-now",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47251709",
+        "score": 7,
+        "created": "2026-03-04"
+      },
+      {
+        "title": "Show HN: Mowgli – Figma for the agent era, with Claude Code and design export",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47197662",
+        "score": 6,
+        "created": "2026-02-28"
+      },
+      {
+        "title": "Show HN: Augno – a Stripe-like ERP for manufacturing",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47217878",
+        "score": 5,
+        "created": "2026-03-02"
+      },
+      {
+        "title": "Show HN: Maestro App Factory – FOSS Agentic Engineering Orchestrator",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47074861",
+        "score": 4,
+        "created": "2026-02-19"
+      },
+      {
+        "title": "Show HN: A design collaboration layer for local LLM CLIs",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46962290",
+        "score": 3,
+        "created": "2026-02-10"
+      },
+      {
+        "title": "Show HN: ClawNet – Agent-first communication infrastructure (email, DMs, feed)",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47201068",
+        "score": 3,
+        "created": "2026-02-28"
+      },
+      {
+        "title": "Show HN: Inconvo – open-source chat-with-data agent that doesn't generate SQL",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47078279",
+        "score": 3,
+        "created": "2026-02-19"
+      }
+    ],
+    "communityQuotes": [
+      {
+        "text": "As an engineer and a daily if not hourly user of Claude Code, I would never dream I could do the jobs of my product &#x2F; designer teammates. Not because I don’t have opinions on product or design, but simply because they do me the huge service of attending meetings so I don’...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "DeepL | Full-time | London, Berlin&#x2F;Munich, New York | HYBRID At DeepL, we're building intelligent, trusted AI for language and beyond. Hiring for technical roles: Engineering (21 roles): Software Engineers (Backend, Full-Stack, API, Voice), Data Scientists, Analytics Engi...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "SEEKING REMOTE UI&#x2F;UX DESIGN OPPORTUNITIES Location: India Remote: Yes Willing to relocate: Open to discuss Technologies: Figma, Canva, Figjam, Notion, Miro, Visily, Maze, Jitter, Asana, AI, Framer, Wireframing, Prototyping, Mockups, Microinteractions, User Research, Compe...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "I was watching a film from 1959 where the main character just swaps headlights and tires from completely different cars like they were just nominally interchangeable. It feels like the era of standardization already came and went. It seems like product designers are now being ...",
+        "source": "Hacker News",
+        "score": 0
+      }
+    ],
+    "communityKeywords": [
+      {
+        "word": "Figma",
+        "count": 12
+      },
+      {
+        "word": "Claude",
+        "count": 7
+      },
+      {
+        "word": "Framer",
+        "count": 7
+      },
+      {
+        "word": "Design Systems",
+        "count": 4
+      },
+      {
+        "word": "Canva",
+        "count": 3
+      },
+      {
+        "word": "FigJam",
+        "count": 3
+      },
+      {
+        "word": "Miro",
+        "count": 3
+      },
+      {
+        "word": "Notion",
+        "count": 3
+      },
+      {
+        "word": "Cursor",
+        "count": 2
+      },
+      {
+        "word": "Freelance",
+        "count": 1
+      }
+    ],
+    "layoffMentions": 0,
+    "hiringMentions": 3,
+    "aiMentions": 13
+  },
+  "postingAnalysis": {
+    "topSkills": [
+      {
+        "skill": "Active Listening",
+        "frequencyPercent": 98
+      },
+      {
+        "skill": "Reading Comprehension",
+        "frequencyPercent": 92
+      },
+      {
+        "skill": "Complex Problem Solving",
+        "frequencyPercent": 87
+      },
+      {
+        "skill": "Critical Thinking",
+        "frequencyPercent": 81
+      },
+      {
+        "skill": "Speaking",
+        "frequencyPercent": 76
+      },
+      {
+        "skill": "Judgment and Decision Making",
+        "frequencyPercent": 69
+      },
+      {
+        "skill": "Operations Analysis",
+        "frequencyPercent": 63
+      },
+      {
+        "skill": "Time Management",
+        "frequencyPercent": 57
+      }
+    ],
+    "commonResponsibilities": [
+      "Prepare sketches of ideas, detailed drawings, illustrations, artwork, or blueprints, using drafting instruments, paints and brushes, or computer-aided design equipment.",
+      "Modify and refine designs, using working models, to conform with customer specifications, production limitations, or changes in design trends.",
+      "Evaluate feasibility of design ideas, based on factors such as appearance, safety, function, serviceability, budget, production costs/methods, and market characteristics.",
+      "Confer with engineering, marketing, production, or sales departments, or with customers, to establish and evaluate design concepts for manufactured products.",
+      "Present designs and reports to customers or design committees for approval and discuss need for modification.",
+      "Research production specifications, costs, production materials, and manufacturing methods and provide cost estimates and itemized production requirements."
+    ],
+    "roleDefinition": "Combines UX, UI, and interaction design to shape the end-to-end experience of digital products, working closely with product managers and engineers."
+  }
+}

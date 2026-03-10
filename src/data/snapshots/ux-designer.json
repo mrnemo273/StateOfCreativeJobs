@@ -1,1 +1,352 @@
-{"title":"UX Designer","slug":"ux-designer","cluster":"product-ux","description":"Designs intuitive user experiences through research, wireframing, prototyping, and usability testing across digital products.","lastUpdated":"2026-03-09","demand":{"openingsCount":12614,"openingsTrend":[{"date":"2025-03","value":18},{"date":"2025-04","value":18},{"date":"2025-05","value":17},{"date":"2025-06","value":21},{"date":"2025-07","value":62},{"date":"2025-08","value":17},{"date":"2025-09","value":16},{"date":"2025-10","value":18},{"date":"2025-11","value":13},{"date":"2025-12","value":15},{"date":"2026-01","value":21},{"date":"2026-02","value":16},{"date":"2026-03","value":10}],"yoyChange":-44.4,"topHiringLocations":["Texas","Maryland"]},"salary":{"medianUSD":111450,"rangeMin":64990,"rangeMax":192180,"trend":[{"date":"2025-04","value":110265},{"date":"2025-05","value":111998},{"date":"2025-06","value":112408},{"date":"2025-07","value":113160},{"date":"2025-08","value":107641},{"date":"2025-09","value":111514},{"date":"2025-10","value":116999},{"date":"2025-11","value":110581},{"date":"2025-12","value":111554},{"date":"2026-01","value":108464},{"date":"2026-02","value":115112},{"date":"2026-03","value":111796}],"yoyChange":0,"topPayingIndustries":[]},"aiImpact":{"score":15,"scoreLabel":"Low","riskFactors":["Develop Web site maps, application models, image templates, or page templates that meet project goals, user needs, or industry standards.","Develop, validate, and document test routines and schedules to ensure that test cases mimic external interfaces and address all browser and device types.","Perform Web site tests according to planned schedules, or after any Web site or product revision."],"protectiveFactors":["Collaborate with management or users to develop e-commerce strategies and to integrate these strategies with Web sites.","Collaborate with web development professionals, such as front-end or back-end developers, to complete the full scope of Web development projects.","Confer with management or development teams to prioritize needs, resolve conflicts, develop content criteria, or choose solutions."],"trend":[{"date":"2025-04","value":14},{"date":"2025-05","value":15},{"date":"2025-06","value":15},{"date":"2025-07","value":15},{"date":"2025-08","value":15},{"date":"2025-09","value":15},{"date":"2025-10","value":15},{"date":"2025-11","value":14},{"date":"2025-12","value":15},{"date":"2026-01","value":14},{"date":"2026-02","value":16},{"date":"2026-03","value":15}],"scoreExplainer":"Based on analysis of 30 task descriptions from O*NET. Score reflects the ratio of automatable vs. human-centric tasks."},"skills":{"rising":[],"declining":[]},"sentiment":{"score":20,"label":"Neutral","recentHeadlines":[],"sources":["Hacker News"],"communityPosts":[{"title":"Show HN: Linex – A daily challenge: placing pieces on a board that fights back","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47145082","score":82,"created":"2026-02-24"},{"title":"Cursor switches pay-per-token when your plan limit end. Calls \"On-Demand usage\"","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46966879","score":11,"created":"2026-02-10"},{"title":"Show HN: Auctionnow.io – Launch a store to sell items via auction or buy-it-now","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47251709","score":7,"created":"2026-03-04"},{"title":"Show HN: Mowgli – Figma for the agent era, with Claude Code and design export","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47197662","score":6,"created":"2026-02-28"},{"title":"Show HN: AILA – Local-first autonomous agent with zero-remote-override","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47035651","score":5,"created":"2026-02-16"},{"title":"Show HN: A Vaadin Algebra and Calculus Solver Built with AI Assistance","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47116251","score":4,"created":"2026-02-23"},{"title":"Show HN: Shuffled - Daily word puzzle game","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46959704","score":4,"created":"2026-02-10"},{"title":"Free, local-first barcode generator (No server uploads)","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47107343","score":3,"created":"2026-02-22"},{"title":"Show HN: Arxel – Constraint-driven 3D building masses in the browser","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47249511","score":3,"created":"2026-03-04"},{"title":"Show HN: HushBrief – A stateless, zero-retention AI document summarizer","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47218614","score":3,"created":"2026-03-02"}],"communityQuotes":[{"text":"James Coulter | UX&#x2F;UI Engineer &#x2F; Product Designer who codes | Devtool&#x2F;Big Data focus Location: EU remote &#x2F; open to relocate Technologies: Figma, Customer&#x2F;User Research, Design Systems, Rapid Prototyping, Shipping production code HTML&#x2F;CSS&#x2F;JS&#...","source":"Hacker News","score":0},{"text":"traders use bloomberg terminals at $30,000&#x2F;yr they don't theoretically have to aside from that industry going that direction and the stickiness of communication through it, but it simplifies some of their job it didn't revolutionize trading or make it more democratized, d...","source":"Hacker News","score":0},{"text":"It's all just rearranging deck chairs at this point. I feel like UX designers don't realize that their job should have a natural tailing off as we discover and lock in the good ideas and discard the bad. Even if the ideas aren't that great, users can at least get good at howev...","source":"Hacker News","score":0},{"text":"Us+AI lets you build a virtual startup team by assigning AI agents to real org chart roles (Product Manager, CTO, Marketing Expert, Legal Advisor, Finance, UX Designer, Growth Hacker, etc.), each with custom system prompts and granular access to 58+ skills &#x2F; 250+ tools (G...","source":"Hacker News","score":0}],"communityKeywords":[{"word":"Figma","count":9},{"word":"Webflow","count":4},{"word":"Framer","count":2},{"word":"Design Systems","count":2},{"word":"GitHub Copilot","count":1},{"word":"Copilot","count":1},{"word":"Claude","count":1},{"word":"Cursor","count":1},{"word":"Adobe XD","count":1},{"word":"Canva","count":1}],"layoffMentions":0,"hiringMentions":3,"aiMentions":8},"postingAnalysis":{"topSkills":[],"commonResponsibilities":[],"roleDefinition":"Designs intuitive user experiences through research, wireframing, prototyping, and usability testing across digital products."}}
+{
+  "title": "UX Designer",
+  "slug": "ux-designer",
+  "cluster": "product-ux",
+  "description": "Designs intuitive user experiences through research, wireframing, prototyping, and usability testing across digital products.",
+  "lastUpdated": "2026-03-09",
+  "demand": {
+    "openingsCount": 12614,
+    "openingsTrend": [
+      {
+        "date": "2025-03",
+        "value": 18
+      },
+      {
+        "date": "2025-04",
+        "value": 18
+      },
+      {
+        "date": "2025-05",
+        "value": 17
+      },
+      {
+        "date": "2025-06",
+        "value": 21
+      },
+      {
+        "date": "2025-07",
+        "value": 62
+      },
+      {
+        "date": "2025-08",
+        "value": 17
+      },
+      {
+        "date": "2025-09",
+        "value": 16
+      },
+      {
+        "date": "2025-10",
+        "value": 18
+      },
+      {
+        "date": "2025-11",
+        "value": 13
+      },
+      {
+        "date": "2025-12",
+        "value": 15
+      },
+      {
+        "date": "2026-01",
+        "value": 21
+      },
+      {
+        "date": "2026-02",
+        "value": 16
+      },
+      {
+        "date": "2026-03",
+        "value": 10
+      }
+    ],
+    "yoyChange": -44.4,
+    "topHiringLocations": [
+      "Texas",
+      "Maryland"
+    ]
+  },
+  "salary": {
+    "medianUSD": 111450,
+    "rangeMin": 64990,
+    "rangeMax": 192180,
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 110265
+      },
+      {
+        "date": "2025-05",
+        "value": 111998
+      },
+      {
+        "date": "2025-06",
+        "value": 112408
+      },
+      {
+        "date": "2025-07",
+        "value": 113160
+      },
+      {
+        "date": "2025-08",
+        "value": 107641
+      },
+      {
+        "date": "2025-09",
+        "value": 111514
+      },
+      {
+        "date": "2025-10",
+        "value": 116999
+      },
+      {
+        "date": "2025-11",
+        "value": 110581
+      },
+      {
+        "date": "2025-12",
+        "value": 111554
+      },
+      {
+        "date": "2026-01",
+        "value": 108464
+      },
+      {
+        "date": "2026-02",
+        "value": 115112
+      },
+      {
+        "date": "2026-03",
+        "value": 111796
+      }
+    ],
+    "yoyChange": 0,
+    "topPayingIndustries": []
+  },
+  "aiImpact": {
+    "score": 36,
+    "scoreLabel": "Moderate",
+    "riskFactors": [
+      "Develop Web site maps, application models, image templates, or page templates that meet project goals, user needs, or industry standards.",
+      "Develop, validate, and document test routines and schedules to ensure that test cases mimic external interfaces and address all browser and device types.",
+      "Perform Web site tests according to planned schedules, or after any Web site or product revision."
+    ],
+    "protectiveFactors": [
+      "Collaborate with management or users to develop e-commerce strategies and to integrate these strategies with Web sites.",
+      "Collaborate with web development professionals, such as front-end or back-end developers, to complete the full scope of Web development projects.",
+      "Confer with management or development teams to prioritize needs, resolve conflicts, develop content criteria, or choose solutions."
+    ],
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 34
+      },
+      {
+        "date": "2025-05",
+        "value": 36
+      },
+      {
+        "date": "2025-06",
+        "value": 36
+      },
+      {
+        "date": "2025-07",
+        "value": 36
+      },
+      {
+        "date": "2025-08",
+        "value": 36
+      },
+      {
+        "date": "2025-09",
+        "value": 36
+      },
+      {
+        "date": "2025-10",
+        "value": 36
+      },
+      {
+        "date": "2025-11",
+        "value": 34
+      },
+      {
+        "date": "2025-12",
+        "value": 36
+      },
+      {
+        "date": "2026-01",
+        "value": 34
+      },
+      {
+        "date": "2026-02",
+        "value": 38
+      },
+      {
+        "date": "2026-03",
+        "value": 36
+      }
+    ],
+    "scoreExplainer": "Based on analysis of 30 O*NET task descriptions (40% weight) combined with tool displacement index (60% weight).",
+    "tools": [
+      "Figma AI",
+      "Galileo AI",
+      "Uizard"
+    ]
+  },
+  "skills": {
+    "rising": [],
+    "declining": []
+  },
+  "sentiment": {
+    "score": 20,
+    "label": "Neutral",
+    "recentHeadlines": [],
+    "sources": [
+      "Hacker News"
+    ],
+    "communityPosts": [
+      {
+        "title": "Show HN: Linex – A daily challenge: placing pieces on a board that fights back",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47145082",
+        "score": 82,
+        "created": "2026-02-24"
+      },
+      {
+        "title": "Cursor switches pay-per-token when your plan limit end. Calls \"On-Demand usage\"",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46966879",
+        "score": 11,
+        "created": "2026-02-10"
+      },
+      {
+        "title": "Show HN: Auctionnow.io – Launch a store to sell items via auction or buy-it-now",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47251709",
+        "score": 7,
+        "created": "2026-03-04"
+      },
+      {
+        "title": "Show HN: Mowgli – Figma for the agent era, with Claude Code and design export",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47197662",
+        "score": 6,
+        "created": "2026-02-28"
+      },
+      {
+        "title": "Show HN: AILA – Local-first autonomous agent with zero-remote-override",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47035651",
+        "score": 5,
+        "created": "2026-02-16"
+      },
+      {
+        "title": "Show HN: A Vaadin Algebra and Calculus Solver Built with AI Assistance",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47116251",
+        "score": 4,
+        "created": "2026-02-23"
+      },
+      {
+        "title": "Show HN: Shuffled - Daily word puzzle game",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46959704",
+        "score": 4,
+        "created": "2026-02-10"
+      },
+      {
+        "title": "Free, local-first barcode generator (No server uploads)",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47107343",
+        "score": 3,
+        "created": "2026-02-22"
+      },
+      {
+        "title": "Show HN: Arxel – Constraint-driven 3D building masses in the browser",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47249511",
+        "score": 3,
+        "created": "2026-03-04"
+      },
+      {
+        "title": "Show HN: HushBrief – A stateless, zero-retention AI document summarizer",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47218614",
+        "score": 3,
+        "created": "2026-03-02"
+      }
+    ],
+    "communityQuotes": [
+      {
+        "text": "James Coulter | UX&#x2F;UI Engineer &#x2F; Product Designer who codes | Devtool&#x2F;Big Data focus Location: EU remote &#x2F; open to relocate Technologies: Figma, Customer&#x2F;User Research, Design Systems, Rapid Prototyping, Shipping production code HTML&#x2F;CSS&#x2F;JS&#...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "traders use bloomberg terminals at $30,000&#x2F;yr they don't theoretically have to aside from that industry going that direction and the stickiness of communication through it, but it simplifies some of their job it didn't revolutionize trading or make it more democratized, d...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "It's all just rearranging deck chairs at this point. I feel like UX designers don't realize that their job should have a natural tailing off as we discover and lock in the good ideas and discard the bad. Even if the ideas aren't that great, users can at least get good at howev...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "Us+AI lets you build a virtual startup team by assigning AI agents to real org chart roles (Product Manager, CTO, Marketing Expert, Legal Advisor, Finance, UX Designer, Growth Hacker, etc.), each with custom system prompts and granular access to 58+ skills &#x2F; 250+ tools (G...",
+        "source": "Hacker News",
+        "score": 0
+      }
+    ],
+    "communityKeywords": [
+      {
+        "word": "Figma",
+        "count": 9
+      },
+      {
+        "word": "Webflow",
+        "count": 4
+      },
+      {
+        "word": "Framer",
+        "count": 2
+      },
+      {
+        "word": "Design Systems",
+        "count": 2
+      },
+      {
+        "word": "GitHub Copilot",
+        "count": 1
+      },
+      {
+        "word": "Copilot",
+        "count": 1
+      },
+      {
+        "word": "Claude",
+        "count": 1
+      },
+      {
+        "word": "Cursor",
+        "count": 1
+      },
+      {
+        "word": "Adobe XD",
+        "count": 1
+      },
+      {
+        "word": "Canva",
+        "count": 1
+      }
+    ],
+    "layoffMentions": 0,
+    "hiringMentions": 3,
+    "aiMentions": 8
+  },
+  "postingAnalysis": {
+    "topSkills": [],
+    "commonResponsibilities": [],
+    "roleDefinition": "Designs intuitive user experiences through research, wireframing, prototyping, and usability testing across digital products."
+  }
+}

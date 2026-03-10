@@ -1,1 +1,406 @@
-{"title":"Senior Product Designer","slug":"senior-product-designer","cluster":"product-ux","description":"Experienced product designer who leads end-to-end design for complex product areas, mentors junior designers, and influences design direction.","lastUpdated":"2026-03-09","demand":{"openingsCount":1251,"openingsTrend":[{"date":"2025-03","value":0},{"date":"2025-04","value":0},{"date":"2025-05","value":25},{"date":"2025-06","value":0},{"date":"2025-07","value":0},{"date":"2025-08","value":0},{"date":"2025-09","value":0},{"date":"2025-10","value":0},{"date":"2025-11","value":0},{"date":"2025-12","value":0},{"date":"2026-01","value":0},{"date":"2026-02","value":25},{"date":"2026-03","value":9}],"yoyChange":12.4,"topHiringLocations":["New York","California","Washington, D.C.","Massachusetts","Maryland"]},"salary":{"medianUSD":88000,"rangeMin":62040,"rangeMax":134840,"trend":[{"date":"2024-Q1","value":142000},{"date":"2024-Q2","value":144000},{"date":"2024-Q3","value":146000},{"date":"2024-Q4","value":148000},{"date":"2025-Q1","value":150000},{"date":"2025-Q2","value":151500},{"date":"2025-Q3","value":153000},{"date":"2025-Q4","value":155000}],"yoyChange":0,"topPayingIndustries":["Technology","Fintech","Healthcare Tech","E-commerce"]},"aiImpact":{"score":23,"scoreLabel":"Low","riskFactors":["Prepare sketches of ideas, detailed drawings, illustrations, artwork, or blueprints, using drafting instruments, paints and brushes, or computer-aided design equipment.","Direct and coordinate the fabrication of models or samples and the drafting of working drawings and specification sheets from sketches.","Investigate product characteristics such as the product's safety and handling qualities, its market appeal, how efficiently it can be produced, and ways of distributing, using, and maintaining it."],"protectiveFactors":["Present designs and reports to customers or design committees for approval and discuss need for modification."],"trend":[{"date":"2025-Q1","value":30},{"date":"2025-Q2","value":33},{"date":"2025-Q3","value":35},{"date":"2025-Q4","value":38}],"scoreExplainer":"Based on analysis of 17 task descriptions from O*NET. Score reflects the ratio of automatable vs. human-centric tasks."},"skills":{"rising":[{"skill":"Active Listening","changePercent":21},{"skill":"Reading Comprehension","changePercent":20},{"skill":"Complex Problem Solving","changePercent":19},{"skill":"Critical Thinking","changePercent":17},{"skill":"Speaking","changePercent":16},{"skill":"Judgment and Decision Making","changePercent":15},{"skill":"Operations Analysis","changePercent":14},{"skill":"Time Management","changePercent":12},{"skill":"Coordination","changePercent":11},{"skill":"Monitoring","changePercent":10}],"declining":[{"skill":"Internet browser software","changePercent":-20},{"skill":"Presentation software","changePercent":-17},{"skill":"Data base user interface and query software","changePercent":-6},{"skill":"Project management software","changePercent":-20},{"skill":"Process mapping and design software","changePercent":-18}]},"sentiment":{"score":80,"label":"Positive","recentHeadlines":[{"headline":"Product Design Hiring Surges as Companies Prioritize AI-Native Experiences","source":"TechCrunch","url":"#","date":"2026-02-22","sentiment":"positive"},{"headline":"Senior Product Designers Command Record Salaries in Competitive Talent Market","source":"LinkedIn Economic Graph","url":"#","date":"2026-02-14","sentiment":"positive"},{"headline":"The Rise of the Full-Stack Designer: Product Roles Expand Beyond Traditional UX","source":"UX Collective","url":"#","date":"2026-01-30","sentiment":"positive"},{"headline":"Healthcare and Fintech Drive Outsized Demand for Senior Design Talent","source":"Fast Company","url":"#","date":"2026-01-19","sentiment":"positive"},{"headline":"Product Design Teams Restructure Around AI Tools, Senior Roles Remain Central","source":"Design Week","url":"#","date":"2026-01-06","sentiment":"neutral"}],"sources":["TechCrunch","LinkedIn Economic Graph","UX Collective","Fast Company","Design Week","Hacker News"],"communityPosts":[{"title":"Show HN: A trainable, modular electronic nose for industrial use","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47234907","score":34,"created":"2026-03-03"},{"title":"Show HN: Mowgli – Figma for the agent era, with Claude Code and design export","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47197662","score":6,"created":"2026-02-28"},{"title":"Show HN: A real-time collaborative word puzzle inspired by NYT Spelling Bee","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46962825","score":2,"created":"2026-02-10"},{"title":"Show HN: I built a daily affirmation iOS app solo — what AI actually helped with","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47260470","score":2,"created":"2026-03-05"},{"title":"Show HN: Skales – Local AI agent desktop app (.exe/.dmg, 300MB idle RAM)","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47299856","score":2,"created":"2026-03-08"},{"title":"Show HN: I make Designgud to help founders with wide scope design needs","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46954959","score":1,"created":"2026-02-10"},{"title":"Nano Banana 2 Is Really Coming! Here's How to Access It Early","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47178063","score":1,"created":"2026-02-27"},{"title":"Show HN: EncroGram – Messaging When You Assume Everything Will Be Looked At","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46995951","score":1,"created":"2026-02-12"}],"communityQuotes":[{"text":"Location: Atlanta, GA, USA (ET) Remote: Yes (US) Willing to relocate: No Technologies: Interactive Prototypes, Design Systems, Figma, AI tools, HTML, CSS, Tailwind, JS Résumé&#x2F;CV: https:&#x2F;&#x2F;williamkriigel.com Email: wkriigel@gmail.com Looking for: Staff &#x2F; Seni...","source":"Hacker News","score":0},{"text":"Back by Sequoia Capital, Peregrine is the operational AI platform powering decision making and operations SF &#x2F; NYC &#x2F; DC | In-office 4 days | $130,000 - $275,000 [Leadership] Engineering Manager (SF) https:&#x2F;&#x2F;grnh.se&#x2F;s7yxefzs5us 8+ yrs - Staff SWE, AI (S...","source":"Hacker News","score":0},{"text":"Stack Influence | Multiple Openings: Full Stack Developer, Technical Product Manager, Product Designer & UX Research | Full-time | Remote (Worldwide) We’re a VC-backed, fully-remote, fast-growing creator marketplace connecting eCommerce brands with everyday social media users....","source":"Hacker News","score":0}],"communityKeywords":[{"word":"Figma","count":2},{"word":"Claude","count":1},{"word":"Design Systems","count":1}],"layoffMentions":0,"hiringMentions":0,"aiMentions":6},"postingAnalysis":{"topSkills":[{"skill":"Active Listening","frequencyPercent":98},{"skill":"Reading Comprehension","frequencyPercent":92},{"skill":"Complex Problem Solving","frequencyPercent":87},{"skill":"Critical Thinking","frequencyPercent":81},{"skill":"Speaking","frequencyPercent":76},{"skill":"Judgment and Decision Making","frequencyPercent":69},{"skill":"Operations Analysis","frequencyPercent":63},{"skill":"Time Management","frequencyPercent":57}],"commonResponsibilities":["Prepare sketches of ideas, detailed drawings, illustrations, artwork, or blueprints, using drafting instruments, paints and brushes, or computer-aided design equipment.","Modify and refine designs, using working models, to conform with customer specifications, production limitations, or changes in design trends.","Evaluate feasibility of design ideas, based on factors such as appearance, safety, function, serviceability, budget, production costs/methods, and market characteristics.","Confer with engineering, marketing, production, or sales departments, or with customers, to establish and evaluate design concepts for manufactured products.","Present designs and reports to customers or design committees for approval and discuss need for modification.","Research production specifications, costs, production materials, and manufacturing methods and provide cost estimates and itemized production requirements."],"roleDefinition":"Experienced product designer who leads end-to-end design for complex product areas, mentors junior designers, and influences design direction."}}
+{
+  "title": "Senior Product Designer",
+  "slug": "senior-product-designer",
+  "cluster": "product-ux",
+  "description": "Experienced product designer who leads end-to-end design for complex product areas, mentors junior designers, and influences design direction.",
+  "lastUpdated": "2026-03-09",
+  "demand": {
+    "openingsCount": 1251,
+    "openingsTrend": [
+      {
+        "date": "2025-03",
+        "value": 0
+      },
+      {
+        "date": "2025-04",
+        "value": 0
+      },
+      {
+        "date": "2025-05",
+        "value": 25
+      },
+      {
+        "date": "2025-06",
+        "value": 0
+      },
+      {
+        "date": "2025-07",
+        "value": 0
+      },
+      {
+        "date": "2025-08",
+        "value": 0
+      },
+      {
+        "date": "2025-09",
+        "value": 0
+      },
+      {
+        "date": "2025-10",
+        "value": 0
+      },
+      {
+        "date": "2025-11",
+        "value": 0
+      },
+      {
+        "date": "2025-12",
+        "value": 0
+      },
+      {
+        "date": "2026-01",
+        "value": 0
+      },
+      {
+        "date": "2026-02",
+        "value": 25
+      },
+      {
+        "date": "2026-03",
+        "value": 9
+      }
+    ],
+    "yoyChange": 12.4,
+    "topHiringLocations": [
+      "New York",
+      "California",
+      "Washington, D.C.",
+      "Massachusetts",
+      "Maryland"
+    ]
+  },
+  "salary": {
+    "medianUSD": 88000,
+    "rangeMin": 62040,
+    "rangeMax": 134840,
+    "trend": [
+      {
+        "date": "2024-Q1",
+        "value": 142000
+      },
+      {
+        "date": "2024-Q2",
+        "value": 144000
+      },
+      {
+        "date": "2024-Q3",
+        "value": 146000
+      },
+      {
+        "date": "2024-Q4",
+        "value": 148000
+      },
+      {
+        "date": "2025-Q1",
+        "value": 150000
+      },
+      {
+        "date": "2025-Q2",
+        "value": 151500
+      },
+      {
+        "date": "2025-Q3",
+        "value": 153000
+      },
+      {
+        "date": "2025-Q4",
+        "value": 155000
+      }
+    ],
+    "yoyChange": 0,
+    "topPayingIndustries": [
+      "Technology",
+      "Fintech",
+      "Healthcare Tech",
+      "E-commerce"
+    ]
+  },
+  "aiImpact": {
+    "score": 36,
+    "scoreLabel": "Moderate",
+    "riskFactors": [
+      "Prepare sketches of ideas, detailed drawings, illustrations, artwork, or blueprints, using drafting instruments, paints and brushes, or computer-aided design equipment.",
+      "Direct and coordinate the fabrication of models or samples and the drafting of working drawings and specification sheets from sketches.",
+      "Investigate product characteristics such as the product's safety and handling qualities, its market appeal, how efficiently it can be produced, and ways of distributing, using, and maintaining it."
+    ],
+    "protectiveFactors": [
+      "Present designs and reports to customers or design committees for approval and discuss need for modification."
+    ],
+    "trend": [
+      {
+        "date": "2025-Q1",
+        "value": 47
+      },
+      {
+        "date": "2025-Q2",
+        "value": 52
+      },
+      {
+        "date": "2025-Q3",
+        "value": 55
+      },
+      {
+        "date": "2025-Q4",
+        "value": 59
+      }
+    ],
+    "scoreExplainer": "Based on analysis of 17 O*NET task descriptions (40% weight) combined with tool displacement index (60% weight).",
+    "tools": [
+      "Figma AI",
+      "Galileo AI",
+      "v0"
+    ]
+  },
+  "skills": {
+    "rising": [
+      {
+        "skill": "Active Listening",
+        "changePercent": 21
+      },
+      {
+        "skill": "Reading Comprehension",
+        "changePercent": 20
+      },
+      {
+        "skill": "Complex Problem Solving",
+        "changePercent": 19
+      },
+      {
+        "skill": "Critical Thinking",
+        "changePercent": 17
+      },
+      {
+        "skill": "Speaking",
+        "changePercent": 16
+      },
+      {
+        "skill": "Judgment and Decision Making",
+        "changePercent": 15
+      },
+      {
+        "skill": "Operations Analysis",
+        "changePercent": 14
+      },
+      {
+        "skill": "Time Management",
+        "changePercent": 12
+      },
+      {
+        "skill": "Coordination",
+        "changePercent": 11
+      },
+      {
+        "skill": "Monitoring",
+        "changePercent": 10
+      }
+    ],
+    "declining": [
+      {
+        "skill": "Internet browser software",
+        "changePercent": -20
+      },
+      {
+        "skill": "Presentation software",
+        "changePercent": -17
+      },
+      {
+        "skill": "Data base user interface and query software",
+        "changePercent": -6
+      },
+      {
+        "skill": "Project management software",
+        "changePercent": -20
+      },
+      {
+        "skill": "Process mapping and design software",
+        "changePercent": -18
+      }
+    ]
+  },
+  "sentiment": {
+    "score": 80,
+    "label": "Positive",
+    "recentHeadlines": [
+      {
+        "headline": "Product Design Hiring Surges as Companies Prioritize AI-Native Experiences",
+        "source": "TechCrunch",
+        "url": "#",
+        "date": "2026-02-22",
+        "sentiment": "positive"
+      },
+      {
+        "headline": "Senior Product Designers Command Record Salaries in Competitive Talent Market",
+        "source": "LinkedIn Economic Graph",
+        "url": "#",
+        "date": "2026-02-14",
+        "sentiment": "positive"
+      },
+      {
+        "headline": "The Rise of the Full-Stack Designer: Product Roles Expand Beyond Traditional UX",
+        "source": "UX Collective",
+        "url": "#",
+        "date": "2026-01-30",
+        "sentiment": "positive"
+      },
+      {
+        "headline": "Healthcare and Fintech Drive Outsized Demand for Senior Design Talent",
+        "source": "Fast Company",
+        "url": "#",
+        "date": "2026-01-19",
+        "sentiment": "positive"
+      },
+      {
+        "headline": "Product Design Teams Restructure Around AI Tools, Senior Roles Remain Central",
+        "source": "Design Week",
+        "url": "#",
+        "date": "2026-01-06",
+        "sentiment": "neutral"
+      }
+    ],
+    "sources": [
+      "TechCrunch",
+      "LinkedIn Economic Graph",
+      "UX Collective",
+      "Fast Company",
+      "Design Week",
+      "Hacker News"
+    ],
+    "communityPosts": [
+      {
+        "title": "Show HN: A trainable, modular electronic nose for industrial use",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47234907",
+        "score": 34,
+        "created": "2026-03-03"
+      },
+      {
+        "title": "Show HN: Mowgli – Figma for the agent era, with Claude Code and design export",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47197662",
+        "score": 6,
+        "created": "2026-02-28"
+      },
+      {
+        "title": "Show HN: A real-time collaborative word puzzle inspired by NYT Spelling Bee",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46962825",
+        "score": 2,
+        "created": "2026-02-10"
+      },
+      {
+        "title": "Show HN: I built a daily affirmation iOS app solo — what AI actually helped with",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47260470",
+        "score": 2,
+        "created": "2026-03-05"
+      },
+      {
+        "title": "Show HN: Skales – Local AI agent desktop app (.exe/.dmg, 300MB idle RAM)",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47299856",
+        "score": 2,
+        "created": "2026-03-08"
+      },
+      {
+        "title": "Show HN: I make Designgud to help founders with wide scope design needs",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46954959",
+        "score": 1,
+        "created": "2026-02-10"
+      },
+      {
+        "title": "Nano Banana 2 Is Really Coming! Here's How to Access It Early",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47178063",
+        "score": 1,
+        "created": "2026-02-27"
+      },
+      {
+        "title": "Show HN: EncroGram – Messaging When You Assume Everything Will Be Looked At",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46995951",
+        "score": 1,
+        "created": "2026-02-12"
+      }
+    ],
+    "communityQuotes": [
+      {
+        "text": "Location: Atlanta, GA, USA (ET) Remote: Yes (US) Willing to relocate: No Technologies: Interactive Prototypes, Design Systems, Figma, AI tools, HTML, CSS, Tailwind, JS Résumé&#x2F;CV: https:&#x2F;&#x2F;williamkriigel.com Email: wkriigel@gmail.com Looking for: Staff &#x2F; Seni...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "Back by Sequoia Capital, Peregrine is the operational AI platform powering decision making and operations SF &#x2F; NYC &#x2F; DC | In-office 4 days | $130,000 - $275,000 [Leadership] Engineering Manager (SF) https:&#x2F;&#x2F;grnh.se&#x2F;s7yxefzs5us 8+ yrs - Staff SWE, AI (S...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "Stack Influence | Multiple Openings: Full Stack Developer, Technical Product Manager, Product Designer & UX Research | Full-time | Remote (Worldwide) We’re a VC-backed, fully-remote, fast-growing creator marketplace connecting eCommerce brands with everyday social media users....",
+        "source": "Hacker News",
+        "score": 0
+      }
+    ],
+    "communityKeywords": [
+      {
+        "word": "Figma",
+        "count": 2
+      },
+      {
+        "word": "Claude",
+        "count": 1
+      },
+      {
+        "word": "Design Systems",
+        "count": 1
+      }
+    ],
+    "layoffMentions": 0,
+    "hiringMentions": 0,
+    "aiMentions": 6
+  },
+  "postingAnalysis": {
+    "topSkills": [
+      {
+        "skill": "Active Listening",
+        "frequencyPercent": 98
+      },
+      {
+        "skill": "Reading Comprehension",
+        "frequencyPercent": 92
+      },
+      {
+        "skill": "Complex Problem Solving",
+        "frequencyPercent": 87
+      },
+      {
+        "skill": "Critical Thinking",
+        "frequencyPercent": 81
+      },
+      {
+        "skill": "Speaking",
+        "frequencyPercent": 76
+      },
+      {
+        "skill": "Judgment and Decision Making",
+        "frequencyPercent": 69
+      },
+      {
+        "skill": "Operations Analysis",
+        "frequencyPercent": 63
+      },
+      {
+        "skill": "Time Management",
+        "frequencyPercent": 57
+      }
+    ],
+    "commonResponsibilities": [
+      "Prepare sketches of ideas, detailed drawings, illustrations, artwork, or blueprints, using drafting instruments, paints and brushes, or computer-aided design equipment.",
+      "Modify and refine designs, using working models, to conform with customer specifications, production limitations, or changes in design trends.",
+      "Evaluate feasibility of design ideas, based on factors such as appearance, safety, function, serviceability, budget, production costs/methods, and market characteristics.",
+      "Confer with engineering, marketing, production, or sales departments, or with customers, to establish and evaluate design concepts for manufactured products.",
+      "Present designs and reports to customers or design committees for approval and discuss need for modification.",
+      "Research production specifications, costs, production materials, and manufacturing methods and provide cost estimates and itemized production requirements."
+    ],
+    "roleDefinition": "Experienced product designer who leads end-to-end design for complex product areas, mentors junior designers, and influences design direction."
+  }
+}

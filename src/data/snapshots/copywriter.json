@@ -1,1 +1,375 @@
-{"title":"Copywriter","slug":"copywriter","cluster":"content-copy","description":"Writes persuasive and engaging copy for advertising, marketing campaigns, websites, and brand communications.","lastUpdated":"2026-03-09","demand":{"openingsCount":3866,"openingsTrend":[{"date":"2025-03","value":76},{"date":"2025-04","value":72},{"date":"2025-05","value":75},{"date":"2025-06","value":70},{"date":"2025-07","value":72},{"date":"2025-08","value":71},{"date":"2025-09","value":61},{"date":"2025-10","value":55},{"date":"2025-11","value":58},{"date":"2025-12","value":43},{"date":"2026-01","value":60},{"date":"2026-02","value":52},{"date":"2026-03","value":48}],"yoyChange":-36.8,"topHiringLocations":["New York","California","Connecticut","Minnesota","New Jersey"]},"salary":{"medianUSD":85780,"rangeMin":52890,"rangeMax":133680,"trend":[{"date":"2024-Q1","value":92000},{"date":"2024-Q2","value":91500},{"date":"2024-Q3","value":91000},{"date":"2024-Q4","value":90500},{"date":"2025-Q1","value":90000},{"date":"2025-Q2","value":89500},{"date":"2025-Q3","value":89000},{"date":"2025-Q4","value":88000}],"yoyChange":0,"topPayingIndustries":["Technology","Financial Services","Healthcare","Advertising"]},"aiImpact":{"score":68,"scoreLabel":"Elevated","riskFactors":["Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.","Present drafts and ideas to clients.","Discuss with the client the product, advertising themes and methods, and any changes that should be made in advertising copy."],"protectiveFactors":["Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.","Present drafts and ideas to clients.","Collaborate with other writers on specific projects."],"trend":[{"date":"2025-Q1","value":52},{"date":"2025-Q2","value":59},{"date":"2025-Q3","value":66},{"date":"2025-Q4","value":72}],"scoreExplainer":"Based on analysis of 20 task descriptions from O*NET. Score reflects the ratio of automatable vs. human-centric tasks."},"skills":{"rising":[{"skill":"Writing","changePercent":21},{"skill":"Reading Comprehension","changePercent":20},{"skill":"Active Listening","changePercent":18},{"skill":"Speaking","changePercent":17},{"skill":"Critical Thinking","changePercent":15},{"skill":"Time Management","changePercent":14},{"skill":"Active Learning","changePercent":12},{"skill":"Coordination","changePercent":11},{"skill":"Persuasion","changePercent":9},{"skill":"Social Perceptiveness","changePercent":8}],"declining":[{"skill":"Graphical user interface development software","changePercent":-12},{"skill":"Instant messaging software","changePercent":-12},{"skill":"Data mining software","changePercent":-14},{"skill":"Project management software","changePercent":-7},{"skill":"Industrial control software","changePercent":-16}]},"sentiment":{"score":0,"label":"Mixed","recentHeadlines":[{"headline":"Freelance Copywriting Market Contracts 22% as Agencies Adopt AI Content Tools","source":"Digiday","url":"#","date":"2026-02-20","sentiment":"negative"},{"headline":"The Copywriter's Pivot: How Content Strategists Are Redefining the Role","source":"Content Marketing Institute","url":"#","date":"2026-02-08","sentiment":"neutral"},{"headline":"Major Publishers Cut In-House Copy Teams, Shift to AI-First Content Pipelines","source":"Ad Age","url":"#","date":"2026-01-25","sentiment":"negative"},{"headline":"Demand for Regulatory and Compliance Copywriters Bucks Downward Trend","source":"LinkedIn Economic Graph","url":"#","date":"2026-01-12","sentiment":"positive"},{"headline":"AI-Augmented Copywriters Report Higher Output but Industry Wages Stagnate","source":"Fast Company","url":"#","date":"2026-01-04","sentiment":"negative"}],"sources":["Digiday","Content Marketing Institute","Ad Age","LinkedIn Economic Graph","Fast Company","Hacker News"],"communityPosts":[{"title":"Ask HN: How do you know if AI agents will choose your tool?","source":"Hacker News","url":"https://news.ycombinator.com/item?id=47127532","score":38,"created":"2026-02-23"},{"title":"Most Accurate AI Detections Tools","source":"Hacker News","url":"https://news.ycombinator.com/item?id=46952469","score":2,"created":"2026-02-09"}],"communityQuotes":[{"text":"If they're cheap and churnable, they're also the easiest place to see substitution. Pre-AI, Company A hired 3 copywriters a year for their marketing team. Post-AI, they hire 1 who manages some prompting and makes some spot-tweaks, saving $80K a year and improving the turnaroun...","source":"Hacker News","score":0},{"text":"I do love that. My career is built on people not knowing how to Google lmao (IT) To most people, AI is chatGTP. Maybe Gemini. Claude? No idea. VS Code, Cursor, Antigraivity, Claude Code? Blank stares. Same as when the computer came, some will fall behind. Excel monkeys copy pa...","source":"Hacker News","score":0},{"text":"The one entry level job that's been wiped out for good by LLMs is human marketing copywriters, i.e. the people whose job was to come up with the kind of slop LLMs learned from. They're just rebranding as copyeditors now because AI can write the slop itself, or at least its fir...","source":"Hacker News","score":0},{"text":"I remember this was back in 2023, when ChatGPT had first launched, and I had a manager whose English was not very good. He started sending emails that felt like they were written by a copywriter. And the messaging was so hard to parse through because there's so much ChatGPT fl...","source":"Hacker News","score":0}],"communityKeywords":[{"word":"Claude","count":3},{"word":"ChatGPT","count":2},{"word":"Cursor","count":2},{"word":"Photoshop","count":1}],"layoffMentions":1,"hiringMentions":4,"aiMentions":15},"postingAnalysis":{"topSkills":[{"skill":"Writing","frequencyPercent":98},{"skill":"Reading Comprehension","frequencyPercent":91},{"skill":"Active Listening","frequencyPercent":84},{"skill":"Speaking","frequencyPercent":77},{"skill":"Critical Thinking","frequencyPercent":70},{"skill":"Time Management","frequencyPercent":63},{"skill":"Active Learning","frequencyPercent":56},{"skill":"Coordination","frequencyPercent":49}],"commonResponsibilities":["Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.","Vary language and tone of messages based on product and medium.","Present drafts and ideas to clients.","Discuss with the client the product, advertising themes and methods, and any changes that should be made in advertising copy.","Review advertising trends, consumer surveys, and other data regarding marketing of goods and services to determine the best way to promote products.","Write articles, bulletins, sales letters, speeches, and other related informative, marketing and promotional material."],"roleDefinition":"Writes persuasive and engaging copy for advertising, marketing campaigns, websites, and brand communications."}}
+{
+  "title": "Copywriter",
+  "slug": "copywriter",
+  "cluster": "content-copy",
+  "description": "Writes persuasive and engaging copy for advertising, marketing campaigns, websites, and brand communications.",
+  "lastUpdated": "2026-03-09",
+  "demand": {
+    "openingsCount": 3866,
+    "openingsTrend": [
+      {
+        "date": "2025-03",
+        "value": 76
+      },
+      {
+        "date": "2025-04",
+        "value": 72
+      },
+      {
+        "date": "2025-05",
+        "value": 75
+      },
+      {
+        "date": "2025-06",
+        "value": 70
+      },
+      {
+        "date": "2025-07",
+        "value": 72
+      },
+      {
+        "date": "2025-08",
+        "value": 71
+      },
+      {
+        "date": "2025-09",
+        "value": 61
+      },
+      {
+        "date": "2025-10",
+        "value": 55
+      },
+      {
+        "date": "2025-11",
+        "value": 58
+      },
+      {
+        "date": "2025-12",
+        "value": 43
+      },
+      {
+        "date": "2026-01",
+        "value": 60
+      },
+      {
+        "date": "2026-02",
+        "value": 52
+      },
+      {
+        "date": "2026-03",
+        "value": 48
+      }
+    ],
+    "yoyChange": -36.8,
+    "topHiringLocations": [
+      "New York",
+      "California",
+      "Connecticut",
+      "Minnesota",
+      "New Jersey"
+    ]
+  },
+  "salary": {
+    "medianUSD": 85780,
+    "rangeMin": 52890,
+    "rangeMax": 133680,
+    "trend": [
+      {
+        "date": "2024-Q1",
+        "value": 92000
+      },
+      {
+        "date": "2024-Q2",
+        "value": 91500
+      },
+      {
+        "date": "2024-Q3",
+        "value": 91000
+      },
+      {
+        "date": "2024-Q4",
+        "value": 90500
+      },
+      {
+        "date": "2025-Q1",
+        "value": 90000
+      },
+      {
+        "date": "2025-Q2",
+        "value": 89500
+      },
+      {
+        "date": "2025-Q3",
+        "value": 89000
+      },
+      {
+        "date": "2025-Q4",
+        "value": 88000
+      }
+    ],
+    "yoyChange": 0,
+    "topPayingIndustries": [
+      "Technology",
+      "Financial Services",
+      "Healthcare",
+      "Advertising"
+    ]
+  },
+  "aiImpact": {
+    "score": 76,
+    "scoreLabel": "High",
+    "riskFactors": [
+      "Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.",
+      "Present drafts and ideas to clients.",
+      "Discuss with the client the product, advertising themes and methods, and any changes that should be made in advertising copy."
+    ],
+    "protectiveFactors": [
+      "Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.",
+      "Present drafts and ideas to clients.",
+      "Collaborate with other writers on specific projects."
+    ],
+    "trend": [
+      {
+        "date": "2025-Q1",
+        "value": 58
+      },
+      {
+        "date": "2025-Q2",
+        "value": 66
+      },
+      {
+        "date": "2025-Q3",
+        "value": 74
+      },
+      {
+        "date": "2025-Q4",
+        "value": 80
+      }
+    ],
+    "scoreExplainer": "Based on analysis of 20 O*NET task descriptions (40% weight) combined with tool displacement index (60% weight).",
+    "tools": [
+      "GPT-4o",
+      "Claude",
+      "Gemini"
+    ]
+  },
+  "skills": {
+    "rising": [
+      {
+        "skill": "Writing",
+        "changePercent": 21
+      },
+      {
+        "skill": "Reading Comprehension",
+        "changePercent": 20
+      },
+      {
+        "skill": "Active Listening",
+        "changePercent": 18
+      },
+      {
+        "skill": "Speaking",
+        "changePercent": 17
+      },
+      {
+        "skill": "Critical Thinking",
+        "changePercent": 15
+      },
+      {
+        "skill": "Time Management",
+        "changePercent": 14
+      },
+      {
+        "skill": "Active Learning",
+        "changePercent": 12
+      },
+      {
+        "skill": "Coordination",
+        "changePercent": 11
+      },
+      {
+        "skill": "Persuasion",
+        "changePercent": 9
+      },
+      {
+        "skill": "Social Perceptiveness",
+        "changePercent": 8
+      }
+    ],
+    "declining": [
+      {
+        "skill": "Graphical user interface development software",
+        "changePercent": -12
+      },
+      {
+        "skill": "Instant messaging software",
+        "changePercent": -12
+      },
+      {
+        "skill": "Data mining software",
+        "changePercent": -14
+      },
+      {
+        "skill": "Project management software",
+        "changePercent": -7
+      },
+      {
+        "skill": "Industrial control software",
+        "changePercent": -16
+      }
+    ]
+  },
+  "sentiment": {
+    "score": 0,
+    "label": "Mixed",
+    "recentHeadlines": [
+      {
+        "headline": "Freelance Copywriting Market Contracts 22% as Agencies Adopt AI Content Tools",
+        "source": "Digiday",
+        "url": "#",
+        "date": "2026-02-20",
+        "sentiment": "negative"
+      },
+      {
+        "headline": "The Copywriter's Pivot: How Content Strategists Are Redefining the Role",
+        "source": "Content Marketing Institute",
+        "url": "#",
+        "date": "2026-02-08",
+        "sentiment": "neutral"
+      },
+      {
+        "headline": "Major Publishers Cut In-House Copy Teams, Shift to AI-First Content Pipelines",
+        "source": "Ad Age",
+        "url": "#",
+        "date": "2026-01-25",
+        "sentiment": "negative"
+      },
+      {
+        "headline": "Demand for Regulatory and Compliance Copywriters Bucks Downward Trend",
+        "source": "LinkedIn Economic Graph",
+        "url": "#",
+        "date": "2026-01-12",
+        "sentiment": "positive"
+      },
+      {
+        "headline": "AI-Augmented Copywriters Report Higher Output but Industry Wages Stagnate",
+        "source": "Fast Company",
+        "url": "#",
+        "date": "2026-01-04",
+        "sentiment": "negative"
+      }
+    ],
+    "sources": [
+      "Digiday",
+      "Content Marketing Institute",
+      "Ad Age",
+      "LinkedIn Economic Graph",
+      "Fast Company",
+      "Hacker News"
+    ],
+    "communityPosts": [
+      {
+        "title": "Ask HN: How do you know if AI agents will choose your tool?",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=47127532",
+        "score": 38,
+        "created": "2026-02-23"
+      },
+      {
+        "title": "Most Accurate AI Detections Tools",
+        "source": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=46952469",
+        "score": 2,
+        "created": "2026-02-09"
+      }
+    ],
+    "communityQuotes": [
+      {
+        "text": "If they're cheap and churnable, they're also the easiest place to see substitution. Pre-AI, Company A hired 3 copywriters a year for their marketing team. Post-AI, they hire 1 who manages some prompting and makes some spot-tweaks, saving $80K a year and improving the turnaroun...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "I do love that. My career is built on people not knowing how to Google lmao (IT) To most people, AI is chatGTP. Maybe Gemini. Claude? No idea. VS Code, Cursor, Antigraivity, Claude Code? Blank stares. Same as when the computer came, some will fall behind. Excel monkeys copy pa...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "The one entry level job that's been wiped out for good by LLMs is human marketing copywriters, i.e. the people whose job was to come up with the kind of slop LLMs learned from. They're just rebranding as copyeditors now because AI can write the slop itself, or at least its fir...",
+        "source": "Hacker News",
+        "score": 0
+      },
+      {
+        "text": "I remember this was back in 2023, when ChatGPT had first launched, and I had a manager whose English was not very good. He started sending emails that felt like they were written by a copywriter. And the messaging was so hard to parse through because there's so much ChatGPT fl...",
+        "source": "Hacker News",
+        "score": 0
+      }
+    ],
+    "communityKeywords": [
+      {
+        "word": "Claude",
+        "count": 3
+      },
+      {
+        "word": "ChatGPT",
+        "count": 2
+      },
+      {
+        "word": "Cursor",
+        "count": 2
+      },
+      {
+        "word": "Photoshop",
+        "count": 1
+      }
+    ],
+    "layoffMentions": 1,
+    "hiringMentions": 4,
+    "aiMentions": 15
+  },
+  "postingAnalysis": {
+    "topSkills": [
+      {
+        "skill": "Writing",
+        "frequencyPercent": 98
+      },
+      {
+        "skill": "Reading Comprehension",
+        "frequencyPercent": 91
+      },
+      {
+        "skill": "Active Listening",
+        "frequencyPercent": 84
+      },
+      {
+        "skill": "Speaking",
+        "frequencyPercent": 77
+      },
+      {
+        "skill": "Critical Thinking",
+        "frequencyPercent": 70
+      },
+      {
+        "skill": "Time Management",
+        "frequencyPercent": 63
+      },
+      {
+        "skill": "Active Learning",
+        "frequencyPercent": 56
+      },
+      {
+        "skill": "Coordination",
+        "frequencyPercent": 49
+      }
+    ],
+    "commonResponsibilities": [
+      "Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.",
+      "Vary language and tone of messages based on product and medium.",
+      "Present drafts and ideas to clients.",
+      "Discuss with the client the product, advertising themes and methods, and any changes that should be made in advertising copy.",
+      "Review advertising trends, consumer surveys, and other data regarding marketing of goods and services to determine the best way to promote products.",
+      "Write articles, bulletins, sales letters, speeches, and other related informative, marketing and promotional material."
+    ],
+    "roleDefinition": "Writes persuasive and engaging copy for advertising, marketing campaigns, websites, and brand communications."
+  }
+}

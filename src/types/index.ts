@@ -62,6 +62,7 @@ export type JobHealthSnapshot = {
     scoreLabel: "Low" | "Moderate" | "Elevated" | "High";
     riskFactors: string[];
     protectiveFactors: string[];
+    tools: string[];
     trend: TrendPoint[];
     scoreExplainer: string;
   };

@@ -1,1 +1,321 @@
-{"title":"Creative Copywriter","slug":"creative-copywriter","cluster":"content-copy","description":"Develops original creative concepts and headlines for advertising campaigns, blending strategic thinking with writing craft.","lastUpdated":"2026-03-09","demand":{"openingsCount":699,"openingsTrend":[{"date":"2025-03","value":0},{"date":"2025-04","value":25},{"date":"2025-05","value":0},{"date":"2025-06","value":0},{"date":"2025-07","value":0},{"date":"2025-08","value":0},{"date":"2025-09","value":0},{"date":"2025-10","value":0},{"date":"2025-11","value":0},{"date":"2025-12","value":0},{"date":"2026-01","value":0},{"date":"2026-02","value":2},{"date":"2026-03","value":5}],"yoyChange":0,"topHiringLocations":["Texas","New Jersey","Wisconsin","Arizona","Florida"]},"salary":{"medianUSD":85780,"rangeMin":52890,"rangeMax":133680,"trend":[{"date":"2025-04","value":81752},{"date":"2025-05","value":85315},{"date":"2025-06","value":89763},{"date":"2025-07","value":86088},{"date":"2025-08","value":88884},{"date":"2025-09","value":84246},{"date":"2025-10","value":82192},{"date":"2025-11","value":88766},{"date":"2025-12","value":86298},{"date":"2026-01","value":87121},{"date":"2026-02","value":84872},{"date":"2026-03","value":83329}],"yoyChange":0,"topPayingIndustries":[]},"aiImpact":{"score":68,"scoreLabel":"Elevated","riskFactors":["Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.","Present drafts and ideas to clients.","Discuss with the client the product, advertising themes and methods, and any changes that should be made in advertising copy."],"protectiveFactors":["Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.","Present drafts and ideas to clients.","Collaborate with other writers on specific projects."],"trend":[{"date":"2025-04","value":66},{"date":"2025-05","value":65},{"date":"2025-06","value":69},{"date":"2025-07","value":69},{"date":"2025-08","value":69},{"date":"2025-09","value":70},{"date":"2025-10","value":67},{"date":"2025-11","value":65},{"date":"2025-12","value":69},{"date":"2026-01","value":65},{"date":"2026-02","value":68},{"date":"2026-03","value":66}],"scoreExplainer":"Based on analysis of 20 task descriptions from O*NET. Score reflects the ratio of automatable vs. human-centric tasks."},"skills":{"rising":[{"skill":"Writing","changePercent":21},{"skill":"Reading Comprehension","changePercent":20},{"skill":"Active Listening","changePercent":18},{"skill":"Speaking","changePercent":17},{"skill":"Critical Thinking","changePercent":15},{"skill":"Time Management","changePercent":14},{"skill":"Active Learning","changePercent":12},{"skill":"Coordination","changePercent":11},{"skill":"Persuasion","changePercent":9},{"skill":"Social Perceptiveness","changePercent":8}],"declining":[{"skill":"Graphical user interface development software","changePercent":-9},{"skill":"Instant messaging software","changePercent":-19},{"skill":"Data mining software","changePercent":-15},{"skill":"Project management software","changePercent":-5},{"skill":"Industrial control software","changePercent":-16}]},"sentiment":{"score":0,"label":"Neutral","recentHeadlines":[],"sources":[],"communityPosts":[],"communityQuotes":[],"communityKeywords":[],"layoffMentions":0,"hiringMentions":0,"aiMentions":0},"postingAnalysis":{"topSkills":[{"skill":"Writing","frequencyPercent":98},{"skill":"Reading Comprehension","frequencyPercent":91},{"skill":"Active Listening","frequencyPercent":84},{"skill":"Speaking","frequencyPercent":77},{"skill":"Critical Thinking","frequencyPercent":70},{"skill":"Time Management","frequencyPercent":63},{"skill":"Active Learning","frequencyPercent":56},{"skill":"Coordination","frequencyPercent":49}],"commonResponsibilities":["Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.","Vary language and tone of messages based on product and medium.","Present drafts and ideas to clients.","Discuss with the client the product, advertising themes and methods, and any changes that should be made in advertising copy.","Review advertising trends, consumer surveys, and other data regarding marketing of goods and services to determine the best way to promote products.","Write articles, bulletins, sales letters, speeches, and other related informative, marketing and promotional material."],"roleDefinition":"Develops original creative concepts and headlines for advertising campaigns, blending strategic thinking with writing craft."}}
+{
+  "title": "Creative Copywriter",
+  "slug": "creative-copywriter",
+  "cluster": "content-copy",
+  "description": "Develops original creative concepts and headlines for advertising campaigns, blending strategic thinking with writing craft.",
+  "lastUpdated": "2026-03-09",
+  "demand": {
+    "openingsCount": 699,
+    "openingsTrend": [
+      {
+        "date": "2025-03",
+        "value": 0
+      },
+      {
+        "date": "2025-04",
+        "value": 25
+      },
+      {
+        "date": "2025-05",
+        "value": 0
+      },
+      {
+        "date": "2025-06",
+        "value": 0
+      },
+      {
+        "date": "2025-07",
+        "value": 0
+      },
+      {
+        "date": "2025-08",
+        "value": 0
+      },
+      {
+        "date": "2025-09",
+        "value": 0
+      },
+      {
+        "date": "2025-10",
+        "value": 0
+      },
+      {
+        "date": "2025-11",
+        "value": 0
+      },
+      {
+        "date": "2025-12",
+        "value": 0
+      },
+      {
+        "date": "2026-01",
+        "value": 0
+      },
+      {
+        "date": "2026-02",
+        "value": 2
+      },
+      {
+        "date": "2026-03",
+        "value": 5
+      }
+    ],
+    "yoyChange": 0,
+    "topHiringLocations": [
+      "Texas",
+      "New Jersey",
+      "Wisconsin",
+      "Arizona",
+      "Florida"
+    ]
+  },
+  "salary": {
+    "medianUSD": 85780,
+    "rangeMin": 52890,
+    "rangeMax": 133680,
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 81752
+      },
+      {
+        "date": "2025-05",
+        "value": 85315
+      },
+      {
+        "date": "2025-06",
+        "value": 89763
+      },
+      {
+        "date": "2025-07",
+        "value": 86088
+      },
+      {
+        "date": "2025-08",
+        "value": 88884
+      },
+      {
+        "date": "2025-09",
+        "value": 84246
+      },
+      {
+        "date": "2025-10",
+        "value": 82192
+      },
+      {
+        "date": "2025-11",
+        "value": 88766
+      },
+      {
+        "date": "2025-12",
+        "value": 86298
+      },
+      {
+        "date": "2026-01",
+        "value": 87121
+      },
+      {
+        "date": "2026-02",
+        "value": 84872
+      },
+      {
+        "date": "2026-03",
+        "value": 83329
+      }
+    ],
+    "yoyChange": 0,
+    "topPayingIndustries": []
+  },
+  "aiImpact": {
+    "score": 66,
+    "scoreLabel": "Elevated",
+    "riskFactors": [
+      "Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.",
+      "Present drafts and ideas to clients.",
+      "Discuss with the client the product, advertising themes and methods, and any changes that should be made in advertising copy."
+    ],
+    "protectiveFactors": [
+      "Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.",
+      "Present drafts and ideas to clients.",
+      "Collaborate with other writers on specific projects."
+    ],
+    "trend": [
+      {
+        "date": "2025-04",
+        "value": 64
+      },
+      {
+        "date": "2025-05",
+        "value": 63
+      },
+      {
+        "date": "2025-06",
+        "value": 67
+      },
+      {
+        "date": "2025-07",
+        "value": 67
+      },
+      {
+        "date": "2025-08",
+        "value": 67
+      },
+      {
+        "date": "2025-09",
+        "value": 68
+      },
+      {
+        "date": "2025-10",
+        "value": 65
+      },
+      {
+        "date": "2025-11",
+        "value": 63
+      },
+      {
+        "date": "2025-12",
+        "value": 67
+      },
+      {
+        "date": "2026-01",
+        "value": 63
+      },
+      {
+        "date": "2026-02",
+        "value": 66
+      },
+      {
+        "date": "2026-03",
+        "value": 64
+      }
+    ],
+    "scoreExplainer": "Based on analysis of 20 O*NET task descriptions (40% weight) combined with tool displacement index (60% weight).",
+    "tools": [
+      "GPT-4o",
+      "Claude"
+    ]
+  },
+  "skills": {
+    "rising": [
+      {
+        "skill": "Writing",
+        "changePercent": 21
+      },
+      {
+        "skill": "Reading Comprehension",
+        "changePercent": 20
+      },
+      {
+        "skill": "Active Listening",
+        "changePercent": 18
+      },
+      {
+        "skill": "Speaking",
+        "changePercent": 17
+      },
+      {
+        "skill": "Critical Thinking",
+        "changePercent": 15
+      },
+      {
+        "skill": "Time Management",
+        "changePercent": 14
+      },
+      {
+        "skill": "Active Learning",
+        "changePercent": 12
+      },
+      {
+        "skill": "Coordination",
+        "changePercent": 11
+      },
+      {
+        "skill": "Persuasion",
+        "changePercent": 9
+      },
+      {
+        "skill": "Social Perceptiveness",
+        "changePercent": 8
+      }
+    ],
+    "declining": [
+      {
+        "skill": "Graphical user interface development software",
+        "changePercent": -9
+      },
+      {
+        "skill": "Instant messaging software",
+        "changePercent": -19
+      },
+      {
+        "skill": "Data mining software",
+        "changePercent": -15
+      },
+      {
+        "skill": "Project management software",
+        "changePercent": -5
+      },
+      {
+        "skill": "Industrial control software",
+        "changePercent": -16
+      }
+    ]
+  },
+  "sentiment": {
+    "score": 0,
+    "label": "Neutral",
+    "recentHeadlines": [],
+    "sources": [],
+    "communityPosts": [],
+    "communityQuotes": [],
+    "communityKeywords": [],
+    "layoffMentions": 0,
+    "hiringMentions": 0,
+    "aiMentions": 0
+  },
+  "postingAnalysis": {
+    "topSkills": [
+      {
+        "skill": "Writing",
+        "frequencyPercent": 98
+      },
+      {
+        "skill": "Reading Comprehension",
+        "frequencyPercent": 91
+      },
+      {
+        "skill": "Active Listening",
+        "frequencyPercent": 84
+      },
+      {
+        "skill": "Speaking",
+        "frequencyPercent": 77
+      },
+      {
+        "skill": "Critical Thinking",
+        "frequencyPercent": 70
+      },
+      {
+        "skill": "Time Management",
+        "frequencyPercent": 63
+      },
+      {
+        "skill": "Active Learning",
+        "frequencyPercent": 56
+      },
+      {
+        "skill": "Coordination",
+        "frequencyPercent": 49
+      }
+    ],
+    "commonResponsibilities": [
+      "Develop advertising campaigns for a wide range of clients, working with an advertising agency's creative director and art director to determine the best way to present advertising information.",
+      "Vary language and tone of messages based on product and medium.",
+      "Present drafts and ideas to clients.",
+      "Discuss with the client the product, advertising themes and methods, and any changes that should be made in advertising copy.",
+      "Review advertising trends, consumer surveys, and other data regarding marketing of goods and services to determine the best way to promote products.",
+      "Write articles, bulletins, sales letters, speeches, and other related informative, marketing and promotional material."
+    ],
+    "roleDefinition": "Develops original creative concepts and headlines for advertising campaigns, blending strategic thinking with writing craft."
+  }
+}
