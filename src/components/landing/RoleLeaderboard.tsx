@@ -57,12 +57,12 @@ export default function RoleLeaderboard({ roles }: { roles: RoleSummary[] }) {
     }
   }
 
-  function SortHeader({ field, label, align }: { field: SortField; label: string; align?: string }) {
+  function SortHeader({ field, label, align, className = "" }: { field: SortField; label: string; align?: string; className?: string }) {
     const active = sortField === field;
     const arrow = active ? (sortDir === "asc" ? " \u2191" : " \u2193") : "";
     return (
       <th
-        className={`py-3 px-2 text-label-sm text-mid uppercase tracking-widest font-mono font-normal cursor-pointer select-none whitespace-nowrap ${align === "right" ? "text-right" : "text-left"} ${active ? "text-ink" : ""}`}
+        className={`py-3 px-2 text-label-sm text-mid uppercase tracking-widest font-mono font-normal cursor-pointer select-none whitespace-nowrap ${align === "right" ? "text-right" : "text-left"} ${active ? "text-ink" : ""} ${className}`}
         onClick={() => handleSort(field)}
       >
         {label}{arrow}
@@ -71,18 +71,18 @@ export default function RoleLeaderboard({ roles }: { roles: RoleSummary[] }) {
   }
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full border-collapse">
+    <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+      <table className="w-full border-collapse min-w-[480px]">
         <thead>
           <tr className="border-b border-light">
             <SortHeader field="title" label="Role" />
-            <SortHeader field="cluster" label="Cluster" />
+            <SortHeader field="cluster" label="Cluster" className="hidden md:table-cell" />
             <SortHeader field="openingsCount" label="Open Roles" align="right" />
             <SortHeader field="yoyChange" label="YoY Change" align="right" />
-            <th className="py-3 px-2 text-label-sm text-mid uppercase tracking-widest font-mono font-normal text-left">
+            <th className="py-3 px-2 text-label-sm text-mid uppercase tracking-widest font-mono font-normal text-left hidden sm:table-cell">
               Trend
             </th>
-            <SortHeader field="medianSalary" label="Median Salary" align="right" />
+            <SortHeader field="medianSalary" label="Median Salary" align="right" className="hidden md:table-cell" />
             <SortHeader field="aiScore" label="AI Risk" align="right" />
           </tr>
         </thead>
@@ -97,9 +97,10 @@ export default function RoleLeaderboard({ roles }: { roles: RoleSummary[] }) {
               <td className="py-2 px-2">
                 <Link
                   href={`/role/${role.slug}`}
-                  className="font-mono text-body-sm text-ink hover:underline"
+                  className="font-mono text-body-sm text-ink inline-flex items-center gap-1.5 transition-colors"
                 >
-                  {role.title}
+                  <span className="text-mid text-[0.65em] no-underline">▸</span>
+                  <span className="underline decoration-light underline-offset-4 hover:decoration-ink">{role.title}</span>
                 </Link>
               </td>
 
@@ -140,11 +141,12 @@ export default function RoleLeaderboard({ roles }: { roles: RoleSummary[] }) {
               {/* AI Risk */}
               <td className="py-2 px-2 text-right">
                 <span
-                  className={`inline-block px-2 py-0.5 rounded text-label-sm font-mono ${
+                  className={`inline-block px-2 py-0.5 rounded text-label-sm font-mono whitespace-nowrap ${
                     RISK_STYLES[role.aiLabel] ?? ""
                   }`}
                 >
-                  {role.aiScore} · {role.aiLabel}
+                  <span className="sm:hidden">{role.aiScore}</span>
+                  <span className="hidden sm:inline">{role.aiScore} · {role.aiLabel}</span>
                 </span>
               </td>
             </tr>

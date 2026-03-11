@@ -21,17 +21,17 @@ export default function LandingPage() {
         style={{ padding: "var(--grid-margin)" }}
       >
         {/* Section 1 — Masthead + Essay (stacked, full-width headline) */}
-        <section className="mb-12">
+        <section className="pt-12 md:pt-16 mb-8 md:mb-12">
           {/* Headline — SVG scales to fill the content column width */}
-          <h1 className="mb-6 w-full" aria-label="State of Creative Jobs">
+          <h1 className="mb-4 md:mb-6 w-full" aria-label="State of Creative Jobs">
             <svg
-              viewBox="0 0 820 200"
+              viewBox="-10 0 720 200"
               className="w-full h-auto block"
               role="img"
               aria-hidden="true"
             >
               <text
-                x="410"
+                x="350"
                 y="78"
                 textAnchor="middle"
                 className="font-mono"
@@ -45,7 +45,7 @@ export default function LandingPage() {
                 State Of
               </text>
               <text
-                x="410"
+                x="350"
                 y="178"
                 textAnchor="middle"
                 className="font-mono"
@@ -62,7 +62,7 @@ export default function LandingPage() {
           </h1>
 
           {/* Subhead + byline + date */}
-          <div className="mb-8 text-center">
+          <div className="mb-10 md:mb-12 text-center">
             <p className="font-mono text-ink font-medium leading-relaxed" style={{ fontSize: "clamp(1.25rem, 2.2vw, 1.65rem)" }}>
               An ongoing study of AI displacement in the creative workforce.
             </p>
@@ -93,25 +93,25 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <div className="mb-12">
+        <div className="mb-8 md:mb-12">
           <HairlineRule />
         </div>
 
         {/* Section 3 — Market Conditions Bar */}
         {roles.length > 0 && (
-          <section className="mb-12">
+          <section className="mb-8 md:mb-12">
             <MarketConditionsBar roles={roles} />
           </section>
         )}
 
-        <div className="mb-12">
+        <div className="mb-8 md:mb-12">
           <HairlineRule />
         </div>
 
         {/* Section 4 — The Index (Leaderboard) */}
         {roles.length > 0 && (
-          <section className="mb-12">
-            <h2 className="font-mono text-ink mb-6" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
+          <section className="mb-8 md:mb-12">
+            <h2 className="font-mono text-ink mb-4 md:mb-6" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
               The Index
             </h2>
             <RoleLeaderboard roles={roles} />
@@ -126,24 +126,6 @@ export default function LandingPage() {
           </section>
         )}
 
-        <div className="mb-12">
-          <HairlineRule />
-        </div>
-
-        {/* Section 5 — Methodology Note */}
-        <section className="mb-12 max-w-[75ch]">
-          <h3 className="font-mono text-label-sm text-mid uppercase tracking-widest mb-4">
-            Methodology
-          </h3>
-          <p className="text-body-sm text-mid leading-relaxed">
-            Role data is derived from active job postings aggregated monthly across major
-            employment platforms. AI risk scores are calculated using a weighted composite
-            of O*NET task-level displacement analysis (40%) and a tool-specific displacement
-            index (60%) based on documented AI tool capabilities. Community sentiment signals
-            are drawn from practitioner discussions across Hacker News and industry
-            publications. This index is updated monthly.
-          </p>
-        </section>
       </main>
 
       <Footer />

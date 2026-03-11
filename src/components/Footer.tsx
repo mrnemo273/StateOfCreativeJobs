@@ -6,14 +6,14 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-ink mt-12">
+    <footer className="border-t border-ink mt-8 md:mt-12">
       <div
-        className="max-w-[1440px] mx-auto py-10"
+        className="max-w-[1440px] mx-auto py-8 md:py-10"
         style={{ padding: "var(--grid-margin)" }}
       >
         <h2
-          className="font-mono text-ink leading-none mb-10"
-          style={{ fontSize: "clamp(3rem, 6vw, 5rem)" }}
+          className="font-mono text-ink leading-none mb-6 md:mb-10"
+          style={{ fontSize: "clamp(2rem, 6vw, 5rem)" }}
         >
           State of Creative Jobs
         </h2>
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           {/* Data Sources */}
-          <div className="col-span-12 md:col-span-3">
+          <div className="col-span-12 md:col-span-3 mb-8 md:mb-0">
             <span className="text-label-sm text-mid uppercase tracking-widest font-mono block mb-3">
               Data Sources
             </span>
@@ -77,12 +77,12 @@ export default function Footer() {
         </div>
 
         {/* About the Author */}
-        <div className="border-t border-light mt-8 pt-8">
+        <div className="border-t border-light mt-6 md:mt-8 pt-6 md:pt-8">
           <AuthorBio />
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-light mt-8 pt-4">
+        <div className="border-t border-light mt-6 md:mt-8 pt-4">
           <span className="text-label-sm text-mid font-mono">
             &copy; {year} State of Creative Jobs
           </span>
