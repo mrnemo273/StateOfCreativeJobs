@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
@@ -29,9 +31,9 @@ export default function Header({ lastUpdated }: HeaderProps) {
         <span className="font-mono text-label-sm text-mid uppercase tracking-widest">
           {dateStr}
         </span>
-        <span className="font-mono text-label-lg text-ink uppercase tracking-widest font-bold">
+        <Link href="/" className="font-mono text-label-lg text-ink uppercase tracking-widest font-bold hover:opacity-70 transition-opacity">
           State of Creative Jobs
-        </span>
+        </Link>
         <span className="font-mono text-label-sm text-mid uppercase tracking-widest">
           Data from {dataDateStr}
         </span>
@@ -40,9 +42,9 @@ export default function Header({ lastUpdated }: HeaderProps) {
         <span className="font-mono text-label-sm text-mid uppercase tracking-widest">
           {dateStr}
         </span>
-        <span className="font-mono text-label-lg text-ink uppercase tracking-widest font-bold text-center">
+        <Link href="/" className="font-mono text-label-lg text-ink uppercase tracking-widest font-bold text-center hover:opacity-70 transition-opacity">
           State of Creative Jobs
-        </span>
+        </Link>
         <span className="font-mono text-label-sm text-mid uppercase tracking-widest">
           Data from {dataDateStr}
         </span>
