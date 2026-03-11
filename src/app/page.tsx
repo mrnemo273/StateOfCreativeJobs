@@ -25,14 +25,15 @@ export default function LandingPage() {
           {/* Headline — SVG scales to fill the content column width */}
           <h1 className="mb-6 w-full" aria-label="State of Creative Jobs">
             <svg
-              viewBox="0 0 1220 100"
+              viewBox="0 0 820 200"
               className="w-full h-auto block"
               role="img"
               aria-hidden="true"
             >
               <text
-                x="0"
+                x="410"
                 y="78"
+                textAnchor="middle"
                 className="font-mono"
                 style={{
                   fontSize: "88px",
@@ -41,13 +42,27 @@ export default function LandingPage() {
                   fontWeight: 400,
                 }}
               >
-                State of Creative Jobs
+                State Of
+              </text>
+              <text
+                x="410"
+                y="178"
+                textAnchor="middle"
+                className="font-mono"
+                style={{
+                  fontSize: "88px",
+                  fontFamily: "var(--font-mono)",
+                  fill: "var(--color-ink)",
+                  fontWeight: 400,
+                }}
+              >
+                Creative Jobs
               </text>
             </svg>
           </h1>
 
           {/* Subhead + byline + date */}
-          <div className="mb-8">
+          <div className="mb-8 text-center">
             <p className="font-mono text-ink font-medium leading-relaxed" style={{ fontSize: "clamp(1.25rem, 2.2vw, 1.65rem)" }}>
               An ongoing study of AI displacement in the creative workforce.
             </p>
