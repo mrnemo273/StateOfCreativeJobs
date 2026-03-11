@@ -42,6 +42,8 @@ const config: Config = {
         "neutral-bg": "var(--color-neutral-bg)",
         accent: "var(--color-accent)",
         "accent-bg": "var(--color-accent-bg)",
+        "up-muted": "var(--color-up-muted)",
+        "down-muted": "var(--color-down-muted)",
       },
       spacing: {
         "1": "0.25rem",

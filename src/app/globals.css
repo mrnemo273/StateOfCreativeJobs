@@ -22,6 +22,10 @@
   --color-neutral: #5A4E2A;
   --color-neutral-bg: #F5F0E4;
 
+  /* Muted Signal (landing page) */
+  --color-up-muted: #4a7c59;
+  --color-down-muted: #9b2335;
+
   /* Accent */
   --color-accent: #1A1A6B;
   --color-accent-bg: #EAEAF7;

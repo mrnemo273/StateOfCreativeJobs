@@ -1,195 +1,137 @@
-"use client";
-
-import { useState, useEffect, useCallback } from "react";
-import { getSnapshot, getAllTitles } from "@/lib/dataService";
-import type { JobHealthSnapshot, JobTitle } from "@/types";
+import { getRoleSummaries } from "@/lib/landingData.server";
+import { computeMarketConditions } from "@/lib/landingData";
 import Header from "@/components/Header";
-import HealthScoreSummary from "@/components/HealthScoreSummary";
-import DemandSection from "@/components/DemandSection";
-import SalarySection from "@/components/SalarySection";
-import AIImpactSection from "@/components/AIImpactSection";
-import SkillsSignalSection from "@/components/SkillsSignalSection";
-import RoleIntelligence from "@/components/RoleIntelligence";
-import SentimentSection from "@/components/SentimentSection";
-import PostingAnalysisSection from "@/components/PostingAnalysisSection";
-import HairlineRule from "@/components/ui/HairlineRule";
 import Footer from "@/components/Footer";
+import HairlineRule from "@/components/ui/HairlineRule";
+import MarketConditionsBar from "@/components/landing/MarketConditionsBar";
+import RoleLeaderboard from "@/components/landing/RoleLeaderboard";
 
-export default function Home() {
-  const [selectedSlug, setSelectedSlug] = useState("creative-director");
-  const [snapshot, setSnapshot] = useState<JobHealthSnapshot | null>(null);
-  const [loading, setLoading] = useState(true);
-  const allTitles = getAllTitles();
 
-  const fetchLiveData = useCallback(async (slug: string) => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/snapshot/${slug}`);
-      if (res.ok) {
-        const data: JobHealthSnapshot = await res.json();
-        setSnapshot(data);
-      } else {
-        // API failed — fall back to mock
-        const mock = getSnapshot(slug);
-        setSnapshot(mock);
-      }
-    } catch {
-      const mock = getSnapshot(slug);
-      setSnapshot(mock);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchLiveData(selectedSlug);
-  }, [selectedSlug, fetchLiveData]);
-
-  if (!snapshot && !loading) {
-    return (
-      <div className="min-h-screen bg-paper flex items-center justify-center">
-        <p className="font-mono text-mid">No data available for this title.</p>
-      </div>
-    );
-  }
+export default function LandingPage() {
+  const roles = getRoleSummaries();
+  const conditions = roles.length > 0 ? computeMarketConditions(roles) : null;
+  const lastUpdated = conditions?.mostRecent ?? undefined;
 
   return (
     <div className="min-h-screen bg-paper">
-      <Header lastUpdated={snapshot?.lastUpdated} />
+      <Header lastUpdated={lastUpdated} />
 
       <main
-        className="grid grid-cols-12 gap-[var(--grid-gutter)] max-w-[1440px] mx-auto"
+        className="max-w-[1440px] mx-auto"
         style={{ padding: "var(--grid-margin)" }}
       >
-        {/* Job title selector */}
-        <div className="col-span-12 mb-2">
-          <span className="text-label-sm text-mid uppercase tracking-widest font-mono block mb-2">
-            Select Role
-          </span>
-          <select
-            value={selectedSlug}
-            onChange={(e) => setSelectedSlug(e.target.value)}
-            className="border border-ink bg-paper px-4 py-2 font-mono text-body text-ink cursor-pointer hover:bg-faint transition-colors duration-75 appearance-none pr-10 uppercase tracking-widest w-full md:w-auto"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' fill='none' stroke='%230A0A0A' stroke-width='1.5'/%3E%3C/svg%3E")`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "right 12px center",
-            }}
-          >
-            {allTitles.map((t: JobTitle) => (
-              <option key={t.slug} value={t.slug}>
-                {t.title}
-              </option>
-            ))}
-          </select>
+        {/* Section 1 — Masthead + Essay (stacked, full-width headline) */}
+        <section className="mb-12">
+          {/* Headline — SVG scales to fill the content column width */}
+          <h1 className="mb-6 w-full" aria-label="State of Creative Jobs">
+            <svg
+              viewBox="0 0 1220 100"
+              className="w-full h-auto block"
+              role="img"
+              aria-hidden="true"
+            >
+              <text
+                x="0"
+                y="78"
+                className="font-mono"
+                style={{
+                  fontSize: "88px",
+                  fontFamily: "var(--font-mono)",
+                  fill: "var(--color-ink)",
+                  fontWeight: 400,
+                }}
+              >
+                State of Creative Jobs
+              </text>
+            </svg>
+          </h1>
+
+          {/* Subhead + byline + date */}
+          <div className="mb-8">
+            <p className="font-mono text-ink font-medium leading-relaxed" style={{ fontSize: "clamp(1.25rem, 2.2vw, 1.65rem)" }}>
+              An ongoing study of AI displacement in the creative workforce.
+            </p>
+          </div>
+
+          {/* Body copy — two columns on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+            <p className="font-mono text-body-sm text-ink leading-[1.75]">
+              This project tracks 20 creative roles across the job market &mdash; from
+              copywriters and graphic designers to product designers and creative
+              directors. Each week, we pull fresh posting data and score every role
+              for AI disruption risk based on volume trends, salary shifts, and
+              tooling overlap.
+            </p>
+            <p className="font-mono text-body-sm text-ink leading-[1.75]">
+              The goal is simple: make the invisible shift visible. There is no
+              single dataset that captures how AI is reshaping creative work. Job
+              boards tell part of the story. Practitioner sentiment tells another.
+              We combine both into a living index, updated weekly, so the people
+              closest to these changes can see them clearly.
+            </p>
+            <p className="font-mono text-body-sm text-ink leading-[1.75] md:col-span-1">
+              Below you&rsquo;ll find a market snapshot, a sortable leaderboard of all 20
+              roles, and deep-dive dashboards for each. The data speaks for itself
+              &mdash; some roles are growing, others are contracting, and a few are
+              being fundamentally redefined.
+            </p>
+          </div>
+        </section>
+
+        <div className="mb-12">
+          <HairlineRule />
         </div>
 
-        {/* Loading state */}
-        {loading && (
-          <div className="col-span-12 py-16 flex items-center justify-center">
-            <span className="font-mono text-label-md text-mid uppercase tracking-widest animate-pulse">
-              Loading live data...
-            </span>
-          </div>
+        {/* Section 3 — Market Conditions Bar */}
+        {roles.length > 0 && (
+          <section className="mb-12">
+            <MarketConditionsBar roles={roles} />
+          </section>
         )}
 
-        {/* Dashboard content */}
-        {snapshot && !loading && (
-          <>
-            {/* Hero title */}
-            <div className="col-span-12 mb-4">
-              <span className="text-label-md text-mid uppercase tracking-widest font-mono block mb-2">
-                {snapshot.cluster.replace("-", " ")}
-              </span>
-              <h2 className="font-mono text-ink leading-none" style={{ fontSize: "clamp(3rem, 6vw, 5rem)" }}>
-                {snapshot.title}
-              </h2>
-              <p className="text-body-sm text-mid mt-3 max-w-[65ch] leading-relaxed">
-                {snapshot.description}
-              </p>
-            </div>
+        <div className="mb-12">
+          <HairlineRule />
+        </div>
 
-            {/* Health Score Summary — 4-up stat cards */}
-            <div className="col-span-12 mb-2">
-              <HealthScoreSummary snapshot={snapshot} />
-            </div>
-
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
-
-            {/* Demand Section */}
-            <div className="col-span-12">
-              <DemandSection snapshot={snapshot} />
-            </div>
-
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
-
-            {/* Salary Section */}
-            <div className="col-span-12">
-              <SalarySection snapshot={snapshot} />
-            </div>
-
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
-
-            {/* AI Impact Section */}
-            <div className="col-span-12">
-              <AIImpactSection snapshot={snapshot} />
-            </div>
-
-            {/* Skills Signal Section */}
-            {(snapshot.skills.rising.length > 0 || snapshot.skills.declining.length > 0) && (
-              <>
-                <div className="col-span-12 my-4">
-                  <HairlineRule />
-                </div>
-                <div className="col-span-12">
-                  <SkillsSignalSection snapshot={snapshot} />
-                </div>
-              </>
-            )}
-
-            {/* Role Intelligence */}
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
-            <div className="col-span-12">
-              <RoleIntelligence slug={selectedSlug} />
-            </div>
-
-            {/* Sentiment & News */}
-            {(snapshot.sentiment.recentHeadlines.length > 0 || snapshot.sentiment.communityPosts.length > 0 || snapshot.sentiment.score !== 0) && (
-              <>
-                <div className="col-span-12 my-4">
-                  <HairlineRule />
-                </div>
-                <div className="col-span-12">
-                  <SentimentSection snapshot={snapshot} />
-                </div>
-              </>
-            )}
-
-            {/* Posting Analysis */}
-            {(snapshot.postingAnalysis.topSkills.length > 0 || snapshot.postingAnalysis.commonResponsibilities.length > 0) && (
-              <>
-                <div className="col-span-12 my-4">
-                  <HairlineRule />
-                </div>
-                <div className="col-span-12">
-                  <PostingAnalysisSection snapshot={snapshot} />
-                </div>
-              </>
-            )}
-
-          </>
+        {/* Section 4 — The Index (Leaderboard) */}
+        {roles.length > 0 && (
+          <section className="mb-12">
+            <h2 className="font-mono text-ink mb-6" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
+              The Index
+            </h2>
+            <RoleLeaderboard roles={roles} />
+          </section>
         )}
+
+        {roles.length === 0 && (
+          <section className="mb-12 py-16 text-center">
+            <p className="font-mono text-mid text-label-md uppercase tracking-widest">
+              No role data available yet. Run the refresh script to populate.
+            </p>
+          </section>
+        )}
+
+        <div className="mb-12">
+          <HairlineRule />
+        </div>
+
+        {/* Section 5 — Methodology Note */}
+        <section className="mb-12 max-w-[75ch]">
+          <h3 className="font-mono text-label-sm text-mid uppercase tracking-widest mb-4">
+            Methodology
+          </h3>
+          <p className="text-body-sm text-mid leading-relaxed">
+            Role data is derived from active job postings aggregated monthly across major
+            employment platforms. AI risk scores are calculated using a weighted composite
+            of O*NET task-level displacement analysis (40%) and a tool-specific displacement
+            index (60%) based on documented AI tool capabilities. Community sentiment signals
+            are drawn from practitioner discussions across Hacker News and industry
+            publications. This index is updated monthly.
+          </p>
+        </section>
       </main>
 
-      {snapshot && !loading && <Footer />}
+      <Footer />
     </div>
   );
 }

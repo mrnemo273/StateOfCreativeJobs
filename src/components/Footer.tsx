@@ -1,5 +1,7 @@
 "use client";
 
+import AuthorBio from "@/components/landing/AuthorBio";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -74,6 +76,12 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* About the Author */}
+        <div className="border-t border-light mt-8 pt-8">
+          <AuthorBio />
+        </div>
+
+        {/* Copyright */}
         <div className="border-t border-light mt-8 pt-4">
           <span className="text-label-sm text-mid font-mono">
             &copy; {year} State of Creative Jobs

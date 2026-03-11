@@ -144,3 +144,9 @@ else
   echo ""
   echo "Intelligence: ${INT_SUCCESS} succeeded, ${INT_FAIL} failed out of ${#SLUGS[@]} total"
 fi
+
+# --- Phase 3: Generate Landing Page Cache ---
+echo ""
+echo "=== Generating Landing Page Cache ==="
+node scripts/generate-landing-cache.js
+echo "Landing cache generated"
