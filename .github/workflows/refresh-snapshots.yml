@@ -2,9 +2,8 @@ name: Refresh Snapshots
 
 on:
   schedule:
-    # Run twice weekly: Monday and Thursday at 6am UTC
-    # This keeps SerpApi under 100 searches/month free-tier limit
-    - cron: "0 6 * * 1,4"
+    # Run weekly on Monday at 6am UTC
+    - cron: "0 6 * * 1"
   workflow_dispatch: # Allow manual trigger from Actions tab
 
 permissions:
@@ -18,11 +17,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
