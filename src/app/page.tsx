@@ -153,53 +153,9 @@ export default function LandingPage() {
           </section>
         )}
 
-        {/* Editorial Excerpt — only renders if an editorial exists */}
-        {editorial && (
-          <>
-            <section className="mb-8 md:mb-12 bg-faint p-6 md:p-8 border border-light">
-              <span className="font-mono text-label-sm text-mid uppercase tracking-widest block mb-3">
-                Monthly Editorial &middot; {editorial.monthLabel}
-              </span>
-              <h3
-                className="font-display text-ink leading-tight mb-3"
-                style={{ fontSize: "var(--text-display-md)" }}
-              >
-                {editorial.headline}
-              </h3>
-              <p className="text-body-sm text-dark leading-relaxed max-w-[60ch] mb-4">
-                {editorial.excerpt}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
-                <Link
-                  href={`/editorial/${editorial.month}`}
-                  className="font-mono text-label-md text-accent uppercase tracking-widest hover:text-ink transition-colors"
-                >
-                  Read full editorial &rarr;
-                </Link>
-                {latestReportUrl && (
-                  <a
-                    href={latestReportUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-label-md text-mid uppercase tracking-widest hover:text-ink transition-colors"
-                  >
-                    Download PDF Report &darr;
-                  </a>
-                )}
-              </div>
-            </section>
-
-            <div className="mb-8 md:mb-12">
-              <HairlineRule />
-            </div>
-          </>
-        )}
-
-        {!editorial && (
-          <div className="mb-8 md:mb-12">
-            <HairlineRule />
-          </div>
-        )}
+        <div className="mb-8 md:mb-12">
+          <HairlineRule />
+        </div>
 
         {/* Section 4 — The Index (Leaderboard) */}
         {roles.length > 0 && (
@@ -219,12 +175,54 @@ export default function LandingPage() {
           </section>
         )}
 
-        {/* Subscribe CTA */}
+
+        {/* Editorial + Subscribe — side by side on desktop */}
         <div className="mb-8 md:mb-12">
           <HairlineRule />
         </div>
-        <section className="mb-8 md:mb-12 max-w-lg">
-          <DigestSubscribe />
+        <section className="mb-8 md:mb-12 grid grid-cols-1 md:grid-cols-2 border border-light">
+          {/* Left: Editorial excerpt */}
+          {editorial ? (
+            <div className="p-6 md:p-8 md:border-r border-light">
+              <span className="font-mono text-label-sm text-mid uppercase tracking-widest block mb-3">
+                Monthly Editorial &middot; {editorial.monthLabel}
+              </span>
+              <h3
+                className="font-mono text-ink leading-tight mb-3"
+                style={{ fontSize: "var(--text-display-md)" }}
+              >
+                {editorial.headline}
+              </h3>
+              <p className="font-mono text-body-sm text-dark leading-relaxed mb-4">
+                {editorial.excerpt}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                <Link
+                  href={`/editorial/${editorial.month}`}
+                  className="font-mono text-label-md text-ink uppercase tracking-widest hover:text-mid transition-colors"
+                >
+                  Read full editorial &rarr;
+                </Link>
+                {latestReportUrl && (
+                  <a
+                    href={latestReportUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-label-md text-mid uppercase tracking-widest hover:text-ink transition-colors"
+                  >
+                    Download PDF Report &darr;
+                  </a>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div className="p-6 md:p-8 md:border-r border-light" />
+          )}
+
+          {/* Right: Subscribe form */}
+          <div className="border-t md:border-t-0 border-light">
+            <DigestSubscribe />
+          </div>
         </section>
 
       </main>

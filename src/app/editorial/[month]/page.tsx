@@ -79,8 +79,8 @@ export default function EditorialPage({
             Monthly Market Analysis
           </span>
           <h1
-            className="font-display text-ink leading-none mb-6"
-            style={{ fontSize: "var(--text-display-lg)" }}
+            className="font-mono text-ink leading-none mb-6"
+            style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
           >
             {editorial.headline}
           </h1>
@@ -99,7 +99,6 @@ export default function EditorialPage({
               <p
                 key={i}
                 className="text-body text-ink leading-[1.75] mb-6 last:mb-0"
-                style={{ fontFamily: "var(--font-display)" }}
               >
                 {para}
               </p>

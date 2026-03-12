@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Plan — Phase 5</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cc-orange: #EA633F;
+      --cc-yellow: #E8EB74;
+      --cc-cyan: #88E8F0;
+      --cc-black: #121212;
+      --cc-near-black: #1E1E1E;
+      --cc-charcoal: #343340;
+      --cc-mid-gray: #666666;
+      --cc-light-gray: #F5F5F5;
+      --cc-warm-gray: #E8E8E8;
+      --cc-cream: #EAEAC8;
+      --cc-white: #FFFFFF;
+      --cc-font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      --cc-font-body: 'Inter', Arial, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--cc-font-body);
+      color: var(--cc-black);
+      background: var(--cc-white);
+      line-height: 1.5;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--cc-orange);
+      padding: 80px 60px 60px;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 60px;
+      right: 60px;
+      height: 1px;
+      background: rgba(18,18,18,0.15);
+    }
+    .hero-label {
+      font-family: var(--cc-font-display);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cc-black);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--cc-font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--cc-black);
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-family: var(--cc-font-body);
+      font-size: 1.125rem;
+      color: var(--cc-black);
+      max-width: 600px;
+      opacity: 0.85;
+    }
+
+    /* ─── MAIN CONTAINER ─── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* ─── STRATEGY SECTION ─── */
+    .strategy {
+      background: var(--cc-cream);
+      padding: 60px;
+    }
+    .strategy-label {
+      font-family: var(--cc-font-display);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cc-mid-gray);
+      margin-bottom: 24px;
+    }
+    .strategy h2 {
+      font-family: var(--cc-font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .strategy p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--cc-charcoal);
+      max-width: 700px;
+      margin-bottom: 16px;
+    }
+    .strategy p strong {
+      color: var(--cc-black);
+    }
+
+    /* ─── SPRINT GRID ─── */
+    .sprint-section {
+      padding: 60px 0;
+    }
+    .sprint-section .container {
+      max-width: 1100px;
+    }
+    .section-label {
+      font-family: var(--cc-font-display);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cc-mid-gray);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--cc-font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--cc-mid-gray);
+      max-width: 650px;
+      margin-bottom: 40px;
+    }
+
+    /* Feature cards */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      background: var(--cc-warm-gray);
+      border: 1px solid var(--cc-warm-gray);
+    }
+    .feature-card {
+      background: var(--cc-white);
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 28px;
+      align-items: start;
+    }
+    .feature-order {
+      font-family: var(--cc-font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--cc-warm-gray);
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .feature-body h3 {
+      font-family: var(--cc-font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .feature-body .spec-id {
+      font-family: var(--cc-font-display);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cc-mid-gray);
+      margin-bottom: 10px;
+    }
+    .feature-body p {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--cc-charcoal);
+    }
+    .feature-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      min-width: 120px;
+    }
+    .scope-badge {
+      font-family: var(--cc-font-display);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 0;
+    }
+    .scope-small {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+    .scope-medium {
+      background: #FFF3E0;
+      color: #E65100;
+    }
+    .scope-large {
+      background: #FFEBEE;
+      color: #C62828;
+    }
+    .files-touched {
+      font-size: 0.8125rem;
+      color: var(--cc-mid-gray);
+      text-align: right;
+    }
+
+    /* ─── DEPENDENCY MAP ─── */
+    .dep-section {
+      background: var(--cc-near-black);
+      padding: 60px;
+      color: var(--cc-white);
+    }
+    .dep-section .section-label {
+      color: rgba(255,255,255,0.5);
+    }
+    .dep-section .section-title {
+      color: var(--cc-white);
+      margin-bottom: 36px;
+    }
+    .dep-diagram {
+      font-family: 'IBM Plex Mono', 'SF Mono', monospace;
+      font-size: 0.875rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.8);
+      padding: 32px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .dep-diagram .highlight {
+      color: var(--cc-orange);
+    }
+    .dep-diagram .dim {
+      color: rgba(255,255,255,0.35);
+    }
+    .dep-diagram .cyan {
+      color: var(--cc-cyan);
+    }
+
+    /* ─── DEFERRED ─── */
+    .deferred-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--cc-warm-gray);
+    }
+    .deferred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .deferred-card {
+      background: var(--cc-light-gray);
+      padding: 28px 32px;
+    }
+    .deferred-card h4 {
+      font-family: var(--cc-font-display);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .deferred-card .spec-id {
+      font-family: var(--cc-font-display);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cc-mid-gray);
+      margin-bottom: 10px;
+    }
+    .deferred-card p {
+      font-size: 0.875rem;
+      line-height: 1.55;
+      color: var(--cc-mid-gray);
+    }
+    .deferred-card .reason {
+      font-size: 0.8125rem;
+      color: var(--cc-orange);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    /* ─── SUMMARY BAR ─── */
+    .summary-bar {
+      background: var(--cc-black);
+      color: var(--cc-white);
+      padding: 40px 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .stat-box .stat-label {
+      font-family: var(--cc-font-display);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 6px;
+    }
+    .stat-box .stat-value {
+      font-family: var(--cc-font-display);
+      font-size: 2rem;
+      font-weight: 300;
+    }
+    .stat-box .stat-detail {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+    }
+
+    /* ─── IMPL ORDER ─── */
+    .impl-section {
+      padding: 60px 0;
+    }
+    .impl-timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+    .impl-timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--cc-warm-gray);
+    }
+    .impl-step {
+      position: relative;
+      margin-bottom: 36px;
+    }
+    .impl-step:last-child { margin-bottom: 0; }
+    .impl-step::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cc-orange);
+      border: 2px solid var(--cc-white);
+    }
+    .impl-step .step-label {
+      font-family: var(--cc-font-display);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cc-mid-gray);
+      margin-bottom: 4px;
+    }
+    .impl-step h4 {
+      font-family: var(--cc-font-display);
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .impl-step p {
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: var(--cc-charcoal);
+      max-width: 600px;
+    }
+
+    /* ─── FOOTER ─── */
+    .page-footer {
+      border-top: 1px solid var(--cc-warm-gray);
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .page-footer span {
+      font-family: var(--cc-font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cc-mid-gray);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Sprint Planning</div>
+    <h1>Phase 5 — The Credibility Sprint</h1>
+    <p class="hero-sub">Five features that transform the index from "interesting dashboard" to "citable research tool." Zero new infrastructure. Maximum editorial rigor.</p>
+  </div>
+
+  <!-- SUMMARY BAR -->
+  <div class="summary-bar">
+    <div class="stat-box">
+      <div class="stat-label">Sprint Features</div>
+      <div class="stat-value">5</div>
+      <div class="stat-detail">of 11 in backlog</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Scope Mix</div>
+      <div class="stat-value">4S + 1M</div>
+      <div class="stat-detail">4 small, 1 medium</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">New Dependencies</div>
+      <div class="stat-value">0</div>
+      <div class="stat-detail">all use existing data</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">New Routes</div>
+      <div class="stat-value">2</div>
+      <div class="stat-detail">/methodology + /benchmarks</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY -->
+  <div class="strategy">
+    <div class="strategy-label">Sprint Thesis</div>
+    <h2>Credibility Before Distribution</h2>
+    <p>The backlog has two natural clusters: features that make the index <strong>more trustworthy</strong> (methodology, confidence, footnotes, benchmarks, skills analysis) and features that <strong>distribute it further</strong> (PDF reports, email digests, surveys, emerging roles).</p>
+    <p>Building distribution before credibility is a mistake. If someone gets your PDF report and the first thing they notice is unsourced data, no methodology link, and no confidence indicators — the report hurts more than it helps. <strong>The credibility layer needs to exist before any content leaves the site.</strong></p>
+    <p>Phase 5 ships the entire credibility cluster. Phase 6 then ships distribution (PDF, email, editorial) on top of a research-grade foundation. Phase 7 tackles the ambitious community features (survey, emerging roles).</p>
+  </div>
+
+  <!-- SPRINT FEATURES -->
+  <div class="sprint-section">
+    <div class="container">
+      <div class="section-label">Phase 5 Bundle</div>
+      <div class="section-title">What We're Building</div>
+      <p class="section-desc">Five features that work together as a credibility system. Each one is valuable alone, but together they create the trust infrastructure the entire index depends on.</p>
+
+      <div class="feature-grid">
+        <!-- 1 -->
+        <div class="feature-card">
+          <div class="feature-order">01</div>
+          <div class="feature-body">
+            <div class="spec-id">E14</div>
+            <h3>Methodology Page</h3>
+            <p>Dedicated /methodology route explaining every data source, scoring formula, refresh cadence, and known limitation. The foundation that everything else references — G1 confidence tooltips link here, F3 footnotes cite it, and it's the URL you share when someone asks "where does this number come from?"</p>
+          </div>
+          <div class="feature-meta">
+            <span class="scope-badge scope-small">Small</span>
+            <span class="files-touched">2 files · 1 new route</span>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="feature-card">
+          <div class="feature-order">02</div>
+          <div class="feature-body">
+            <div class="spec-id">G1</div>
+            <h3>Data Confidence Indicators</h3>
+            <p>Confidence badges (High / Medium / Low) on every section header of the role deep-dive. Static mapping per data source with dynamic downgrade when data goes stale. Hover tooltip explains the rating. Links to methodology page for full detail.</p>
+          </div>
+          <div class="feature-meta">
+            <span class="scope-badge scope-small">Small</span>
+            <span class="files-touched">10 files · 0 new routes</span>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="feature-card">
+          <div class="feature-order">03</div>
+          <div class="feature-body">
+            <div class="spec-id">F3</div>
+            <h3>Data Footnotes & Annotations</h3>
+            <p>Three annotation types: automatic freshness notes beneath data sections, curated event annotations on trend charts (via Recharts ReferenceLine), and confidence-linked source references. A new annotations.ts data file holds curated event markers.</p>
+          </div>
+          <div class="feature-meta">
+            <span class="scope-badge scope-small">Small</span>
+            <span class="files-touched">9 files · 0 new routes</span>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="feature-card">
+          <div class="feature-order">04</div>
+          <div class="feature-body">
+            <div class="spec-id">A3</div>
+            <h3>Skills Gap Analyzer</h3>
+            <p>New section on role deep-dive that cross-references employer demand (posting analysis) with skill trajectory (skills signal) into a prescriptive Invest / Watch / Core / Shed matrix. No new API calls — purely synthesis of existing snapshot data into actionable guidance.</p>
+          </div>
+          <div class="feature-meta">
+            <span class="scope-badge scope-small">Small</span>
+            <span class="files-touched">3 files · 0 new routes</span>
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="feature-card">
+          <div class="feature-order">05</div>
+          <div class="feature-body">
+            <div class="spec-id">E16</div>
+            <h3>Industry Benchmarks Page</h3>
+            <p>New /benchmarks route with cluster scorecards, cross-cluster rankings, outlier detection, and salary spread analysis. Aggregates snapshot data across all 20 roles into comparative views. This is where you answer "how does my role stack up against the whole market?"</p>
+          </div>
+          <div class="feature-meta">
+            <span class="scope-badge scope-small">Small</span>
+            <span class="files-touched">4 files · 1 new route</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPENDENCY MAP -->
+  <div class="dep-section">
+    <div class="section-label">Architecture</div>
+    <div class="section-title">Dependency Map</div>
+    <div class="dep-diagram"><span class="highlight">E14 Methodology</span> ←────────────────────────────── foundation
+  │
+  ├── referenced by <span class="cyan">G1 Confidence</span> tooltips ("See Methodology")
+  │     │
+  │     └── confidence levels inform <span class="cyan">F3 Footnotes</span> source badges
+  │           │
+  │           └── footnotes annotate sections that also contain <span class="cyan">A3 Skills Gap</span>
+  │
+  └── linked from <span class="cyan">E16 Benchmarks</span> ("How we calculate" footer)
+
+
+<span class="dim">No circular dependencies. No shared infrastructure to build first.
+Each feature adds value independently — the order is optimization, not requirement.</span>
+
+<span class="highlight">Build order recommendation:</span>
+<span class="dim">E14 → G1 → F3 → A3 → E16 (methodology first, benchmarks last)</span></div>
+  </div>
+
+  <!-- IMPLEMENTATION ORDER -->
+  <div class="impl-section">
+    <div class="container">
+      <div class="section-label">Execution Sequence</div>
+      <div class="section-title">Suggested Build Order</div>
+      <p class="section-desc">Each step builds on what came before. The methodology page goes first because everything links to it.</p>
+
+      <div class="impl-timeline">
+        <div class="impl-step">
+          <div class="step-label">Step 1</div>
+          <h4>E14 — Methodology Page</h4>
+          <p>Create /methodology route, server component, static content. This becomes the canonical reference URL that G1 and F3 both link to. Ship it first so subsequent features can reference a real page.</p>
+        </div>
+        <div class="impl-step">
+          <div class="step-label">Step 2</div>
+          <h4>G1 — Confidence Indicators</h4>
+          <p>Create ConfidenceBadge component and confidenceMap.ts. Modify 8 section components to add badges to headers. Tooltips link to /methodology. This is the widest-touching change — get it in early to stabilize section headers.</p>
+        </div>
+        <div class="impl-step">
+          <div class="step-label">Step 3</div>
+          <h4>F3 — Footnotes & Annotations</h4>
+          <p>Create DataFootnote and ChartAnnotation components. Add automatic freshness notes and curated event markers. These layer onto the same sections that now have confidence badges — building on the same header pattern.</p>
+        </div>
+        <div class="impl-step">
+          <div class="step-label">Step 4</div>
+          <h4>A3 — Skills Gap Analyzer</h4>
+          <p>Create SkillsGapSection component, embed in role deep-dive between Skills Signal and Posting Analysis. Self-contained — no cross-references to other sprint features. Clean standalone build.</p>
+        </div>
+        <div class="impl-step">
+          <div class="step-label">Step 5</div>
+          <h4>E16 — Industry Benchmarks</h4>
+          <p>Create /benchmarks route, benchmarks.ts aggregation logic, BenchmarksPage component. References /methodology in footer. The most self-contained feature in the sprint — new page, new logic, minimal interaction with existing components.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEFERRED FEATURES -->
+  <div class="deferred-section">
+    <div class="container">
+      <div class="section-label">Deferred to Phase 6 & 7</div>
+      <div class="section-title">What's Next After This Sprint</div>
+      <p class="section-desc">Six features deferred — not rejected. They're better after the credibility layer is in place.</p>
+
+      <div class="deferred-grid">
+        <div class="deferred-card">
+          <div class="spec-id">PHASE 6 — DISTRIBUTION</div>
+          <h4>E15 — State of the Market Editorial</h4>
+          <p>AI-generated monthly editorial synthesis. Better when it can reference the methodology page and link to benchmarks for comparative claims.</p>
+          <div class="reason">Needs credibility layer to reference →</div>
+        </div>
+        <div class="deferred-card">
+          <div class="spec-id">PHASE 6 — DISTRIBUTION</div>
+          <h4>C8 — Monthly PDF Report</h4>
+          <p>Auto-generated PDF with Swiss editorial style. Should include confidence indicators, footnotes, and methodology links — all shipping in Phase 5.</p>
+          <div class="reason">Depends on Phase 5 components →</div>
+        </div>
+        <div class="deferred-card">
+          <div class="spec-id">PHASE 6 — DISTRIBUTION</div>
+          <h4>I2 — AI Displacement Timeline</h4>
+          <p>Per-role displacement milestones and velocity. Medium scope. Pairs well with the editorial since both add narrative depth to the AI risk story.</p>
+          <div class="reason">Pairs with editorial for Phase 6 →</div>
+        </div>
+        <div class="deferred-card">
+          <div class="spec-id">PHASE 6 — DISTRIBUTION</div>
+          <h4>C11 — Email Digest / Role Alerts</h4>
+          <p>Subscriber system with Resend + Vercel KV. The emails should showcase confidence indicators and link to methodology — all Phase 5 outputs.</p>
+          <div class="reason">Emails need credibility foundation →</div>
+        </div>
+        <div class="deferred-card">
+          <div class="spec-id">PHASE 7 — COMMUNITY</div>
+          <h4>D12 — Practitioner Pulse Survey</h4>
+          <p>Anonymous survey per role page. Large scope, new infrastructure (Vercel KV). Better after distribution channels exist to drive respondent volume.</p>
+          <div class="reason">Needs traffic from distribution →</div>
+        </div>
+        <div class="deferred-card">
+          <div class="spec-id">PHASE 7 — COMMUNITY</div>
+          <h4>I3 — Emerging Roles Radar</h4>
+          <p>New /emerging page detecting emerging job titles. Large scope with new data pipeline. The most self-contained feature — no dependency on credibility or distribution. Ships when capacity allows.</p>
+          <div class="reason">Independent but large scope →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <span>State of Creative Jobs — Sprint Planning</span>
+    <span>2026-03-12</span>
+  </div>
+
+</body>
+</html>

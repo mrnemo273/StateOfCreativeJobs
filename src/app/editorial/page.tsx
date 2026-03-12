@@ -56,12 +56,12 @@ export default function EditorialArchivePage() {
             Research Index
           </span>
           <h1
-            className="font-display text-ink leading-none mb-4"
-            style={{ fontSize: "var(--text-display-lg)" }}
+            className="font-mono text-ink leading-none mb-4"
+            style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
           >
             Monthly Editorial
           </h1>
-          <p className="text-body text-dark max-w-[55ch] leading-relaxed">
+          <p className="font-mono text-body-sm text-mid max-w-[55ch] leading-relaxed">
             A monthly synthesis of patterns across all 20 tracked creative roles.
             Cross-cluster analysis, emerging trends, and the data behind the narrative.
           </p>
@@ -97,7 +97,7 @@ export default function EditorialArchivePage() {
                       </div>
                       <div className="col-span-12 md:col-span-9">
                         <h2
-                          className="font-display text-ink leading-tight mb-3 group-hover:text-accent transition-colors"
+                          className="font-mono text-ink leading-tight mb-3 group-hover:text-accent transition-colors"
                           style={{ fontSize: "var(--text-display-md)" }}
                         >
                           {editorial.headline}

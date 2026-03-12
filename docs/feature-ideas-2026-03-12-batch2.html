@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feature Review — Batch 2 — State of Creative Jobs</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cc-orange: #EA633F;
+    --cc-yellow: #E8EB74;
+    --cc-cyan: #88E8F0;
+    --cc-cream: #EAEAC8;
+    --cc-black: #121212;
+    --cc-near-black: #1E1E1E;
+    --cc-charcoal: #343340;
+    --cc-white: #FFFFFF;
+    --cc-light-gray: #F5F5F5;
+    --cc-warm-gray: #E8E8E8;
+    --cc-mid-gray: #666666;
+    --cc-font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    --cc-font-body: 'Inter', Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  h1, h2, h3, h4, h5, h6 { font-family: var(--cc-font-display); }
+  body, p, span, li, td, input, textarea, button { font-family: var(--cc-font-body); }
+
+  body {
+    background: var(--cc-white);
+    color: var(--cc-black);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Hero Masthead ── */
+  .masthead {
+    background: var(--cc-orange);
+    padding: 80px 60px 60px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--cc-black);
+  }
+  .masthead .label {
+    font-family: var(--cc-font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--cc-black);
+    opacity: 0.6;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--cc-black);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .masthead .context {
+    font-family: var(--cc-font-body);
+    font-size: 1rem;
+    color: var(--cc-black);
+    max-width: 640px;
+    line-height: 1.55;
+  }
+
+  /* ── Summary Bar ── */
+  .summary-bar {
+    display: flex;
+    gap: 40px;
+    padding: 20px 60px;
+    border-bottom: 1px solid var(--cc-warm-gray);
+    background: var(--cc-light-gray);
+    flex-wrap: wrap;
+  }
+  .summary-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .summary-stat .stat-label {
+    font-family: var(--cc-font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--cc-mid-gray);
+  }
+  .summary-stat .stat-value {
+    font-family: var(--cc-font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--cc-black);
+  }
+  .summary-stat .stat-value.approved { color: #2E7D32; }
+  .summary-stat .stat-value.rejected { color: var(--cc-mid-gray); }
+  .summary-stat .stat-value.pending { color: var(--cc-orange); }
+
+  /* ── Category Nav ── */
+  .category-nav {
+    display: flex;
+    gap: 0;
+    padding: 0 60px;
+    border-bottom: 1px solid var(--cc-warm-gray);
+    background: var(--cc-white);
+    overflow-x: auto;
+  }
+  .category-tab {
+    font-family: var(--cc-font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 16px 24px;
+    cursor: pointer;
+    color: var(--cc-mid-gray);
+    border: none;
+    background: none;
+    border-bottom: 3px solid transparent;
+    transition: color 120ms, border-color 120ms;
+    white-space: nowrap;
+  }
+  .category-tab:hover { color: var(--cc-black); }
+  .category-tab.active {
+    color: var(--cc-black);
+    border-bottom-color: var(--cc-orange);
+  }
+
+  /* ── Content ── */
+  .content {
+    padding: 40px 60px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .category-section { margin-bottom: 48px; }
+  .category-header {
+    font-family: var(--cc-font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--cc-mid-gray);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--cc-black);
+    margin-bottom: 24px;
+  }
+
+  /* ── Feature Cards ── */
+  .feature-card {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 32px;
+    background: var(--cc-white);
+    border: 1px solid var(--cc-warm-gray);
+    border-radius: 0;
+    padding: 32px;
+    margin-bottom: 16px;
+    transition: border-color 120ms, box-shadow 120ms;
+    position: relative;
+  }
+  .feature-card:hover {
+    border-color: var(--cc-black);
+  }
+  .feature-card.state-approved {
+    border-left: 4px solid #2E7D32;
+    background: linear-gradient(90deg, rgba(46,125,50,0.03) 0%, transparent 20%);
+  }
+  .feature-card.state-rejected {
+    border-left: 4px solid var(--cc-warm-gray);
+    opacity: 0.45;
+  }
+
+  .feature-id {
+    font-family: var(--cc-font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--cc-orange);
+    margin-bottom: 4px;
+  }
+  .feature-title {
+    font-family: var(--cc-font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cc-black);
+    margin-bottom: 12px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .feature-desc {
+    font-family: var(--cc-font-body);
+    font-size: 1rem;
+    color: var(--cc-black);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 600px;
+  }
+  .feature-why {
+    font-family: var(--cc-font-body);
+    font-size: 0.875rem;
+    color: var(--cc-mid-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding-left: 16px;
+    border-left: 3px solid var(--cc-orange);
+    max-width: 560px;
+  }
+
+  .feature-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .meta-tag {
+    font-family: var(--cc-font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+  .meta-tag.scope-small { background: #E8F5E9; color: #2E7D32; }
+  .meta-tag.scope-medium { background: #FFF3E0; color: #E65100; }
+  .meta-tag.scope-large { background: #FCE4EC; color: #C62828; }
+
+  /* ── Wireframe ── */
+  .wireframe-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .wireframe-label {
+    font-family: var(--cc-font-display);
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--cc-warm-gray);
+    text-align: right;
+    margin-bottom: 6px;
+  }
+  .wireframe {
+    background: var(--cc-near-black);
+    border: none;
+    border-radius: 0;
+    padding: 16px;
+    font-family: 'IBM Plex Sans', monospace;
+    font-size: 0.6rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.55);
+    white-space: pre;
+    overflow: hidden;
+    flex: 1;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Buttons ── */
+  .actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 16px;
+  }
+  .btn {
+    font-family: var(--cc-font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 120ms;
+    flex: 1;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .btn-approve {
+    background: var(--cc-black);
+    color: var(--cc-white);
+  }
+  .btn-approve:hover { background: var(--cc-orange); color: var(--cc-black); }
+  .btn-reject {
+    background: var(--cc-light-gray);
+    color: var(--cc-mid-gray);
+    border: 1px solid var(--cc-warm-gray);
+  }
+  .btn-reject:hover { background: var(--cc-warm-gray); color: var(--cc-black); }
+  .btn-reset {
+    background: var(--cc-light-gray);
+    color: var(--cc-mid-gray);
+    flex: 0;
+    padding: 10px 14px;
+    border: 1px solid var(--cc-warm-gray);
+  }
+  .btn-reset:hover { background: var(--cc-warm-gray); color: var(--cc-black); }
+
+  .status-badge {
+    font-family: var(--cc-font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 8px 16px;
+    text-align: center;
+    flex: 1;
+    border-radius: 4px;
+  }
+  .status-approved { background: #E8F5E9; color: #2E7D32; }
+  .status-rejected { background: var(--cc-light-gray); color: var(--cc-mid-gray); }
+
+  /* ── Export Bar ── */
+  .export-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--cc-black);
+    color: var(--cc-white);
+    padding: 16px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(100%);
+    transition: transform 250ms ease-out;
+    z-index: 100;
+  }
+  .export-bar.visible { transform: translateY(0); }
+  .export-bar p {
+    font-family: var(--cc-font-body);
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .btn-export {
+    font-family: var(--cc-font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 28px;
+    background: var(--cc-orange);
+    color: var(--cc-black);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 120ms;
+  }
+  .btn-export:hover { background: #d4542f; color: var(--cc-white); }
+
+  /* ── Footer ── */
+  .page-footer {
+    background: var(--cc-black);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 4px solid var(--cc-orange);
+  }
+  .page-footer .footer-left {
+    font-family: var(--cc-font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.4);
+  }
+  .page-footer .footer-right {
+    font-family: var(--cc-font-body);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .masthead { padding: 60px 24px 40px; }
+    .summary-bar { padding: 16px 24px; gap: 24px; }
+    .category-nav { padding: 0 24px; }
+    .content { padding: 24px 24px 100px; }
+    .feature-card { grid-template-columns: 1fr; }
+    .wireframe { min-height: 120px; }
+    .export-bar { padding: 16px 24px; }
+    .page-footer { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero Masthead (CC Orange accent) -->
+<div class="masthead">
+  <div class="label">FEATURE REVIEW + BATCH 2</div>
+  <h1>State of Creative Jobs</h1>
+  <p class="context">Based on your Batch 1 approvals, you leaned toward editorial depth, distribution reach, credibility signals, community data, and aggregate analysis. This batch goes deeper in those directions.</p>
+</div>
+
+<!-- Summary Strip -->
+<div class="summary-bar">
+  <div class="summary-stat">
+    <span class="stat-label">Total</span>
+    <span class="stat-value" id="totalCount">12</span>
+  </div>
+  <div class="summary-stat">
+    <span class="stat-label">Approved</span>
+    <span class="stat-value approved" id="approvedCount">0</span>
+  </div>
+  <div class="summary-stat">
+    <span class="stat-label">Passed</span>
+    <span class="stat-value rejected" id="rejectedCount">0</span>
+  </div>
+  <div class="summary-stat">
+    <span class="stat-label">Pending</span>
+    <span class="stat-value pending" id="pendingCount">12</span>
+  </div>
+</div>
+
+<!-- Category Nav -->
+<nav class="category-nav" id="categoryNav">
+  <button class="category-tab active" data-cat="all">All</button>
+  <button class="category-tab" data-cat="editorial">F — Editorial</button>
+  <button class="category-tab" data-cat="credibility">G — Credibility</button>
+  <button class="category-tab" data-cat="distribution">H — Distribution</button>
+  <button class="category-tab" data-cat="intelligence">I — Intelligence</button>
+</nav>
+
+<!-- Feature Cards -->
+<div class="content" id="featureList"></div>
+
+<!-- Footer -->
+<div class="page-footer">
+  <div class="footer-left">State of Creative Jobs</div>
+  <div class="footer-right">2026-03-12</div>
+</div>
+
+<!-- Export Bar -->
+<div class="export-bar" id="exportBar">
+  <p>Export your approved features to share with Claude.</p>
+  <button class="btn-export" id="exportBtn">Copy Approved List</button>
+</div>
+
+<script>
+const features = [
+  {
+    id: "F1",
+    cat: "editorial",
+    title: "Role Obituaries & Origin Stories",
+    scope: "medium",
+    desc: "When a role hits a significant threshold (AI risk crosses 70, demand drops >20% YoY), auto-generate a narrative deep-dive: how this role evolved, what it meant to the industry, and what's replacing it. Conversely, when a role surges, write its 'origin story.'",
+    why: "Data tells you what happened. Narrative tells you why it matters. These editorial pieces give the index emotional weight and shareability that raw numbers can't.",
+    wire: `  THE DECLINE OF THE
+  COPYWRITER
+  ────────────────────
+
+  An Index Deep-Dive
+
+  For thirty years, the
+  copywriter was the voice
+  of every brand that...
+
+  THE NUMBERS
+  Demand:  ↓22% YoY
+  AI Risk: 71 (High)
+  Salary:  $72k (flat)
+
+  WHAT'S REPLACING IT
+  The "Content Engineer"
+  role — half strategist,
+  half prompt architect...`
+  },
+  {
+    id: "F2",
+    cat: "editorial",
+    title: "Cluster Narratives (Quarterly)",
+    scope: "medium",
+    desc: "Quarterly AI-generated essay per cluster analyzing intra-cluster dynamics. Which roles are converging? Which are diverging? Are titles blurring or specializing?",
+    why: "The monthly editorial covers the whole market. Cluster narratives zoom in. A Head of Design cares specifically about what's happening within their discipline, not all 20 roles.",
+    wire: `  CLUSTER REPORT
+  Product & UX Design
+  Q1 2026
+  ────────────────────
+
+  "The Convergence Quarter"
+
+  Product Designer and UX
+  Designer postings are
+  converging — 40% of PD
+  postings now list UX
+  research as required...
+
+  CLUSTER SNAPSHOT
+  Avg Demand: ↑3% (best)
+  Avg Risk:   42 (moderate)
+  Avg Salary: $124k
+
+  DIVERGING: UX Researcher
+  +12% demand vs cluster +3%`
+  },
+  {
+    id: "F3",
+    cat: "editorial",
+    title: "Data Footnotes & Annotations",
+    scope: "small",
+    desc: "Add contextual footnotes to data points that need explanation. When BLS data is 18 months old, note it. When a demand spike correlates with a known event, annotate the chart.",
+    why: "Raw numbers without context can mislead. A 15% demand drop means something different during a recession vs. a normal market. Annotations prevent misinterpretation and signal editorial rigor.",
+    wire: `  DEMAND TREND
+
+           ╭──╮
+     ╱╲   ╱    ╲
+  ──╱  ╲─╱      ╲── ¹
+
+  Oct Nov Dec Jan Feb Mar
+
+  ¹ Dec drop correlates with
+    GPT-5 launch (Dec 12).
+    Industry-wide, not role-
+    specific.
+
+  ² BLS salary data reflects
+    May 2024 survey. Current
+    market may differ.
+
+  [i] Data freshness: 3 days`
+  },
+  {
+    id: "G1",
+    cat: "credibility",
+    title: "Data Confidence Indicators",
+    scope: "small",
+    desc: "Add a confidence badge to each data section: High (multiple corroborating sources), Medium (single reliable source), Low (sparse data or stale). Makes the index honest about its own limitations.",
+    why: "Not all data points are equally reliable. BLS salary data is rock solid. Google Trends 'demand' is a proxy at best. Showing confidence levels separates serious research from dashboard theater.",
+    wire: `  DEMAND
+  Confidence: ●●●○ HIGH
+  Sources: Adzuna, Google
+  Trends, HN mentions
+  Last refresh: 2 days ago
+
+  ────────────────────
+
+  SALARY
+  Confidence: ●●○○ MEDIUM
+  Source: BLS OES (May 2024)
+  Note: 18-month lag
+
+  ────────────────────
+
+  AI RISK
+  Confidence: ●●●○ HIGH
+  Sources: O*NET tasks,
+  editorial TDI scoring
+  Note: TDI is editorial`
+  },
+  {
+    id: "G2",
+    cat: "credibility",
+    title: "Changelog / What Changed This Week",
+    scope: "small",
+    desc: "A 'What Changed' section on the landing page showing the most significant data movements since the last refresh. Returning visitors see the delta instantly.",
+    why: "Returning visitors need a reason to come back. A changelog gives them the delta — what's different since they last looked. It also demonstrates the index is alive and actively updating.",
+    wire: `  WHAT CHANGED · Mar 10 2026
+  ────────────────────
+
+  ▲ Motion Designer demand
+    crossed 5,000 openings
+    for the first time
+
+  ▼ Copywriter AI risk moved
+    from Elevated → High
+    (score: 67 → 71)
+
+  → UX Researcher salary
+    overtook Product Designer
+    ($121k vs $118k)
+
+  ● 3 roles changed risk tier
+  ● 2 roles changed demand
+    direction (YoY +/-)
+
+  Updated Mon 6am UTC`
+  },
+  {
+    id: "G3",
+    cat: "credibility",
+    title: "Citation & Embed Kit",
+    scope: "small",
+    desc: "On every data point and page, add a 'Cite this' button that copies a formatted citation (APA, MLA, or plain). For researchers and journalists who need to reference the data properly.",
+    why: "If the methodology page makes the data verifiable, the citation kit makes it quotable. Lowering friction for journalists to cite the index expands reach through their audiences.",
+    wire: `  PRODUCT DESIGNER
+  Median Salary: $118,000
+                     [Cite]
+
+  ┌──────────────────────┐
+  │ CITE THIS            │
+  │                      │
+  │ APA:                 │
+  │ State of Creative    │
+  │ Jobs Index. (2026,   │
+  │ Mar 10). Product     │
+  │ Designer market      │
+  │ snapshot.            │
+  │                      │
+  │ Plain:               │
+  │ "Product Designer    │
+  │ median salary: $118k"│
+  │ — SOCJ, Mar 2026     │
+  │                      │
+  │ [Copy APA] [Copy]    │
+  └──────────────────────┘`
+  },
+  {
+    id: "H1",
+    cat: "distribution",
+    title: "LinkedIn Article Auto-Publisher",
+    scope: "medium",
+    desc: "Auto-generate a LinkedIn-formatted article from the monthly editorial. Optimized for the platform: shorter paragraphs, bold stat callouts, hook in the first line.",
+    why: "Creative professionals live on LinkedIn. The monthly editorial needs to go where the audience is. A LinkedIn-optimized version removes the friction between 'we wrote it' and 'they saw it'.",
+    wire: `  LINKEDIN ARTICLE PREVIEW
+  ────────────────────
+
+  [Auto-generated from
+   March 2026 editorial]
+
+  Hook: "Copywriter demand
+  just hit a 5-year low.
+  Here's what that means
+  for every creative role."
+
+  Key stat callouts:
+  "4 of 5 content roles
+   saw AI risk increase"
+  "Motion Designer is the
+   fastest growing role"
+
+  Paragraphs: 2-3 sentences
+  Length: ~400 words
+  CTA: Link to full index
+
+  [Copy Article] [Preview]`
+  },
+  {
+    id: "H2",
+    cat: "distribution",
+    title: "Social Share Cards (OG Images)",
+    scope: "small",
+    desc: "Auto-generate Open Graph images for every role page. When shared on LinkedIn or Twitter, the preview card shows role title, AI risk score, demand change, and salary.",
+    why: "Carried over from Batch 1 — lowest-effort, highest-impact distribution feature. Every share becomes a mini-advertisement for the index.",
+    wire: `  ┌──────────────────────┐
+  │                      │
+  │ STATE OF CREATIVE    │
+  │ JOBS                 │
+  │ ──────────────────── │
+  │                      │
+  │ PRODUCT DESIGNER     │
+  │                      │
+  │ Demand ↓6%  Risk 52  │
+  │ Salary $118k  ↑ +3%  │
+  │                      │
+  │ stateofcreativejobs  │
+  │ .com                 │
+  └──────────────────────┘
+   1200x630 OG image
+   Auto-generated per role`
+  },
+  {
+    id: "H3",
+    cat: "distribution",
+    title: "RSS Feed",
+    scope: "small",
+    desc: "Publish an RSS feed of weekly data updates and monthly editorials. Researchers and power users subscribe via their preferred reader. Zero infrastructure cost.",
+    why: "RSS is the distribution channel of choice for researchers and information professionals — exactly the credibility-minded audience this project targets. Trivially simple to implement.",
+    wire: `  RSS FEED
+  /feed.xml
+  ────────────────────
+
+  <item>
+    <title>
+      Weekly Update: 3
+      roles changed risk
+      tier
+    </title>
+    <pubDate>
+      Mon, 10 Mar 2026
+    </pubDate>
+    <description>
+      Copywriter crossed
+      into High risk...
+    </description>
+  </item>
+
+  <item>
+    <title>
+      March Editorial:
+      The Great Rebundling
+    </title>
+  </item>`
+  },
+  {
+    id: "I1",
+    cat: "intelligence",
+    title: "Role Convergence Detector",
+    scope: "medium",
+    desc: "Algorithmically detect when two roles' posting requirements are converging — overlapping skill sets, similar salary bands, shared AI risk factors. Surface these as 'convergence alerts.'",
+    why: "Role consolidation is one of the most important trends in creative work. Detecting this from data is a genuinely novel insight no other source provides.",
+    wire: `  CONVERGENCE ALERT
+  ────────────────────
+
+  Product Dsgn ←→ UX Dsgn
+  Skill overlap: 78%
+  (↑ from 61% six months ago)
+
+  SHARED SKILLS
+  ████████████ Prototyping
+  ███████████░ User Research
+  ██████████░░ Systems Think
+  █████████░░░ Design Sys
+
+  DIVERGING ON
+  PD: Business strategy
+  UX: Usability testing
+
+  Salary gap narrowing:
+  Was $14k → Now $6k
+
+  ⚠ These roles may merge
+    within 2-3 years`
+  },
+  {
+    id: "I2",
+    cat: "intelligence",
+    title: "AI Displacement Timeline",
+    scope: "medium",
+    desc: "For each role, project a rough displacement timeline: 'At current trajectory, AI tools will cover 50% of this role's core tasks by [date].' Based on task automability and tool release cadence.",
+    why: "AI risk score tells you 'how exposed.' The timeline tells you 'how soon.' That temporal dimension changes career decisions completely.",
+    wire: `  AI DISPLACEMENT TIMELINE
+  Graphic Designer
+  ────────────────────
+
+  NOW          50%      100%
+  ├────────────┼────────┤
+  ████████████▓░░░░░░░░░
+  43% automatable today
+
+  PROJECTED MILESTONES
+
+  2026 Q3 — 50% coverage
+    Midjourney v7 + Figma AI
+    handle layout + asset gen
+
+  2027 Q2 — 65% coverage
+    End-to-end brand asset
+    generation tools mature
+
+  PROTECTIVE FACTORS
+  Client relationships,
+  brand strategy, taste
+  keep ceiling at ~75%`
+  },
+  {
+    id: "I3",
+    cat: "intelligence",
+    title: "Emerging Roles Radar",
+    scope: "large",
+    desc: "Track job titles that don't exist in the current 20 but are appearing in postings: 'AI Design Lead', 'Design Technologist', 'Content Engineer.' Surface them as emerging signals before they become established.",
+    why: "The most important story might be the roles being born. Detecting emerging titles early is the ultimate forward-looking signal — it tells practitioners where to position themselves before the crowd.",
+    wire: `  EMERGING ROLES RADAR
+  ────────────────────
+  Titles appearing that
+  don't exist in our index
+
+  ● AI Design Lead
+    142 postings (↑ 340% QoQ)
+    Avg salary: $165k
+    Closest to: Creative Dir
+
+  ● Design Technologist
+    89 postings (↑ 180% QoQ)
+    Avg salary: $148k
+    Closest to: Design Sys
+
+  ● Creative AI Strategist
+    67 postings (new)
+    Avg salary: $135k
+    Closest to: Content Str
+
+  Methodology: Adzuna title
+  mining + HN mention freq`
+  }
+];
+
+const state = {};
+features.forEach(f => { state[f.id] = 'pending'; });
+
+const catNames = {
+  editorial: "F — Editorial & Narrative",
+  credibility: "G — Credibility & Trust",
+  distribution: "H — Distribution & Growth",
+  intelligence: "I — Deeper Intelligence"
+};
+
+let activeCategory = 'all';
+
+function renderFeatures() {
+  const container = document.getElementById('featureList');
+  container.innerHTML = '';
+  const cats = activeCategory === 'all' ? Object.keys(catNames) : [activeCategory];
+
+  cats.forEach(cat => {
+    const catFeatures = features.filter(f => f.cat === cat);
+    if (catFeatures.length === 0) return;
+    const section = document.createElement('div');
+    section.className = 'category-section';
+    section.innerHTML = '<div class="category-header">' + catNames[cat] + '</div>';
+
+    catFeatures.forEach(f => {
+      const s = state[f.id];
+      const card = document.createElement('div');
+      card.className = 'feature-card' + (s !== 'pending' ? ' state-' + s : '');
+      card.innerHTML =
+        '<div class="feature-body">' +
+          '<div class="feature-id">' + f.id + '</div>' +
+          '<div class="feature-title">' + f.title + '</div>' +
+          '<div class="feature-desc">' + f.desc + '</div>' +
+          '<div class="feature-why">' + f.why + '</div>' +
+          '<div class="feature-meta">' +
+            '<span class="meta-tag scope-' + f.scope + '">' + f.scope + ' build</span>' +
+          '</div>' +
+          '<div class="actions">' +
+            (s === 'pending'
+              ? '<button class="btn btn-approve" onclick="decide(\'' + f.id + '\',\'approved\')">Approve</button>' +
+                '<button class="btn btn-reject" onclick="decide(\'' + f.id + '\',\'rejected\')">Pass</button>'
+              : '<div class="status-badge status-' + s + '">' + s + '</div>' +
+                '<button class="btn btn-reset" onclick="decide(\'' + f.id + '\',\'pending\')">&#8634;</button>'
+            ) +
+          '</div>' +
+        '</div>' +
+        '<div class="wireframe-container">' +
+          '<div class="wireframe-label">WIREFRAME</div>' +
+          '<div class="wireframe">' + f.wire + '</div>' +
+        '</div>';
+      section.appendChild(card);
+    });
+    container.appendChild(section);
+  });
+  updateSummary();
+}
+
+function decide(id, newState) {
+  state[id] = newState;
+  renderFeatures();
+}
+
+function updateSummary() {
+  const vals = Object.values(state);
+  document.getElementById('approvedCount').textContent = vals.filter(v => v === 'approved').length;
+  document.getElementById('rejectedCount').textContent = vals.filter(v => v === 'rejected').length;
+  document.getElementById('pendingCount').textContent = vals.filter(v => v === 'pending').length;
+  const approvedAny = vals.some(v => v === 'approved');
+  document.getElementById('exportBar').classList.toggle('visible', approvedAny);
+}
+
+document.querySelectorAll('.category-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.category-tab').forEach(function(t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+    activeCategory = tab.dataset.cat;
+    renderFeatures();
+  });
+});
+
+document.getElementById('exportBtn').addEventListener('click', function() {
+  const approved = features.filter(function(f) { return state[f.id] === 'approved'; });
+  if (approved.length === 0) { alert('No features approved yet.'); return; }
+  const text = "APPROVED FEATURES — BATCH 2\n" + "========================================\n\n" +
+    approved.map(function(f) { return f.id + '. ' + f.title + ' [' + f.scope + ']\n   ' + f.desc + '\n'; }).join('\n');
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = document.getElementById('exportBtn');
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy Approved List'; }, 2000);
+  });
+});
+
+renderFeatures();
+</script>
+</body>
+</html>

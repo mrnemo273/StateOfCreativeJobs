@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feature Review — State of Creative Jobs</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #0A0A0A;
+    --paper: #F5F3EE;
+    --white: #FFFFFF;
+    --mid: #6B6B6B;
+    --light: #C8C4BC;
+    --faint: #ECEAE4;
+    --up: #1A6B3A;
+    --up-bg: #EAF4EE;
+    --down: #8B1A1A;
+    --down-bg: #F7EAEA;
+    --accent: #1A1A6B;
+    --accent-bg: #EAEAF7;
+    --neutral: #5A4E2A;
+    --neutral-bg: #F5F0E4;
+  }
+
+  body {
+    font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .masthead {
+    padding: 3rem 4rem 2rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  .masthead h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .masthead p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mid);
+  }
+
+  /* ── Summary bar ── */
+  .summary-bar {
+    display: flex;
+    gap: 2rem;
+    padding: 1.25rem 4rem;
+    border-bottom: 1px solid var(--light);
+    background: var(--white);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+  }
+  .summary-stat { display: flex; gap: 0.5rem; align-items: center; }
+  .summary-stat .label { color: var(--mid); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.65rem; }
+  .summary-stat .value { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .summary-stat .value.approved { color: var(--up); }
+  .summary-stat .value.rejected { color: var(--down); }
+  .summary-stat .value.pending { color: var(--neutral); }
+
+  /* ── Category nav ── */
+  .category-nav {
+    display: flex;
+    gap: 0;
+    padding: 0 4rem;
+    border-bottom: 1px solid var(--light);
+    background: var(--white);
+    overflow-x: auto;
+  }
+  .category-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.875rem 1.25rem;
+    cursor: pointer;
+    color: var(--mid);
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: color 80ms, border-color 80ms;
+    white-space: nowrap;
+  }
+  .category-tab:hover { color: var(--ink); }
+  .category-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── Content area ── */
+  .content { padding: 2rem 4rem 4rem; max-width: 1400px; margin: 0 auto; }
+
+  .category-section { margin-bottom: 3rem; }
+  .category-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--mid);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Feature cards ── */
+  .feature-card {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    background: var(--white);
+    border: 1px solid var(--light);
+    padding: 2rem;
+    margin-bottom: 1.25rem;
+    transition: border-color 80ms;
+    position: relative;
+  }
+  .feature-card:hover { border-color: var(--ink); }
+  .feature-card.state-approved { border-left: 3px solid var(--up); }
+  .feature-card.state-rejected { border-left: 3px solid var(--down); opacity: 0.55; }
+
+  .feature-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--mid);
+    margin-bottom: 0.25rem;
+  }
+  .feature-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .feature-desc {
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    max-width: 60ch;
+  }
+  .feature-why {
+    font-size: 0.8rem;
+    color: var(--mid);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--faint);
+    max-width: 55ch;
+  }
+
+  .feature-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .meta-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--light);
+  }
+  .meta-tag.scope-small { background: var(--up-bg); border-color: var(--up); color: var(--up); }
+  .meta-tag.scope-medium { background: var(--neutral-bg); border-color: var(--neutral); color: var(--neutral); }
+  .meta-tag.scope-large { background: var(--down-bg); border-color: var(--down); color: var(--down); }
+
+  /* ── Wireframe ── */
+  .wireframe-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .wireframe {
+    background: var(--faint);
+    border: 1px solid var(--light);
+    padding: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    line-height: 1.5;
+    color: var(--mid);
+    white-space: pre;
+    overflow: hidden;
+    flex: 1;
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wireframe-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--light);
+    text-align: right;
+    margin-bottom: 0.35rem;
+  }
+
+  /* ── Action buttons ── */
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--ink);
+    cursor: pointer;
+    transition: all 80ms;
+    flex: 1;
+    text-align: center;
+  }
+  .btn-approve {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-approve:hover { background: var(--up); border-color: var(--up); }
+  .btn-reject {
+    background: var(--white);
+    color: var(--ink);
+  }
+  .btn-reject:hover { background: var(--down-bg); border-color: var(--down); color: var(--down); }
+  .btn-reset {
+    background: var(--faint);
+    color: var(--mid);
+    border-color: var(--light);
+    flex: 0;
+    padding: 0.6rem 0.75rem;
+  }
+  .btn-reset:hover { background: var(--white); color: var(--ink); border-color: var(--ink); }
+
+  .status-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+    flex: 1;
+  }
+  .status-approved { background: var(--up-bg); color: var(--up); border: 1px solid var(--up); }
+  .status-rejected { background: var(--down-bg); color: var(--down); border: 1px solid var(--down); }
+
+  /* ── Export bar ── */
+  .export-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(100%);
+    transition: transform 200ms ease-out;
+    z-index: 100;
+  }
+  .export-bar.visible { transform: translateY(0); }
+  .export-bar p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  .btn-export {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 1.5rem;
+    background: var(--paper);
+    color: var(--ink);
+    border: none;
+    cursor: pointer;
+    transition: background 80ms;
+  }
+  .btn-export:hover { background: var(--up-bg); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .masthead, .summary-bar, .category-nav, .content { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .feature-card { grid-template-columns: 1fr; }
+    .wireframe { min-height: 100px; }
+    .export-bar { padding: 1rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>Feature Review</h1>
+  <p>State of Creative Jobs — Backlog Candidates</p>
+</div>
+
+<div class="summary-bar" id="summaryBar">
+  <div class="summary-stat">
+    <span class="label">Total</span>
+    <span class="value" id="totalCount">16</span>
+  </div>
+  <div class="summary-stat">
+    <span class="label">Approved</span>
+    <span class="value approved" id="approvedCount">0</span>
+  </div>
+  <div class="summary-stat">
+    <span class="label">Rejected</span>
+    <span class="value rejected" id="rejectedCount">0</span>
+  </div>
+  <div class="summary-stat">
+    <span class="label">Pending</span>
+    <span class="value pending" id="pendingCount">16</span>
+  </div>
+</div>
+
+<nav class="category-nav" id="categoryNav">
+  <button class="category-tab active" data-cat="all">All</button>
+  <button class="category-tab" data-cat="career">A — Career Planning</button>
+  <button class="category-tab" data-cat="data">B — Deeper Data</button>
+  <button class="category-tab" data-cat="sharing">C — Sharing & Reach</button>
+  <button class="category-tab" data-cat="community">D — Community</button>
+  <button class="category-tab" data-cat="editorial">E — Content & Editorial</button>
+</nav>
+
+<div class="content" id="featureList"></div>
+
+<div class="export-bar" id="exportBar">
+  <p id="exportMsg">You've reviewed all features. Export your approved list.</p>
+  <button class="btn-export" id="exportBtn">Copy Approved List</button>
+</div>
+
+<script>
+const features = [
+  {
+    id: "A1",
+    cat: "career",
+    title: "Career Path Navigator",
+    scope: "large",
+    desc: "Interactive visualization showing lateral and upward career moves from any role. Combines AI risk scores, salary deltas, and demand data to show which paths are gaining vs. losing altitude.",
+    why: "The current app tells you how your role is doing. It doesn't tell you what to do about it. This turns passive research into active career planning.",
+    wire: `┌──────────────────────────────┐
+│  YOUR ROLE: Graphic Designer │
+│  ───────────────────────────  │
+│                               │
+│     ┌─────────┐               │
+│     │ Current │               │
+│     │ Role ●  │               │
+│     └────┬────┘               │
+│    ┌─────┼──────┐             │
+│    ▼     ▼      ▼             │
+│ ┌─────┐┌─────┐┌─────┐        │
+│ │Brand││Prod ││Moti-│        │
+│ │Dsgn ││Dsgn ││on   │        │
+│ │ ↑8% ││↑12% ││ ↑3% │        │
+│ └─────┘└─────┘└─────┘        │
+│  +$12k   +$28k  +$8k         │
+│  Risk▼   Risk▼  Risk→        │
+└──────────────────────────────┘`
+  },
+  {
+    id: "A2",
+    cat: "career",
+    title: '"What If I Pivot?" Comparison',
+    scope: "medium",
+    desc: "Select your current role and a target role. See a side-by-side breakdown: salary change, AI risk change, demand trajectory, and skills you'd need to build. A cost-benefit analysis for career moves.",
+    why: "Partially scoped in Phase 3 as Compare Mode and deferred. Framing it as a pivot analysis makes it actionable — it answers 'should I make this move?' not just 'how do these differ?'",
+    wire: `┌─────────────┬─────────────┐
+│ FROM         │ TO           │
+│ Copywriter   │ Content Str. │
+├─────────────┼─────────────┤
+│ Salary  $72k│ Salary  $89k│
+│ Risk    ■■■□│ Risk    ■■□□│
+│ Demand  ↓8% │ Demand  ↑4% │
+├─────────────┴─────────────┤
+│ SKILLS GAP                 │
+│ ✓ Editorial    ● Strategy  │
+│ ✓ SEO          ● Analytics │
+│ ✓ Tone/Voice   ● CMS ops   │
+├────────────────────────────┤
+│ VERDICT: Strong lateral    │
+│ move. +$17k, lower risk.   │
+└────────────────────────────┘`
+  },
+  {
+    id: "A3",
+    cat: "career",
+    title: "Skills Gap Analyzer",
+    scope: "small",
+    desc: "For any role, cross-reference the top skills employers are asking for against rising vs. declining skill signals. Highlight the high-demand, low-supply skills worth investing in right now.",
+    why: "Posting Analysis and Skills Signal sections already exist but they're separate. Merging them into a single 'here's what to learn' view makes the data prescriptive instead of descriptive.",
+    wire: `┌────────────────────────────┐
+│ SKILLS GAP · UX Designer   │
+├────────────────────────────┤
+│ HIGH DEMAND + RISING       │
+│ ████████████ AI prompting  │
+│ ███████████░ Systems thkg  │
+│ ██████████░░ Prototyping   │
+├────────────────────────────┤
+│ HIGH DEMAND + DECLINING    │
+│ ░░░░░████░░ Wireframing ⚠ │
+│ ░░░░░███░░░ Visual QA   ⚠ │
+├────────────────────────────┤
+│ ● Invest   ⚠ Watch         │
+└────────────────────────────┘`
+  },
+  {
+    id: "B4",
+    cat: "data",
+    title: "Historical Trend Database",
+    scope: "large",
+    desc: "Store weekly snapshots over time instead of overwriting them. Build a time-series view showing rolling averages, inflection points, and seasonal patterns across months of data.",
+    why: "Right now the app is a point-in-time photograph. With history, it becomes a movie. You can see whether a role's decline is accelerating or stabilizing.",
+    wire: `┌────────────────────────────┐
+│ DEMAND HISTORY · 6 months  │
+│ UX Designer                │
+│                            │
+│     ╭──╮                   │
+│    ╱    ╲    ╭──╮          │
+│ ──╱      ╲──╱    ╲──       │
+│ ╱                    ╲──── │
+│                            │
+│ Oct  Nov  Dec  Jan  Feb Mar│
+│ ──── Rolling avg (4 wk)   │
+│ - - - YoY comparison       │
+│                            │
+│ ▼ Inflection: Dec 2025    │
+│   Demand dropped 12% in   │
+│   3 weeks after GPT-5     │
+└────────────────────────────┘`
+  },
+  {
+    id: "B5",
+    cat: "data",
+    title: "Geographic Heat Map",
+    scope: "large",
+    desc: "For any role, show a US map or metro-area breakdown of where demand is concentrated, where salaries are highest, and where growth is fastest. Adzuna already returns location data.",
+    why: "'UX Designer demand is down 12%' hits differently when you can see it's down 30% in SF but up 15% in Austin. Geography matters enormously for career decisions.",
+    wire: `┌────────────────────────────┐
+│ DEMAND BY METRO            │
+│ Product Designer           │
+│                            │
+│   ○ Seattle +8%            │
+│        ○ NYC +2%           │
+│   ● SF -14%                │
+│            ○ Austin +15%   │
+│        ○ Miami +6%         │
+│                            │
+│ ● Declining  ○ Growing     │
+│ Size = posting volume      │
+├────────────────────────────┤
+│ TOP PAYING    FASTEST GROW │
+│ 1. SF  $148k  1. Austin +15│
+│ 2. NYC $139k  2. Seattle +8│
+│ 3. SEA $135k  3. Miami   +6│
+└────────────────────────────┘`
+  },
+  {
+    id: "B6",
+    cat: "data",
+    title: "Salary Calculator",
+    scope: "medium",
+    desc: "Enter your role, experience level, and metro area. Get a personalized salary range based on BLS percentiles and ACS metro data. See where you fall relative to market.",
+    why: "The median salary stat is useful but impersonal. A calculator makes it about YOU. This is also the kind of tool people share and come back to repeatedly.",
+    wire: `┌────────────────────────────┐
+│ WHAT SHOULD I MAKE?        │
+│                            │
+│ Role  [Product Designer ▼] │
+│ Exp   [5-8 years       ▼] │
+│ Metro [New York, NY    ▼] │
+│                            │
+│ ─────────────────────────  │
+│ YOUR RANGE                 │
+│                            │
+│ P10     YOU→   P50    P90  │
+│  ├───────●──────┼──────┤   │
+│ $98k   $118k  $128k $162k │
+│                            │
+│ You're in the 38th %-ile   │
+│ for NYC Product Designers  │
+└────────────────────────────┘`
+  },
+  {
+    id: "B7",
+    cat: "data",
+    title: "AI Tool Tracker",
+    scope: "large",
+    desc: "Dedicated page tracking specific AI tools displacing creative roles. For each tool (Midjourney, Runway, Claude, Figma AI), show which roles it affects, adoption trends, and practitioner sentiment.",
+    why: "The AI Impact section names tools but doesn't track them. Practitioners want to know 'is Midjourney actually taking work from illustrators, or is it hype?' This answers that with data.",
+    wire: `┌────────────────────────────┐
+│ AI TOOL TRACKER            │
+├─────────┬──────┬───────────┤
+│ Tool    │Roles │Adoption   │
+│         │Hit   │Trend      │
+├─────────┼──────┼───────────┤
+│Midjourney│ 4   │ ████████▓ │
+│Figma AI │ 6   │ █████▓░░░ │
+│Runway   │ 2   │ ████▓░░░░ │
+│Claude   │ 5   │ ██████▓░░ │
+│Sora     │ 2   │ ███▓░░░░░ │
+├─────────┴──────┴───────────┤
+│ ▸ Midjourney               │
+│   Roles: Graphic Dsgn,     │
+│   Brand Dsgn, Art Dir,     │
+│   Visual Dsgn              │
+│   Launched v6: Jan 2025    │
+│   HN mentions: 847 (+32%) │
+└────────────────────────────┘`
+  },
+  {
+    id: "C8",
+    cat: "sharing",
+    title: "Monthly PDF Report",
+    scope: "medium",
+    desc: "Auto-generate a Swiss-style PDF report each month summarizing the biggest moves across all 20 roles. Shareable, downloadable, designed for email and LinkedIn distribution.",
+    why: "Not everyone visits a website weekly. A monthly report is a distribution mechanism. It positions the project as a research publication, not just a tool.",
+    wire: `┌────────────────────────────┐
+│                            │
+│  STATE OF CREATIVE JOBS    │
+│  ─────────────────────     │
+│  March 2026                │
+│                            │
+│  BIGGEST MOVERS            │
+│  ↑ Motion Designer  +14%  │
+│  ↓ Copywriter       -11%  │
+│  ↑ UX Researcher     +9%  │
+│                            │
+│  KEY FINDING               │
+│  AI risk scores rose for   │
+│  4 of 5 Content & Copy     │
+│  cluster roles this month  │
+│                            │
+│  ┌──────────────────────┐  │
+│  │ [Download PDF]       │  │
+│  └──────────────────────┘  │
+└────────────────────────────┘`
+  },
+  {
+    id: "C9",
+    cat: "sharing",
+    title: "Social Share Cards (OG Images)",
+    scope: "small",
+    desc: "Auto-generate Open Graph images for every role page. When shared on LinkedIn or Twitter, the preview card shows role title, AI risk score, demand change, and salary in the Swiss design style.",
+    why: "Lowest-effort, highest-impact distribution feature. Every share becomes a mini-advertisement. Creative professionals share career content constantly.",
+    wire: `┌────────────────────────────┐
+│ ┌────────────────────────┐ │
+│ │                        │ │
+│ │ STATE OF CREATIVE JOBS │ │
+│ │ ─────────────────────  │ │
+│ │                        │ │
+│ │ PRODUCT DESIGNER       │ │
+│ │                        │ │
+│ │ Demand ↓6%  Risk 52/100│ │
+│ │ Salary $118k    ↑ +3%  │ │
+│ │                        │ │
+│ │ stateofcreativejobs.com│ │
+│ └────────────────────────┘ │
+│  1200×630 OG image         │
+│  Auto-generated per role   │
+└────────────────────────────┘`
+  },
+  {
+    id: "C10",
+    cat: "sharing",
+    title: "Embeddable Widgets",
+    scope: "medium",
+    desc: "Lightweight embeddable components for other sites: a Role Health Card, a Top 5 At-Risk Roles leaderboard, a single-role sparkline. Portfolio sites and design blogs would embed these.",
+    why: "Expands reach without requiring visits. Positions the index as infrastructure — the Bloomberg Terminal of creative career data.",
+    wire: `┌────────────────────────────┐
+│ EMBED OPTIONS              │
+│                            │
+│ ┌──────────────┐ Role Card │
+│ │UX Designer   │           │
+│ │↓6% │ $112k  │  <iframe>  │
+│ │Risk: 52 ■■■□│  width=300 │
+│ └──────────────┘           │
+│                            │
+│ ┌──────────────┐ Sparkline │
+│ │UX Dsgn ╱╲╱─ │  <iframe>  │
+│ └──────────────┘  width=200│
+│                            │
+│ ┌──────────────┐ Top 5     │
+│ │1. Copywriter │  <iframe>  │
+│ │2. Graphic D. │  width=300 │
+│ │3. Visual D.  │           │
+│ └──────────────┘           │
+└────────────────────────────┘`
+  },
+  {
+    id: "C11",
+    cat: "sharing",
+    title: "Email Digest / Role Alerts",
+    scope: "large",
+    desc: "Subscribe to 1-3 roles. Get a weekly or monthly email with demand changes, salary shifts, notable headlines, and AI risk updates. Clean text-forward email in the Swiss style.",
+    why: "Retention mechanism. Turns one-time visitors into ongoing readers. Email is where professionals actually consume career intel.",
+    wire: `┌────────────────────────────┐
+│ ✉ WEEKLY DIGEST            │
+│ Product Designer           │
+│ Week of Mar 9, 2026        │
+│ ─────────────────────────  │
+│                            │
+│ DEMAND    4,218 (↓ 3%)     │
+│ SALARY    $118k (→ flat)   │
+│ AI RISK   52/100 (↑ +2)   │
+│                            │
+│ HEADLINE                   │
+│ "Figma AI ships auto-      │
+│  layout feature, designers │
+│  react"                    │
+│                            │
+│ ┌────────────────────────┐ │
+│ │ View full dashboard →  │ │
+│ └────────────────────────┘ │
+│ Unsubscribe                │
+└────────────────────────────┘`
+  },
+  {
+    id: "D12",
+    cat: "community",
+    title: "Practitioner Pulse (Survey)",
+    scope: "large",
+    desc: "Lightweight survey on each role page: 'Are you a [Role]? Rate your job market experience this month.' Aggregate into a Practitioner Pulse score alongside the data-driven metrics.",
+    why: "The app measures the market from the outside (APIs, job boards). This measures from the inside (lived experience). The gap between data and sentiment is the most interesting story.",
+    wire: `┌────────────────────────────┐
+│ PRACTITIONER PULSE         │
+│ How's the market feeling?  │
+│                            │
+│ Are you a UX Designer?     │
+│                            │
+│ Job market this month:     │
+│ ○ Hot    ○ Warm  ● Cool    │
+│ ○ Cold   ○ Frozen          │
+│                            │
+│ Are you seeing:            │
+│ ☑ Fewer openings           │
+│ ☑ AI replacing tasks       │
+│ ☐ Salary pressure          │
+│ ☐ More contract roles      │
+│                            │
+│ [Submit Anonymously]       │
+├────────────────────────────┤
+│ 142 responses this month   │
+│ Pulse: COOL (was WARM)     │
+└────────────────────────────┘`
+  },
+  {
+    id: "D13",
+    cat: "community",
+    title: "My Watchlist",
+    scope: "small",
+    desc: "Let users save 3-5 roles to a personal watchlist. Landing page reorganizes around their picks with personalized change summaries. No account needed — URL-based or localStorage state.",
+    why: "Most practitioners care about 2-3 roles. A watchlist makes the landing page feel like their dashboard instead of a generic leaderboard.",
+    wire: `┌────────────────────────────┐
+│ YOUR WATCHLIST (3 roles)   │
+│ ─────────────────────────  │
+│                            │
+│ ★ Product Designer         │
+│   Demand ↓6%  Salary ↑3%  │
+│   AI Risk: 52 (Elevated)   │
+│   Changed since last visit │
+│                            │
+│ ★ Creative Director        │
+│   Demand ↓2%  Salary →0%  │
+│   AI Risk: 38 (Moderate)   │
+│   No major changes         │
+│                            │
+│ ★ Content Strategist       │
+│   Demand ↑4%  Salary ↑5%  │
+│   AI Risk: 41 (Moderate)   │
+│   ↑ Demand improved        │
+│                            │
+│ [+ Add role to watchlist]  │
+└────────────────────────────┘`
+  },
+  {
+    id: "E14",
+    cat: "editorial",
+    title: "Methodology Page",
+    scope: "small",
+    desc: "Dedicated /methodology page explaining how every number is calculated. Data sources, refresh cadence, scoring formulas, known limitations. Written for a smart skeptic.",
+    why: "Credibility. Any serious research index needs transparent methodology. Journalists and researchers won't cite data they can't verify. Table stakes for being taken seriously.",
+    wire: `┌────────────────────────────┐
+│ METHODOLOGY                │
+│ ─────────────────────────  │
+│                            │
+│ 01. DATA SOURCES           │
+│ We pull from 7 external    │
+│ APIs weekly...             │
+│                            │
+│ 02. AI RISK SCORING        │
+│ Composite of two axes:     │
+│ • O*NET automability (40%) │
+│ • Tool displacement (60%)  │
+│ Formula: ...               │
+│                            │
+│ 03. KNOWN LIMITATIONS      │
+│ • BLS data lags 12 months  │
+│ • Adzuna covers ~60% of    │
+│   US postings              │
+│                            │
+│ 04. REFRESH CADENCE        │
+│ Weekly, Monday 6am UTC     │
+└────────────────────────────┘`
+  },
+  {
+    id: "E15",
+    cat: "editorial",
+    title: '"State of the Market" Editorial',
+    scope: "medium",
+    desc: "Monthly AI-synthesized editorial essay identifying macro patterns across all 20 roles. Connects dots between clusters, calls out surprises, and names emerging trends.",
+    why: "Individual role data is useful. Cross-role narrative is powerful. This is the 'so what?' for the entire index — the kind of thing that gets quoted and shared on LinkedIn.",
+    wire: `┌────────────────────────────┐
+│ STATE OF THE MARKET        │
+│ March 2026                 │
+│ ─────────────────────────  │
+│                            │
+│ "The Great Rebundling"     │
+│                            │
+│ For the first time since   │
+│ we began tracking, demand  │
+│ rose across all 5 Product  │
+│ & UX roles while falling   │
+│ for 4 of 5 Content & Copy  │
+│ roles. The pattern is      │
+│ clear: companies are       │
+│ consolidating...           │
+│                            │
+│ KEY PATTERNS               │
+│ • Content cluster -8% avg  │
+│ • Product cluster +6% avg  │
+│ • AI risk ↑ for 12 roles  │
+│                            │
+│ Read full analysis →       │
+└────────────────────────────┘`
+  },
+  {
+    id: "E16",
+    cat: "editorial",
+    title: "Industry Benchmarks Page",
+    scope: "small",
+    desc: "A /benchmarks page with cross-cutting aggregate views: which cluster has the highest AI risk, widest salary spread, fastest demand growth. Market-level views not tied to any single role.",
+    why: "Design leaders managing multi-role teams need cluster-level analysis. The leaderboard hints at this, but a dedicated page can surface patterns the leaderboard can't.",
+    wire: `┌────────────────────────────┐
+│ BENCHMARKS                 │
+│ ─────────────────────────  │
+│                            │
+│ AVG AI RISK BY CLUSTER     │
+│ Content & Copy   ████████░│
+│ Brand & Visual   ██████░░░│
+│ Product & UX     ████░░░░░│
+│ Design Leader.   ███░░░░░░│
+│                            │
+│ SALARY SPREAD (P10–P90)    │
+│ VP of Design     $98–$210k│
+│ Creative Dir.    $82–$178k│
+│ UX Researcher    $78–$142k│
+│                            │
+│ FASTEST GROWING            │
+│ 1. UX Researcher     +12% │
+│ 2. Motion Designer    +9% │
+│ 3. Content Strategist +4% │
+└────────────────────────────┘`
+  }
+];
+
+// ── State ──
+const state = {};
+features.forEach(f => { state[f.id] = 'pending'; });
+
+// ── Render ──
+const catNames = {
+  career: "A — Career Planning & Navigation",
+  data: "B — Deeper Data & Analysis",
+  sharing: "C — Sharing, Reach & Distribution",
+  community: "D — Community & Engagement",
+  editorial: "E — Content & Editorial"
+};
+
+let activeCategory = 'all';
+
+function renderFeatures() {
+  const container = document.getElementById('featureList');
+  container.innerHTML = '';
+
+  const cats = activeCategory === 'all'
+    ? Object.keys(catNames)
+    : [activeCategory];
+
+  cats.forEach(cat => {
+    const catFeatures = features.filter(f => f.cat === cat);
+    if (catFeatures.length === 0) return;
+
+    const section = document.createElement('div');
+    section.className = 'category-section';
+    section.innerHTML = `<div class="category-header">${catNames[cat]}</div>`;
+
+    catFeatures.forEach(f => {
+      const s = state[f.id];
+      const card = document.createElement('div');
+      card.className = `feature-card ${s !== 'pending' ? 'state-' + s : ''}`;
+      card.innerHTML = `
+        <div class="feature-body">
+          <div class="feature-id">${f.id}</div>
+          <div class="feature-title">${f.title}</div>
+          <div class="feature-desc">${f.desc}</div>
+          <div class="feature-why">${f.why}</div>
+          <div class="feature-meta">
+            <span class="meta-tag scope-${f.scope}">${f.scope} build</span>
+          </div>
+          <div class="actions" id="actions-${f.id}">
+            ${s === 'pending' ? `
+              <button class="btn btn-approve" onclick="decide('${f.id}','approved')">Approve</button>
+              <button class="btn btn-reject" onclick="decide('${f.id}','rejected')">Pass</button>
+            ` : `
+              <div class="status-badge status-${s}">${s}</div>
+              <button class="btn btn-reset" onclick="decide('${f.id}','pending')">↺</button>
+            `}
+          </div>
+        </div>
+        <div class="wireframe-container">
+          <div class="wireframe-label">Wireframe</div>
+          <div class="wireframe">${f.wire}</div>
+        </div>
+      `;
+      section.appendChild(card);
+    });
+    container.appendChild(section);
+  });
+
+  updateSummary();
+}
+
+function decide(id, newState) {
+  state[id] = newState;
+  renderFeatures();
+}
+
+function updateSummary() {
+  const vals = Object.values(state);
+  document.getElementById('approvedCount').textContent = vals.filter(v => v === 'approved').length;
+  document.getElementById('rejectedCount').textContent = vals.filter(v => v === 'rejected').length;
+  document.getElementById('pendingCount').textContent = vals.filter(v => v === 'pending').length;
+
+  const allDecided = vals.every(v => v !== 'pending');
+  const approvedAny = vals.some(v => v === 'approved');
+  document.getElementById('exportBar').classList.toggle('visible', allDecided || approvedAny);
+}
+
+// ── Category tabs ──
+document.querySelectorAll('.category-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    activeCategory = tab.dataset.cat;
+    renderFeatures();
+  });
+});
+
+// ── Export ──
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const approved = features.filter(f => state[f.id] === 'approved');
+  if (approved.length === 0) {
+    alert('No features approved yet.');
+    return;
+  }
+  const text = "APPROVED FEATURES\n" + "=".repeat(40) + "\n\n" +
+    approved.map(f => `${f.id}. ${f.title} [${f.scope}]\n   ${f.desc}\n`).join('\n');
+
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('exportBtn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy Approved List'; }, 2000);
+  });
+});
+
+// ── Init ──
+renderFeatures();
+</script>
+</body>
+</html>

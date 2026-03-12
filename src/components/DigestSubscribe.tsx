@@ -70,7 +70,7 @@ export default function DigestSubscribe({ initialRole, compact }: Props) {
 
   if (status === "success") {
     return (
-      <div className={compact ? "" : "bg-faint border border-light p-6 md:p-8"}>
+      <div className={compact ? "" : "p-6 md:p-8"}>
         <span className="font-mono text-label-sm text-up uppercase tracking-widest block mb-2">
           Subscribed
         </span>
@@ -110,17 +110,17 @@ export default function DigestSubscribe({ initialRole, compact }: Props) {
   }
 
   return (
-    <div className="bg-faint border border-light p-6 md:p-8">
+    <div className="p-6 md:p-8">
       <span className="font-mono text-label-sm text-mid uppercase tracking-widest block mb-2">
         Stay Updated
       </span>
       <h3
-        className="font-display text-ink leading-tight mb-2"
+        className="font-mono text-ink leading-tight mb-2"
         style={{ fontSize: "var(--text-display-md)" }}
       >
         Get the Digest
       </h3>
-      <p className="text-body-sm text-dark mb-6 max-w-[45ch]">
+      <p className="font-mono text-body-sm text-dark mb-6 max-w-[45ch]">
         Track up to 3 roles. We&rsquo;ll email you when the data moves.
       </p>
 

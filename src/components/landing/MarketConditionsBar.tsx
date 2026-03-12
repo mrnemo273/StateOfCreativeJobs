@@ -19,23 +19,23 @@ export default function MarketConditionsBar({ roles }: Props) {
     {
       label: "Highest Risk Role",
       value: conditions.highestRisk
-        ? `${conditions.highestRisk.title} — ${conditions.highestRisk.aiScore}`
+        ? conditions.highestRisk.title
         : "—",
     },
   ];
 
   return (
     <div className="py-4 md:py-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6">
         {stats.map((stat, i) => (
           <div
             key={stat.label}
-            className={`${i > 0 ? "md:border-l md:border-light md:pl-6" : ""} ${i === 4 ? "col-span-2 sm:col-span-1" : ""}`}
+            className={`${i > 0 ? "border-t md:border-t-0 md:border-l border-light pt-4 md:pt-0 md:pl-6" : ""}`}
           >
             <span className="text-label-sm text-mid uppercase tracking-widest font-mono block mb-1">
               {stat.label}
             </span>
-            <span className="font-mono text-data-md text-ink">{stat.value}</span>
+            <span className="font-mono text-ink" style={{ fontSize: "clamp(2rem, 3vw, 2rem)" }}>{stat.value}</span>
           </div>
         ))}
       </div>
