@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+import Link from "next/link";
 import { getRoleSummaries } from "@/lib/landingData.server";
 import { computeMarketConditions } from "@/lib/landingData";
 import Header from "@/components/Header";
@@ -6,11 +9,44 @@ import HairlineRule from "@/components/ui/HairlineRule";
 import MarketConditionsBar from "@/components/landing/MarketConditionsBar";
 import RoleLeaderboard from "@/components/landing/RoleLeaderboard";
 
+interface EditorialExcerpt {
+  month: string;
+  monthLabel: string;
+  headline: string;
+  excerpt: string;
+}
+
+function getLatestEditorial(): EditorialExcerpt | null {
+  const dir = path.join(process.cwd(), "src", "data", "editorials");
+  if (!fs.existsSync(dir)) return null;
+
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  if (files.length === 0) return null;
+
+  // Sort newest first
+  files.sort((a, b) => b.localeCompare(a));
+  try {
+    const raw = fs.readFileSync(path.join(dir, files[0]), "utf-8");
+    const data = JSON.parse(raw);
+    // Extract first 2 sentences as excerpt
+    const sentences = (data.body || "").match(/[^.!?]+[.!?]+/g) || [];
+    const excerpt = sentences.slice(0, 2).join(" ").trim();
+    return {
+      month: data.month,
+      monthLabel: data.monthLabel,
+      headline: data.headline,
+      excerpt,
+    };
+  } catch {
+    return null;
+  }
+}
 
 export default function LandingPage() {
   const roles = getRoleSummaries();
   const conditions = roles.length > 0 ? computeMarketConditions(roles) : null;
   const lastUpdated = conditions?.mostRecent ?? undefined;
+  const editorial = getLatestEditorial();
 
   return (
     <div className="min-h-screen bg-paper">
@@ -104,9 +140,41 @@ export default function LandingPage() {
           </section>
         )}
 
-        <div className="mb-8 md:mb-12">
-          <HairlineRule />
-        </div>
+        {/* Editorial Excerpt — only renders if an editorial exists */}
+        {editorial && (
+          <>
+            <section className="mb-8 md:mb-12 bg-faint p-6 md:p-8 border border-light">
+              <span className="font-mono text-label-sm text-mid uppercase tracking-widest block mb-3">
+                Monthly Editorial &middot; {editorial.monthLabel}
+              </span>
+              <h3
+                className="font-display text-ink leading-tight mb-3"
+                style={{ fontSize: "var(--text-display-md)" }}
+              >
+                {editorial.headline}
+              </h3>
+              <p className="text-body-sm text-dark leading-relaxed max-w-[60ch] mb-4">
+                {editorial.excerpt}
+              </p>
+              <Link
+                href={`/editorial/${editorial.month}`}
+                className="font-mono text-label-md text-accent uppercase tracking-widest hover:text-ink transition-colors"
+              >
+                Read full editorial &rarr;
+              </Link>
+            </section>
+
+            <div className="mb-8 md:mb-12">
+              <HairlineRule />
+            </div>
+          </>
+        )}
+
+        {!editorial && (
+          <div className="mb-8 md:mb-12">
+            <HairlineRule />
+          </div>
+        )}
 
         {/* Section 4 — The Index (Leaderboard) */}
         {roles.length > 0 && (
