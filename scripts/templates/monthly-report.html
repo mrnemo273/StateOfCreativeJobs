@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State of Creative Jobs — {{monthLabel}} Report</title>
+  <style>
+    /* ─── Design System Tokens ──────────────────────────────── */
+    :root {
+      --color-ink: #0A0A0A;
+      --color-paper: #F5F3EE;
+      --color-white: #FFFFFF;
+      --color-dark: #1A1A1A;
+      --color-mid: #6B6B6B;
+      --color-light: #C8C4BC;
+      --color-faint: #ECEAE4;
+      --color-up: #4A6E52;
+      --color-up-bg: #DBE5D7;
+      --color-down: #8B5A5A;
+      --color-down-bg: #E3D5D2;
+      --color-neutral: #7A6D42;
+      --color-neutral-bg: #E8E4D2;
+      --color-accent: #1A1A6B;
+    }
+
+    /* ─── Base Reset ────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: letter;
+      margin: 1in;
+    }
+
+    body {
+      font-family: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      color: var(--color-ink);
+      background: var(--color-paper);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ─── Typography ────────────────────────────────────────── */
+    .font-display {
+      font-family: 'DM Serif Display', Georgia, serif;
+    }
+
+    .font-mono {
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-mid);
+      font-weight: 500;
+    }
+
+    /* ─── Page Breaks ───────────────────────────────────────── */
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    /* ─── Cover Page ────────────────────────────────────────── */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: calc(100vh - 2in);
+      text-align: center;
+    }
+
+    .cover-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 32pt;
+      font-weight: 400;
+      line-height: 1.0;
+      margin-bottom: 8pt;
+    }
+
+    .cover-subtitle {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-mid);
+      margin-bottom: 24pt;
+    }
+
+    .cover-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14pt;
+      color: var(--color-dark);
+    }
+
+    /* ─── Market Stats Strip ────────────────────────────────── */
+    .stats-strip {
+      display: flex;
+      justify-content: center;
+      gap: 24pt;
+      margin-top: 32pt;
+      padding-top: 16pt;
+      border-top: 1px solid var(--color-ink);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 16pt;
+      font-weight: 500;
+      display: block;
+    }
+
+    .stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-mid);
+    }
+
+    /* ─── Section Headers ───────────────────────────────────── */
+    .section-header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-mid);
+      border-top: 1px solid var(--color-ink);
+      padding-top: 8pt;
+      margin-bottom: 12pt;
+    }
+
+    /* ─── Editorial ─────────────────────────────────────────── */
+    .editorial-headline {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 18pt;
+      line-height: 1.15;
+      margin-bottom: 12pt;
+    }
+
+    .editorial-body p {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 10pt;
+      line-height: 1.7;
+      margin-bottom: 10pt;
+      max-width: 50ch;
+    }
+
+    /* ─── Callout Boxes ─────────────────────────────────────── */
+    .callouts {
+      display: flex;
+      gap: 12pt;
+      margin-top: 16pt;
+    }
+
+    .callout {
+      flex: 1;
+      border: 1px solid var(--color-light);
+      padding: 10pt;
+      background: var(--color-white);
+    }
+
+    .callout-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-mid);
+      margin-bottom: 4pt;
+    }
+
+    .callout-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9pt;
+      font-weight: 500;
+    }
+
+    .callout-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14pt;
+      font-weight: 500;
+    }
+
+    /* ─── Leaderboard Table ─────────────────────────────────── */
+    .leaderboard {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+    }
+
+    .leaderboard th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-mid);
+      text-align: left;
+      padding: 6pt 4pt;
+      border-bottom: 1px solid var(--color-ink);
+      font-weight: 500;
+    }
+
+    .leaderboard td {
+      padding: 5pt 4pt;
+      border-bottom: 1px solid var(--color-faint);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8pt;
+    }
+
+    .leaderboard td:first-child {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+    }
+
+    .text-up { color: var(--color-up); }
+    .text-down { color: var(--color-down); }
+    .text-neutral { color: var(--color-neutral); }
+
+    /* ─── Cluster Grid ──────────────────────────────────────── */
+    .cluster-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16pt;
+    }
+
+    .cluster-card {
+      border: 1px solid var(--color-light);
+      padding: 12pt;
+      background: var(--color-white);
+    }
+
+    .cluster-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      margin-bottom: 8pt;
+    }
+
+    .cluster-stat {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7pt;
+      margin-bottom: 3pt;
+    }
+
+    .cluster-stat-label { color: var(--color-mid); }
+
+    .cluster-mover {
+      margin-top: 8pt;
+      padding-top: 6pt;
+      border-top: 1px solid var(--color-faint);
+      font-size: 7pt;
+    }
+
+    .cluster-mover-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-mid);
+    }
+
+    /* ─── AI Risk Landscape ─────────────────────────────────── */
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+    }
+
+    .risk-table th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-mid);
+      text-align: left;
+      padding: 6pt 4pt;
+      border-bottom: 1px solid var(--color-ink);
+      font-weight: 500;
+    }
+
+    .risk-table td {
+      padding: 4pt 4pt;
+      border-bottom: 1px solid var(--color-faint);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8pt;
+    }
+
+    .risk-table td:first-child {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+    }
+
+    /* ─── Back Page ─────────────────────────────────────────── */
+    .back-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: calc(100vh - 2in);
+    }
+
+    .back-page h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 14pt;
+      margin-bottom: 8pt;
+    }
+
+    .back-page p {
+      font-size: 9pt;
+      line-height: 1.6;
+      max-width: 45ch;
+      margin-bottom: 8pt;
+      color: var(--color-dark);
+    }
+
+    .back-page-url {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9pt;
+      color: var(--color-accent);
+      margin-top: 12pt;
+    }
+
+    /* ─── Page Numbers ──────────────────────────────────────── */
+    .page-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7pt;
+      color: var(--color-mid);
+      text-align: center;
+      margin-top: 24pt;
+    }
+
+    /* ─── Running Header ────────────────────────────────────── */
+    .running-header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6pt;
+      color: var(--color-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-align: right;
+      margin-bottom: 16pt;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- PAGE 1 — COVER -->
+  <div class="cover">
+    <div class="cover-title">State of<br>Creative Jobs</div>
+    <div class="cover-subtitle">Monthly Market Report</div>
+    <div class="cover-date">{{monthLabel}}</div>
+
+    <div class="stats-strip">
+      <div class="stat-item">
+        <span class="stat-value">20</span>
+        <span class="stat-label">Roles Tracked</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{{totalOpenings}}</span>
+        <span class="stat-label">Total Openings</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{{avgAIRisk}}</span>
+        <span class="stat-label">Avg AI Risk</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{{rolesInDecline}}</span>
+        <span class="stat-label">Roles in Decline</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{{highestRiskRole}}</span>
+        <span class="stat-label">Highest Risk</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2 — MARKET OVERVIEW -->
+  <div class="page-break">
+    <div class="running-header">State of Creative Jobs &middot; {{monthLabel}}</div>
+    <div class="section-header">Market Overview</div>
+
+    {{#editorial}}
+    <div class="editorial-headline">{{editorialHeadline}}</div>
+    <div class="editorial-body">{{editorialBody}}</div>
+    {{/editorial}}
+    {{^editorial}}
+    <div class="editorial-body"><p>Editorial analysis for this month is not yet available.</p></div>
+    {{/editorial}}
+
+    <div class="callouts">
+      <div class="callout">
+        <div class="callout-label">Biggest Gainer</div>
+        <div class="callout-role">{{biggestGainer.role}}</div>
+        <div class="callout-value text-up">{{biggestGainer.yoy}}</div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Biggest Decliner</div>
+        <div class="callout-role">{{biggestDecliner.role}}</div>
+        <div class="callout-value text-down">{{biggestDecliner.yoy}}</div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Highest Risk</div>
+        <div class="callout-role">{{highestRisk.role}}</div>
+        <div class="callout-value">{{highestRisk.score}}/100</div>
+      </div>
+    </div>
+
+    <div class="page-number">2</div>
+  </div>
+
+  <!-- PAGE 3 — THE INDEX -->
+  <div class="page-break">
+    <div class="running-header">State of Creative Jobs &middot; {{monthLabel}}</div>
+    <div class="section-header">The Index — All 20 Roles</div>
+
+    <table class="leaderboard">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Cluster</th>
+          <th>Open Positions</th>
+          <th>YoY Change</th>
+          <th>Median Salary</th>
+          <th>AI Risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{leaderboardRows}}
+      </tbody>
+    </table>
+
+    <div class="page-number">3</div>
+  </div>
+
+  <!-- PAGE 4 — CLUSTER DEEP-DIVES -->
+  <div class="page-break">
+    <div class="running-header">State of Creative Jobs &middot; {{monthLabel}}</div>
+    <div class="section-header">Cluster Deep-Dives</div>
+
+    <div class="cluster-grid">
+      {{clusterCards}}
+    </div>
+
+    <div class="page-number">4</div>
+  </div>
+
+  <!-- PAGE 5 — AI RISK LANDSCAPE -->
+  <div class="page-break">
+    <div class="running-header">State of Creative Jobs &middot; {{monthLabel}}</div>
+    <div class="section-header">AI Risk Landscape</div>
+
+    <table class="risk-table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>AI Risk Score</th>
+          <th>Risk Label</th>
+          <th>Demand YoY</th>
+          <th>Quadrant</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{riskRows}}
+      </tbody>
+    </table>
+
+    <div class="page-number">5</div>
+  </div>
+
+  <!-- PAGE 6 — ABOUT & METHODOLOGY -->
+  <div class="page-break">
+    <div class="back-page">
+      <div>
+        <h2 class="font-display">About This Report</h2>
+        <p>
+          State of Creative Jobs tracks 20 creative and design job titles
+          across four clusters, measuring demand, compensation, AI displacement
+          risk, and practitioner sentiment. Data is refreshed weekly from
+          public APIs and scored using a composite model blending O*NET task
+          automability (40%) with an editorial Tool Displacement Index (60%).
+        </p>
+        <p>
+          This report is for informational purposes only and does not
+          constitute career, financial, or investment advice. Data is sourced
+          from third-party APIs and may not reflect all market conditions.
+        </p>
+        <div style="margin-top: 16pt; padding-top: 8pt; border-top: 1px solid var(--color-light);">
+          <span class="section-label">Data as of {{dataAsOf}}</span>
+        </div>
+        <div class="back-page-url">stateofcreativejobs.com</div>
+        <div style="margin-top: 4pt;">
+          <span class="section-label">Methodology &rarr; stateofcreativejobs.com/methodology</span>
+        </div>
+      </div>
+    </div>
+    <div class="page-number">6</div>
+  </div>
+
+</body>
+</html>

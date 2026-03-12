@@ -42,11 +42,23 @@ function getLatestEditorial(): EditorialExcerpt | null {
   }
 }
 
+function getLatestReportUrl(): string | null {
+  const reportsDir = path.join(process.cwd(), "public", "reports");
+  if (!fs.existsSync(reportsDir)) return null;
+
+  const pdfs = fs.readdirSync(reportsDir).filter((f) => f.endsWith(".pdf"));
+  if (pdfs.length === 0) return null;
+
+  pdfs.sort((a, b) => b.localeCompare(a)); // newest first
+  return `/reports/${pdfs[0]}`;
+}
+
 export default function LandingPage() {
   const roles = getRoleSummaries();
   const conditions = roles.length > 0 ? computeMarketConditions(roles) : null;
   const lastUpdated = conditions?.mostRecent ?? undefined;
   const editorial = getLatestEditorial();
+  const latestReportUrl = getLatestReportUrl();
 
   return (
     <div className="min-h-screen bg-paper">
@@ -156,12 +168,24 @@ export default function LandingPage() {
               <p className="text-body-sm text-dark leading-relaxed max-w-[60ch] mb-4">
                 {editorial.excerpt}
               </p>
-              <Link
-                href={`/editorial/${editorial.month}`}
-                className="font-mono text-label-md text-accent uppercase tracking-widest hover:text-ink transition-colors"
-              >
-                Read full editorial &rarr;
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                <Link
+                  href={`/editorial/${editorial.month}`}
+                  className="font-mono text-label-md text-accent uppercase tracking-widest hover:text-ink transition-colors"
+                >
+                  Read full editorial &rarr;
+                </Link>
+                {latestReportUrl && (
+                  <a
+                    href={latestReportUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-label-md text-mid uppercase tracking-widest hover:text-ink transition-colors"
+                  >
+                    Download PDF Report &darr;
+                  </a>
+                )}
+              </div>
             </section>
 
             <div className="mb-8 md:mb-12">

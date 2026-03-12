@@ -65,3 +65,20 @@ jobs:
             git pull --rebase
             git push
           fi
+
+      # Monthly report generation — run manually or when triggered on first Monday
+      - name: Generate monthly PDF report (manual only)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          node scripts/generate-editorial.mjs || echo "Editorial generation skipped"
+          node scripts/generate-monthly-report.mjs || echo "Report generation skipped"
+          if ls public/reports/*.pdf 1>/dev/null 2>&1; then
+            git add src/data/editorials/ public/reports/
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: generate monthly editorial and PDF report"
+              git pull --rebase
+              git push
+            fi
+          fi
