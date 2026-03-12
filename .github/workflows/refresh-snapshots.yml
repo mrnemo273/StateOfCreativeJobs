@@ -57,7 +57,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/snapshots/ src/data/intelligence/
+          git add src/data/snapshots/ src/data/intelligence/ src/lib/cachedLandingData.ts src/lib/cachedEnrichmentData.ts
           if git diff --cached --quiet; then
             echo "No snapshot changes to commit"
           else
