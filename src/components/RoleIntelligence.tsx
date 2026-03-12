@@ -17,8 +17,16 @@ interface SkillPivotItem {
   body: string;
 }
 
+interface InsightCard {
+  id: "contraction" | "salary-reality" | "supply-picture";
+  title: string;
+  body: string;
+  source: string;
+}
+
 interface RoleIntelligenceData {
   outlook: string | null;
+  insightCards?: InsightCard[];
   skillPivots: SkillPivotItem[];
   comparableRoles: ComparableRole[];
 }
@@ -66,7 +74,7 @@ export default function RoleIntelligence({ slug }: Props) {
   if (loading) {
     return (
       <section>
-        <SectionLabel className="mb-6">Role Intelligence</SectionLabel>
+        <SectionLabel className="mb-6">What the Data Actually Tells Us</SectionLabel>
         <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
           <div className="col-span-12 md:col-span-8">
             <div className="h-4 bg-faint animate-pulse mb-3 w-3/4" />
@@ -93,7 +101,7 @@ export default function RoleIntelligence({ slug }: Props) {
   if (error || isEmpty) {
     return (
       <section>
-        <SectionLabel className="mb-6">Role Intelligence</SectionLabel>
+        <SectionLabel className="mb-6">What the Data Actually Tells Us</SectionLabel>
         <p className="text-body-sm text-mid">
           Analysis unavailable for this role.
         </p>
@@ -108,12 +116,32 @@ export default function RoleIntelligence({ slug }: Props) {
 
   return (
     <section>
-      <SectionLabel className="mb-6">Role Intelligence</SectionLabel>
+      <SectionLabel className="mb-6">What the Data Actually Tells Us</SectionLabel>
+
+      {/* Insight Cards — 3-up bordered grid */}
+      {data.insightCards && data.insightCards.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[var(--grid-gutter)] mb-8">
+          {data.insightCards.map((card) => (
+            <div key={card.id} className="border border-light p-6">
+              <span className="text-label-sm text-mid uppercase tracking-widest block mb-3">
+                {card.title}
+              </span>
+              <p className="text-body-sm text-dark leading-relaxed">
+                {card.body}
+              </p>
+              <span className="text-label-sm text-mid block mt-3">
+                {card.source}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
-        {/* Left column: Outlook + Skill Pivot */}
+        {/* Left column: Outlook + Strategic Recommendations */}
         <div className="col-span-12 md:col-span-8 flex flex-col gap-8">
-          {/* Role Outlook */}
-          {data.outlook && (
+          {/* Outlook (shown when no insight cards) */}
+          {data.outlook && !(data.insightCards && data.insightCards.length > 0) && (
             <div>
               <span className="text-label-sm text-mid uppercase tracking-widest block mb-3 font-medium">
                 Role Outlook
@@ -129,11 +157,11 @@ export default function RoleIntelligence({ slug }: Props) {
             </div>
           )}
 
-          {/* Skill Pivot */}
+          {/* Strategic Recommendations */}
           {data.skillPivots?.length > 0 && (
             <div>
               <span className="text-label-sm text-mid uppercase tracking-widest block mb-3 font-medium">
-                Skill Pivot
+                Strategic Recommendations
               </span>
               <div className="space-y-5">
                 {data.skillPivots.map((item, i) => (

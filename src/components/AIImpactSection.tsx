@@ -89,6 +89,7 @@ export default function AIImpactSection({ snapshot }: Props) {
       <p className="mt-6 text-body-sm text-mid max-w-[65ch] leading-relaxed">
         {aiImpact.scoreExplainer}
       </p>
+
     </section>
   );
 }

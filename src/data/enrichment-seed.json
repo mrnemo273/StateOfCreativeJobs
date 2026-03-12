@@ -1,0 +1,455 @@
+{
+  "nea": {
+    "creative-director": {
+      "blsCount": 97600,
+      "moonlightingCount": 165000,
+      "trueSupplyCount": 262600,
+      "supplyMultiplier": 2.69,
+      "moonlightingSharePct": 62.8,
+      "reportYear": 2024
+    },
+    "design-director": {
+      "blsCount": 42300,
+      "moonlightingCount": 71900,
+      "trueSupplyCount": 114200,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 62.9,
+      "reportYear": 2024
+    },
+    "head-of-design": {
+      "blsCount": 28100,
+      "moonlightingCount": 47700,
+      "trueSupplyCount": 75800,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 62.9,
+      "reportYear": 2024
+    },
+    "vp-of-design": {
+      "blsCount": 15400,
+      "moonlightingCount": 26200,
+      "trueSupplyCount": 41600,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "cco": {
+      "blsCount": 8200,
+      "moonlightingCount": 13900,
+      "trueSupplyCount": 22100,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 62.9,
+      "reportYear": 2024
+    },
+    "senior-product-designer": {
+      "blsCount": 112400,
+      "moonlightingCount": 191100,
+      "trueSupplyCount": 303500,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "ux-designer": {
+      "blsCount": 134800,
+      "moonlightingCount": 229200,
+      "trueSupplyCount": 364000,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "product-designer": {
+      "blsCount": 98700,
+      "moonlightingCount": 167800,
+      "trueSupplyCount": 266500,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "ux-researcher": {
+      "blsCount": 41200,
+      "moonlightingCount": 70000,
+      "trueSupplyCount": 111200,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "design-systems-designer": {
+      "blsCount": 22600,
+      "moonlightingCount": 38400,
+      "trueSupplyCount": 61000,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "brand-designer": {
+      "blsCount": 67400,
+      "moonlightingCount": 114600,
+      "trueSupplyCount": 182000,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "graphic-designer": {
+      "blsCount": 254800,
+      "moonlightingCount": 433200,
+      "trueSupplyCount": 688000,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "visual-designer": {
+      "blsCount": 78300,
+      "moonlightingCount": 133100,
+      "trueSupplyCount": 211400,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "art-director": {
+      "blsCount": 97600,
+      "moonlightingCount": 165900,
+      "trueSupplyCount": 263500,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "motion-designer": {
+      "blsCount": 87200,
+      "moonlightingCount": 148200,
+      "trueSupplyCount": 235400,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "copywriter": {
+      "blsCount": 143200,
+      "moonlightingCount": 243400,
+      "trueSupplyCount": 386600,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "content-strategist": {
+      "blsCount": 52800,
+      "moonlightingCount": 89800,
+      "trueSupplyCount": 142600,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "ux-writer": {
+      "blsCount": 31400,
+      "moonlightingCount": 53400,
+      "trueSupplyCount": 84800,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "creative-copywriter": {
+      "blsCount": 68900,
+      "moonlightingCount": 117100,
+      "trueSupplyCount": 186000,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    },
+    "content-designer": {
+      "blsCount": 38600,
+      "moonlightingCount": 65600,
+      "trueSupplyCount": 104200,
+      "supplyMultiplier": 2.70,
+      "moonlightingSharePct": 63.0,
+      "reportYear": 2024
+    }
+  },
+  "upwork": {
+    "creative-director": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 78, "freelancePct": 22 },
+        { "year": 2019, "staffPct": 76, "freelancePct": 24 },
+        { "year": 2020, "staffPct": 71, "freelancePct": 29 },
+        { "year": 2021, "staffPct": 68, "freelancePct": 32 },
+        { "year": 2022, "staffPct": 66, "freelancePct": 34 },
+        { "year": 2023, "staffPct": 63, "freelancePct": 37 },
+        { "year": 2024, "staffPct": 61, "freelancePct": 39 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 61, "freelancePct": 39 },
+      "wageGap": { "staffMedianUSD": 135000, "freelanceMedianUSD": 98000, "gapPct": 27.4 },
+      "reportYear": 2024
+    },
+    "design-director": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 82, "freelancePct": 18 },
+        { "year": 2019, "staffPct": 80, "freelancePct": 20 },
+        { "year": 2020, "staffPct": 76, "freelancePct": 24 },
+        { "year": 2021, "staffPct": 73, "freelancePct": 27 },
+        { "year": 2022, "staffPct": 71, "freelancePct": 29 },
+        { "year": 2023, "staffPct": 68, "freelancePct": 32 },
+        { "year": 2024, "staffPct": 66, "freelancePct": 34 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 66, "freelancePct": 34 },
+      "wageGap": { "staffMedianUSD": 142000, "freelanceMedianUSD": 105000, "gapPct": 26.1 },
+      "reportYear": 2024
+    },
+    "head-of-design": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 88, "freelancePct": 12 },
+        { "year": 2019, "staffPct": 87, "freelancePct": 13 },
+        { "year": 2020, "staffPct": 84, "freelancePct": 16 },
+        { "year": 2021, "staffPct": 82, "freelancePct": 18 },
+        { "year": 2022, "staffPct": 80, "freelancePct": 20 },
+        { "year": 2023, "staffPct": 78, "freelancePct": 22 },
+        { "year": 2024, "staffPct": 76, "freelancePct": 24 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 76, "freelancePct": 24 },
+      "wageGap": { "staffMedianUSD": 168000, "freelanceMedianUSD": 130000, "gapPct": 22.6 },
+      "reportYear": 2024
+    },
+    "vp-of-design": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 92, "freelancePct": 8 },
+        { "year": 2019, "staffPct": 91, "freelancePct": 9 },
+        { "year": 2020, "staffPct": 89, "freelancePct": 11 },
+        { "year": 2021, "staffPct": 87, "freelancePct": 13 },
+        { "year": 2022, "staffPct": 86, "freelancePct": 14 },
+        { "year": 2023, "staffPct": 84, "freelancePct": 16 },
+        { "year": 2024, "staffPct": 83, "freelancePct": 17 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 83, "freelancePct": 17 },
+      "wageGap": { "staffMedianUSD": 195000, "freelanceMedianUSD": 160000, "gapPct": 17.9 },
+      "reportYear": 2024
+    },
+    "cco": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 94, "freelancePct": 6 },
+        { "year": 2019, "staffPct": 93, "freelancePct": 7 },
+        { "year": 2020, "staffPct": 91, "freelancePct": 9 },
+        { "year": 2021, "staffPct": 90, "freelancePct": 10 },
+        { "year": 2022, "staffPct": 89, "freelancePct": 11 },
+        { "year": 2023, "staffPct": 87, "freelancePct": 13 },
+        { "year": 2024, "staffPct": 86, "freelancePct": 14 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 86, "freelancePct": 14 },
+      "wageGap": { "staffMedianUSD": 225000, "freelanceMedianUSD": 185000, "gapPct": 17.8 },
+      "reportYear": 2024
+    },
+    "senior-product-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 80, "freelancePct": 20 },
+        { "year": 2019, "staffPct": 78, "freelancePct": 22 },
+        { "year": 2020, "staffPct": 73, "freelancePct": 27 },
+        { "year": 2021, "staffPct": 70, "freelancePct": 30 },
+        { "year": 2022, "staffPct": 67, "freelancePct": 33 },
+        { "year": 2023, "staffPct": 64, "freelancePct": 36 },
+        { "year": 2024, "staffPct": 62, "freelancePct": 38 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 62, "freelancePct": 38 },
+      "wageGap": { "staffMedianUSD": 145000, "freelanceMedianUSD": 110000, "gapPct": 24.1 },
+      "reportYear": 2024
+    },
+    "ux-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 76, "freelancePct": 24 },
+        { "year": 2019, "staffPct": 74, "freelancePct": 26 },
+        { "year": 2020, "staffPct": 69, "freelancePct": 31 },
+        { "year": 2021, "staffPct": 66, "freelancePct": 34 },
+        { "year": 2022, "staffPct": 63, "freelancePct": 37 },
+        { "year": 2023, "staffPct": 60, "freelancePct": 40 },
+        { "year": 2024, "staffPct": 58, "freelancePct": 42 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 58, "freelancePct": 42 },
+      "wageGap": { "staffMedianUSD": 115000, "freelanceMedianUSD": 82000, "gapPct": 28.7 },
+      "reportYear": 2024
+    },
+    "product-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 77, "freelancePct": 23 },
+        { "year": 2019, "staffPct": 75, "freelancePct": 25 },
+        { "year": 2020, "staffPct": 70, "freelancePct": 30 },
+        { "year": 2021, "staffPct": 67, "freelancePct": 33 },
+        { "year": 2022, "staffPct": 64, "freelancePct": 36 },
+        { "year": 2023, "staffPct": 61, "freelancePct": 39 },
+        { "year": 2024, "staffPct": 59, "freelancePct": 41 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 59, "freelancePct": 41 },
+      "wageGap": { "staffMedianUSD": 125000, "freelanceMedianUSD": 90000, "gapPct": 28.0 },
+      "reportYear": 2024
+    },
+    "ux-researcher": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 84, "freelancePct": 16 },
+        { "year": 2019, "staffPct": 82, "freelancePct": 18 },
+        { "year": 2020, "staffPct": 78, "freelancePct": 22 },
+        { "year": 2021, "staffPct": 75, "freelancePct": 25 },
+        { "year": 2022, "staffPct": 72, "freelancePct": 28 },
+        { "year": 2023, "staffPct": 69, "freelancePct": 31 },
+        { "year": 2024, "staffPct": 67, "freelancePct": 33 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 67, "freelancePct": 33 },
+      "wageGap": { "staffMedianUSD": 120000, "freelanceMedianUSD": 92000, "gapPct": 23.3 },
+      "reportYear": 2024
+    },
+    "design-systems-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 86, "freelancePct": 14 },
+        { "year": 2019, "staffPct": 84, "freelancePct": 16 },
+        { "year": 2020, "staffPct": 80, "freelancePct": 20 },
+        { "year": 2021, "staffPct": 77, "freelancePct": 23 },
+        { "year": 2022, "staffPct": 74, "freelancePct": 26 },
+        { "year": 2023, "staffPct": 71, "freelancePct": 29 },
+        { "year": 2024, "staffPct": 69, "freelancePct": 31 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 69, "freelancePct": 31 },
+      "wageGap": { "staffMedianUSD": 140000, "freelanceMedianUSD": 108000, "gapPct": 22.9 },
+      "reportYear": 2024
+    },
+    "brand-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 70, "freelancePct": 30 },
+        { "year": 2019, "staffPct": 68, "freelancePct": 32 },
+        { "year": 2020, "staffPct": 63, "freelancePct": 37 },
+        { "year": 2021, "staffPct": 60, "freelancePct": 40 },
+        { "year": 2022, "staffPct": 57, "freelancePct": 43 },
+        { "year": 2023, "staffPct": 54, "freelancePct": 46 },
+        { "year": 2024, "staffPct": 52, "freelancePct": 48 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 52, "freelancePct": 48 },
+      "wageGap": { "staffMedianUSD": 85000, "freelanceMedianUSD": 62000, "gapPct": 27.1 },
+      "reportYear": 2024
+    },
+    "graphic-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 65, "freelancePct": 35 },
+        { "year": 2019, "staffPct": 63, "freelancePct": 37 },
+        { "year": 2020, "staffPct": 58, "freelancePct": 42 },
+        { "year": 2021, "staffPct": 55, "freelancePct": 45 },
+        { "year": 2022, "staffPct": 52, "freelancePct": 48 },
+        { "year": 2023, "staffPct": 49, "freelancePct": 51 },
+        { "year": 2024, "staffPct": 47, "freelancePct": 53 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 47, "freelancePct": 53 },
+      "wageGap": { "staffMedianUSD": 58000, "freelanceMedianUSD": 42000, "gapPct": 27.6 },
+      "reportYear": 2024
+    },
+    "visual-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 72, "freelancePct": 28 },
+        { "year": 2019, "staffPct": 70, "freelancePct": 30 },
+        { "year": 2020, "staffPct": 65, "freelancePct": 35 },
+        { "year": 2021, "staffPct": 62, "freelancePct": 38 },
+        { "year": 2022, "staffPct": 59, "freelancePct": 41 },
+        { "year": 2023, "staffPct": 56, "freelancePct": 44 },
+        { "year": 2024, "staffPct": 54, "freelancePct": 46 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 54, "freelancePct": 46 },
+      "wageGap": { "staffMedianUSD": 92000, "freelanceMedianUSD": 68000, "gapPct": 26.1 },
+      "reportYear": 2024
+    },
+    "art-director": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 75, "freelancePct": 25 },
+        { "year": 2019, "staffPct": 73, "freelancePct": 27 },
+        { "year": 2020, "staffPct": 68, "freelancePct": 32 },
+        { "year": 2021, "staffPct": 65, "freelancePct": 35 },
+        { "year": 2022, "staffPct": 63, "freelancePct": 37 },
+        { "year": 2023, "staffPct": 60, "freelancePct": 40 },
+        { "year": 2024, "staffPct": 58, "freelancePct": 42 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 58, "freelancePct": 42 },
+      "wageGap": { "staffMedianUSD": 110000, "freelanceMedianUSD": 82000, "gapPct": 25.5 },
+      "reportYear": 2024
+    },
+    "motion-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 62, "freelancePct": 38 },
+        { "year": 2019, "staffPct": 60, "freelancePct": 40 },
+        { "year": 2020, "staffPct": 55, "freelancePct": 45 },
+        { "year": 2021, "staffPct": 52, "freelancePct": 48 },
+        { "year": 2022, "staffPct": 49, "freelancePct": 51 },
+        { "year": 2023, "staffPct": 46, "freelancePct": 54 },
+        { "year": 2024, "staffPct": 44, "freelancePct": 56 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 44, "freelancePct": 56 },
+      "wageGap": { "staffMedianUSD": 95000, "freelanceMedianUSD": 72000, "gapPct": 24.2 },
+      "reportYear": 2024
+    },
+    "copywriter": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 60, "freelancePct": 40 },
+        { "year": 2019, "staffPct": 58, "freelancePct": 42 },
+        { "year": 2020, "staffPct": 53, "freelancePct": 47 },
+        { "year": 2021, "staffPct": 50, "freelancePct": 50 },
+        { "year": 2022, "staffPct": 47, "freelancePct": 53 },
+        { "year": 2023, "staffPct": 44, "freelancePct": 56 },
+        { "year": 2024, "staffPct": 42, "freelancePct": 58 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 42, "freelancePct": 58 },
+      "wageGap": { "staffMedianUSD": 72000, "freelanceMedianUSD": 48000, "gapPct": 33.3 },
+      "reportYear": 2024
+    },
+    "content-strategist": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 74, "freelancePct": 26 },
+        { "year": 2019, "staffPct": 72, "freelancePct": 28 },
+        { "year": 2020, "staffPct": 67, "freelancePct": 33 },
+        { "year": 2021, "staffPct": 64, "freelancePct": 36 },
+        { "year": 2022, "staffPct": 61, "freelancePct": 39 },
+        { "year": 2023, "staffPct": 58, "freelancePct": 42 },
+        { "year": 2024, "staffPct": 56, "freelancePct": 44 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 56, "freelancePct": 44 },
+      "wageGap": { "staffMedianUSD": 98000, "freelanceMedianUSD": 72000, "gapPct": 26.5 },
+      "reportYear": 2024
+    },
+    "ux-writer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 80, "freelancePct": 20 },
+        { "year": 2019, "staffPct": 78, "freelancePct": 22 },
+        { "year": 2020, "staffPct": 73, "freelancePct": 27 },
+        { "year": 2021, "staffPct": 70, "freelancePct": 30 },
+        { "year": 2022, "staffPct": 67, "freelancePct": 33 },
+        { "year": 2023, "staffPct": 64, "freelancePct": 36 },
+        { "year": 2024, "staffPct": 62, "freelancePct": 38 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 62, "freelancePct": 38 },
+      "wageGap": { "staffMedianUSD": 108000, "freelanceMedianUSD": 78000, "gapPct": 27.8 },
+      "reportYear": 2024
+    },
+    "creative-copywriter": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 64, "freelancePct": 36 },
+        { "year": 2019, "staffPct": 62, "freelancePct": 38 },
+        { "year": 2020, "staffPct": 57, "freelancePct": 43 },
+        { "year": 2021, "staffPct": 54, "freelancePct": 46 },
+        { "year": 2022, "staffPct": 51, "freelancePct": 49 },
+        { "year": 2023, "staffPct": 48, "freelancePct": 52 },
+        { "year": 2024, "staffPct": 46, "freelancePct": 54 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 46, "freelancePct": 54 },
+      "wageGap": { "staffMedianUSD": 82000, "freelanceMedianUSD": 58000, "gapPct": 29.3 },
+      "reportYear": 2024
+    },
+    "content-designer": {
+      "splitTrend": [
+        { "year": 2018, "staffPct": 78, "freelancePct": 22 },
+        { "year": 2019, "staffPct": 76, "freelancePct": 24 },
+        { "year": 2020, "staffPct": 71, "freelancePct": 29 },
+        { "year": 2021, "staffPct": 68, "freelancePct": 32 },
+        { "year": 2022, "staffPct": 65, "freelancePct": 35 },
+        { "year": 2023, "staffPct": 62, "freelancePct": 38 },
+        { "year": 2024, "staffPct": 60, "freelancePct": 40 }
+      ],
+      "currentSplit": { "year": 2024, "staffPct": 60, "freelancePct": 40 },
+      "wageGap": { "staffMedianUSD": 105000, "freelanceMedianUSD": 76000, "gapPct": 27.6 },
+      "reportYear": 2024
+    },
+    "_marketTrend": [
+      { "year": 2018, "staffPct": 74, "freelancePct": 26 },
+      { "year": 2019, "staffPct": 72, "freelancePct": 28 },
+      { "year": 2020, "staffPct": 66, "freelancePct": 34 },
+      { "year": 2021, "staffPct": 63, "freelancePct": 37 },
+      { "year": 2022, "staffPct": 61, "freelancePct": 39 },
+      { "year": 2023, "staffPct": 58, "freelancePct": 42 },
+      { "year": 2024, "staffPct": 56, "freelancePct": 44 }
+    ]
+  }
+}

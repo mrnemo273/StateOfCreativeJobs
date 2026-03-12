@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { getSnapshot, getAllTitles } from "@/lib/dataService";
 import type { JobHealthSnapshot, JobTitle } from "@/types";
+import type { RoleEnrichment, MarketEnrichment } from "@/lib/enrichmentData";
 import Header from "@/components/Header";
-import HealthScoreSummary from "@/components/HealthScoreSummary";
+import RoleVerdict from "@/components/RoleVerdict";
 import DemandSection from "@/components/DemandSection";
 import SalarySection from "@/components/SalarySection";
 import AIImpactSection from "@/components/AIImpactSection";
@@ -13,6 +14,7 @@ import SkillsSignalSection from "@/components/SkillsSignalSection";
 import RoleIntelligence from "@/components/RoleIntelligence";
 import SentimentSection from "@/components/SentimentSection";
 import PostingAnalysisSection from "@/components/PostingAnalysisSection";
+import MarketView from "@/components/MarketView";
 import HairlineRule from "@/components/ui/HairlineRule";
 import Footer from "@/components/Footer";
 
@@ -23,6 +25,8 @@ export default function RoleDeepDive() {
 
   const [snapshot, setSnapshot] = useState<JobHealthSnapshot | null>(null);
   const [loading, setLoading] = useState(true);
+  const [enrichment, setEnrichment] = useState<RoleEnrichment | null>(null);
+  const [marketEnrichment, setMarketEnrichment] = useState<MarketEnrichment | null>(null);
   const allTitles = getAllTitles();
 
   const fetchLiveData = useCallback(async (s: string) => {
@@ -47,6 +51,19 @@ export default function RoleDeepDive() {
   useEffect(() => {
     fetchLiveData(slug);
   }, [slug, fetchLiveData]);
+
+  // Phase 4: Enrichment data (static cache, loaded once per slug)
+  useEffect(() => {
+    fetch(`/api/enrichment/${slug}`)
+      .then((r) => r.ok ? r.json() : null)
+      .then(setEnrichment)
+      .catch(() => setEnrichment(null));
+
+    fetch(`/api/enrichment/market`)
+      .then((r) => r.ok ? r.json() : null)
+      .then(setMarketEnrichment)
+      .catch(() => setMarketEnrichment(null));
+  }, [slug]);
 
   if (!snapshot && !loading) {
     return (
@@ -112,39 +129,70 @@ export default function RoleDeepDive() {
               </p>
             </div>
 
-            {/* Health Score Summary — 4-up stat cards */}
-            <div className="col-span-12 mb-2">
-              <HealthScoreSummary snapshot={snapshot} />
-            </div>
-
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
-
-            {/* Demand Section */}
+            {/* Verdict banner — Phase 4 */}
             <div className="col-span-12">
-              <DemandSection snapshot={snapshot} />
+              <RoleVerdict
+                yoyChange={snapshot.demand.yoyChange}
+                fredIndexChangeYoY={marketEnrichment?.fred.indexChangeYoY}
+                openingsCount={snapshot.demand.openingsCount}
+                medianSalaryUSD={snapshot.salary.medianUSD}
+                salaryYoYChange={snapshot.salary.yoyChange}
+                aiScore={snapshot.aiImpact.score}
+                aiScoreLabel={snapshot.aiImpact.scoreLabel}
+              />
             </div>
 
             <div className="col-span-12 my-4">
               <HairlineRule />
             </div>
 
-            {/* Salary Section */}
+            {/* 1. Demand */}
             <div className="col-span-12">
-              <SalarySection snapshot={snapshot} />
+              <DemandSection
+                snapshot={snapshot}
+                fredMacro={marketEnrichment?.fred}
+              />
             </div>
 
             <div className="col-span-12 my-4">
               <HairlineRule />
             </div>
 
-            {/* AI Impact Section */}
+            {/* 2. Salary */}
+            <div className="col-span-12">
+              <SalarySection
+                snapshot={snapshot}
+                acsDemographics={enrichment?.acs}
+              />
+            </div>
+
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
+
+            {/* 3. Beyond the Job Posting — competitive landscape */}
+            {marketEnrichment && (
+              <>
+                <div className="col-span-12">
+                  <MarketView
+                    market={marketEnrichment}
+                    roleNEA={enrichment?.nea}
+                    roleUpwork={enrichment?.upwork}
+                    roleTitle={snapshot.title}
+                  />
+                </div>
+                <div className="col-span-12 my-4">
+                  <HairlineRule />
+                </div>
+              </>
+            )}
+
+            {/* 4. AI Impact — future threat */}
             <div className="col-span-12">
               <AIImpactSection snapshot={snapshot} />
             </div>
 
-            {/* Skills Signal Section */}
+            {/* 5. Skills Signal — what's changing */}
             {(snapshot.skills.rising.length > 0 || snapshot.skills.declining.length > 0) && (
               <>
                 <div className="col-span-12 my-4">
@@ -156,27 +204,7 @@ export default function RoleDeepDive() {
               </>
             )}
 
-            {/* Role Intelligence */}
-            <div className="col-span-12 my-4">
-              <HairlineRule />
-            </div>
-            <div className="col-span-12">
-              <RoleIntelligence slug={slug} />
-            </div>
-
-            {/* Sentiment & News */}
-            {(snapshot.sentiment.recentHeadlines.length > 0 || snapshot.sentiment.communityPosts.length > 0 || snapshot.sentiment.score !== 0) && (
-              <>
-                <div className="col-span-12 my-4">
-                  <HairlineRule />
-                </div>
-                <div className="col-span-12">
-                  <SentimentSection snapshot={snapshot} />
-                </div>
-              </>
-            )}
-
-            {/* Posting Analysis */}
+            {/* 6. Posting Analysis — what employers want */}
             {(snapshot.postingAnalysis.topSkills.length > 0 || snapshot.postingAnalysis.commonResponsibilities.length > 0) && (
               <>
                 <div className="col-span-12 my-4">
@@ -184,6 +212,26 @@ export default function RoleDeepDive() {
                 </div>
                 <div className="col-span-12">
                   <PostingAnalysisSection snapshot={snapshot} />
+                </div>
+              </>
+            )}
+
+            {/* 7. Role Intelligence — editorial synthesis */}
+            <div className="col-span-12 my-4">
+              <HairlineRule />
+            </div>
+            <div className="col-span-12">
+              <RoleIntelligence slug={slug} />
+            </div>
+
+            {/* 8. Sentiment & News — closing color */}
+            {(snapshot.sentiment.recentHeadlines.length > 0 || snapshot.sentiment.communityPosts.length > 0 || snapshot.sentiment.score !== 0) && (
+              <>
+                <div className="col-span-12 my-4">
+                  <HairlineRule />
+                </div>
+                <div className="col-span-12">
+                  <SentimentSection snapshot={snapshot} />
                 </div>
               </>
             )}

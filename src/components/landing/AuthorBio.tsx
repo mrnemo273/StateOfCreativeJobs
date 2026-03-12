@@ -41,13 +41,13 @@ export default function AuthorBio() {
       {/* CTA buttons */}
       <div className="flex flex-row md:flex-col gap-3 md:pt-8">
         <a
-          href="mailto:hello@jcmorales.com"
+          href="mailto:juan@chameleon.co"
           className="font-mono text-label-sm text-ink uppercase tracking-widest border border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors text-center whitespace-nowrap"
         >
           Email
         </a>
         <a
-          href="https://linkedin.com/in/jcmorales"
+          href="https://www.linkedin.com/in/jmorales273/"
           target="_blank"
           rel="noopener noreferrer"
           className="font-mono text-label-sm text-ink uppercase tracking-widest border border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors text-center whitespace-nowrap"

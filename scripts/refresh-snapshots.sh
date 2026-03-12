@@ -150,3 +150,14 @@ echo ""
 echo "=== Generating Landing Page Cache ==="
 node scripts/generate-landing-cache.js
 echo "Landing cache generated"
+
+# --- Phase 4: Enrichment Data (ACS, NEA, Upwork, FRED) ---
+echo ""
+echo "=== Refreshing Enrichment Data ==="
+
+if node scripts/refresh-enrichment.mjs; then
+  echo "Enrichment data refresh complete"
+else
+  echo "WARNING: Enrichment data refresh failed (non-fatal)"
+  # Enrichment failure is non-fatal — the site works without it
+fi
