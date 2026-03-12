@@ -23,9 +23,36 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const siteUrl = "https://state-of-creative-jobs.vercel.app";
+const title = "State of Creative Jobs";
+const description = "Real-time health signals for creative roles";
+
 export const metadata: Metadata = {
-  title: "State of Creative Jobs",
-  description: "Real-time health signals for creative roles",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: title,
+    images: [
+      {
+        url: "/images/SOCJ_ShareTile.png",
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/SOCJ_ShareTile.png"],
+  },
 };
 
 export default function RootLayout({
