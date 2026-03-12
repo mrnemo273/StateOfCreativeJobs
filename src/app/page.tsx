@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import HairlineRule from "@/components/ui/HairlineRule";
 import MarketConditionsBar from "@/components/landing/MarketConditionsBar";
 import RoleLeaderboard from "@/components/landing/RoleLeaderboard";
+import DigestSubscribe from "@/components/DigestSubscribe";
 
 interface EditorialExcerpt {
   month: string;
@@ -217,6 +218,14 @@ export default function LandingPage() {
             </p>
           </section>
         )}
+
+        {/* Subscribe CTA */}
+        <div className="mb-8 md:mb-12">
+          <HairlineRule />
+        </div>
+        <section className="mb-8 md:mb-12 max-w-lg">
+          <DigestSubscribe />
+        </section>
 
       </main>
 

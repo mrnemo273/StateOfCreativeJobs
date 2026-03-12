@@ -17,6 +17,7 @@ import PostingAnalysisSection from "@/components/PostingAnalysisSection";
 import MarketView from "@/components/MarketView";
 import SkillsGapSection from "@/components/SkillsGapSection";
 import HairlineRule from "@/components/ui/HairlineRule";
+import DigestSubscribe from "@/components/DigestSubscribe";
 import Footer from "@/components/Footer";
 
 export default function RoleDeepDive() {
@@ -128,6 +129,9 @@ export default function RoleDeepDive() {
               <p className="text-body-sm text-mid mt-3 max-w-[65ch] leading-relaxed">
                 {snapshot.description}
               </p>
+              <div className="mt-4 max-w-md">
+                <DigestSubscribe initialRole={slug} compact />
+              </div>
             </div>
 
             {/* Verdict banner — Phase 4 */}

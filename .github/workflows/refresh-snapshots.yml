@@ -82,3 +82,12 @@ jobs:
               git push
             fi
           fi
+
+      # Send email digests after snapshot refresh
+      - name: Send weekly email digests
+        if: github.event.schedule
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          KV_REST_API_URL: ${{ secrets.KV_REST_API_URL }}
+          KV_REST_API_TOKEN: ${{ secrets.KV_REST_API_TOKEN }}
+        run: node scripts/generate-digest.mjs --type weekly || echo "Digest sending skipped"
