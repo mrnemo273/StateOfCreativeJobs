@@ -12,7 +12,6 @@ interface Props {
 
 export default function MarketView({ market, roleNEA, roleUpwork, roleTitle }: Props) {
   const freelancePct = roleUpwork?.currentSplit.freelancePct ?? market.aggregateUpwork.avgFreelancePct;
-  const staffPct = roleUpwork?.currentSplit.staffPct ?? (freelancePct != null ? 100 - freelancePct : null);
 
   // "Bridge tax" = wage gap between staff & freelance (market aggregate or role-specific)
   const bridgeTax = roleUpwork?.wageGap.gapPct ?? null;
