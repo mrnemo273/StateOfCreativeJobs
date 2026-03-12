@@ -23,9 +23,11 @@ export default function AIImpactSection({ snapshot }: Props) {
 
   return (
     <section>
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-start gap-3 mb-6">
         <SectionLabel>AI Impact Assessment</SectionLabel>
-        <ConfidenceBadge sectionKey="aiImpact" lastUpdated={snapshot.lastUpdated} />
+        <span className="ml-auto">
+          <ConfidenceBadge sectionKey="aiImpact" lastUpdated={snapshot.lastUpdated} />
+        </span>
       </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         <div className="col-span-12 md:col-span-8">

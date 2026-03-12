@@ -15,16 +15,16 @@
   --color-faint: #ECEAE4;
 
   /* Signal Colors */
-  --color-up: #1A6B3A;
-  --color-up-bg: #EAF4EE;
-  --color-down: #8B1A1A;
-  --color-down-bg: #F7EAEA;
-  --color-neutral: #5A4E2A;
-  --color-neutral-bg: #F5F0E4;
+  --color-up: #4A6E52;
+  --color-up-bg: #DBE5D7;
+  --color-down: #8B5A5A;
+  --color-down-bg: #E3D5D2;
+  --color-neutral: #7A6D42;
+  --color-neutral-bg: #E8E4D2;
 
   /* Muted Signal (landing page) */
-  --color-up-muted: #4a7c59;
-  --color-down-muted: #9b2335;
+  --color-up-muted: #6B8E72;
+  --color-down-muted: #A07070;
 
   /* Accent */
   --color-accent: #1A1A6B;

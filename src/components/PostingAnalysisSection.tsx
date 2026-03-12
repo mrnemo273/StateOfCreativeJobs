@@ -18,9 +18,11 @@ export default function PostingAnalysisSection({ snapshot }: Props) {
 
   return (
     <section>
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-start gap-3 mb-6">
         <SectionLabel>Posting Analysis</SectionLabel>
-        <ConfidenceBadge sectionKey="postingAnalysis" lastUpdated={snapshot.lastUpdated} />
+        <span className="ml-auto">
+          <ConfidenceBadge sectionKey="postingAnalysis" lastUpdated={snapshot.lastUpdated} />
+        </span>
       </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         {/* Skills frequency table */}

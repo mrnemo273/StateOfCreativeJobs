@@ -29,10 +29,12 @@ export default function SalarySection({ snapshot, acsDemographics }: Props) {
 
   return (
     <section>
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-start gap-3 mb-6">
         <SectionLabel>Salary Trends</SectionLabel>
-        <ConfidenceBadge sectionKey="salary" lastUpdated={snapshot.lastUpdated} />
-        {acsDemographics && <SourceBadge sources="BLS + ACS" isNew />}
+        <span className="ml-auto flex items-center gap-3">
+          <ConfidenceBadge sectionKey="salary" lastUpdated={snapshot.lastUpdated} />
+          {acsDemographics && <SourceBadge sources="BLS + ACS" isNew />}
+        </span>
       </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         <div className="col-span-12 md:col-span-8">

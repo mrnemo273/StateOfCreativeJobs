@@ -25,10 +25,10 @@ function normalize(s: string): string {
 
 const CLASS_ORDER: SkillClassification[] = [
   "invest",
+  "shed",
   "emerging",
   "core",
   "watch",
-  "shed",
 ];
 
 const CLASS_LABELS: Record<SkillClassification, string> = {
@@ -140,38 +140,101 @@ export default function SkillsGapSection({ snapshot }: Props) {
     <>
       <HairlineRule />
       <section className="mt-8">
-        <div className="flex items-center gap-3 mb-2">
+        <div className="flex items-start gap-3 mb-2">
           <SectionLabel>Skills Gap Analysis</SectionLabel>
-          <ConfidenceBadge
-            sectionKey="skillsGap"
-            lastUpdated={snapshot.lastUpdated}
-          />
+          <span className="ml-auto">
+            <ConfidenceBadge
+              sectionKey="skillsGap"
+              lastUpdated={snapshot.lastUpdated}
+            />
+          </span>
         </div>
         <p className="text-body-sm text-mid mb-6 max-w-[65ch]">
           Skills employers want most, filtered by market direction. Cross-references
           posting frequency with rising and declining skill signals.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[var(--grid-gutter)] gap-y-6">
-          {groups.map((group) => (
-            <div key={group.classification}>
-              <span className="text-label-sm text-mid uppercase tracking-widest block mb-3 font-medium">
-                {group.label}
-              </span>
-              <div className="space-y-2">
-                {group.skills.map((s) => (
-                  <SkillGapBar
-                    key={s.skill}
-                    skill={s.skill}
-                    frequencyPercent={s.frequencyPercent}
-                    changePercent={s.changePercent}
-                    classification={s.classification}
-                  />
-                ))}
-              </div>
+        {/* Skills grouped into colored containers */}
+        {(() => {
+          const GROUP_BG: Record<string, string> = {
+            invest: "bg-up-bg",
+            shed: "bg-down-bg",
+          };
+          const topGroups = groups.filter((g) => g.classification === "invest" || g.classification === "shed");
+          const bottomGroups = groups.filter((g) => g.classification !== "invest" && g.classification !== "shed");
+          return (
+            <div className="space-y-6">
+              {topGroups.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--grid-gutter)]">
+                  {topGroups.map((group) => (
+                    <div key={group.classification} className={`${GROUP_BG[group.classification] ?? ""} p-5`}>
+                      <span className="text-label-sm text-mid uppercase tracking-widest block mb-3 font-medium">
+                        {group.label}
+                      </span>
+                      <div className="space-y-2">
+                        {group.skills.map((s) => (
+                          <SkillGapBar
+                            key={s.skill}
+                            skill={s.skill}
+                            frequencyPercent={s.frequencyPercent}
+                            changePercent={s.changePercent}
+                            classification={s.classification}
+                            plain
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {bottomGroups.length > 0 && (
+                <div className="bg-black/5 p-5 space-y-6">
+                  {bottomGroups.map((group) => {
+                    const mid = Math.ceil(group.skills.length / 2);
+                    const left = group.skills.slice(0, mid);
+                    const right = group.skills.slice(mid);
+                    return (
+                      <div key={group.classification}>
+                        <span className="text-label-sm text-mid uppercase tracking-widest block mb-3 font-medium">
+                          {group.label}
+                        </span>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[var(--grid-gutter)] gap-y-2">
+                          <div className="space-y-2">
+                            {left.map((s) => (
+                              <SkillGapBar
+                                key={s.skill}
+                                skill={s.skill}
+                                frequencyPercent={s.frequencyPercent}
+                                changePercent={s.changePercent}
+                                classification={s.classification}
+                                plain
+                              />
+                            ))}
+                          </div>
+                          {right.length > 0 && (
+                            <div className="space-y-2">
+                              {right.map((s) => (
+                                <SkillGapBar
+                                  key={s.skill}
+                                  skill={s.skill}
+                                  frequencyPercent={s.frequencyPercent}
+                                  changePercent={s.changePercent}
+                                  classification={s.classification}
+                                  plain
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
-          ))}
-        </div>
+          );
+        })()}
       </section>
     </>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import type { JobHealthSnapshot } from "@/types";
 import SectionLabel from "./ui/SectionLabel";
 import DataValue from "./ui/DataValue";
@@ -160,9 +160,198 @@ const TOOL_CONTEXT: Record<string, ToolContext> = {
     url: "https://www.nngroup.com/articles/content-strategy/",
   },
 };
+
+/* ── Category icons for tool/trend cards ──────────────────────── */
+type ToolCategory = "ai" | "design" | "code" | "concept" | "work";
+
+const TOOL_CATEGORY: Record<string, ToolCategory> = {
+  Claude: "ai", ChatGPT: "ai", Midjourney: "ai", "Stable Diffusion": "ai",
+  "Adobe Firefly": "ai", "Notion AI": "ai", "Figma AI": "ai", Perplexity: "ai",
+  "GPT-4o": "ai", Gemini: "ai", "AI Prototyping": "ai", "DALL-E 3": "ai",
+  Firefly: "ai", v0: "ai", "Galileo AI": "ai", Uizard: "ai",
+  "Synthetic Users": "ai", Sora: "ai", Runway: "ai", Kling: "ai", Pika: "ai",
+  "Tokens Studio AI": "ai",
+  Figma: "design", Webflow: "design", Framer: "design", Sketch: "design",
+  InVision: "design", "Adobe XD": "design", Canva: "design", FigJam: "design",
+  Miro: "design", "Motion Design": "design", Prototyping: "design",
+  "GitHub Copilot": "code", Copilot: "code", Cursor: "code", React: "code",
+  Tailwind: "code", Automation: "code",
+  "Design Systems": "concept", "Design Tokens": "concept", Accessibility: "concept",
+  WCAG: "concept", "User Research": "concept", "Design Thinking": "concept",
+  "Content Strategy": "concept", Notion: "concept",
+  Freelance: "work", Outsourcing: "work",
+};
+
+function ToolIcon({ category, className = "" }: { category: ToolCategory; className?: string }) {
+  const base = `${className}`;
+  switch (category) {
+    case "ai":
+      return (
+        <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      );
+    case "design":
+      return (
+        <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 19l7-7 3 3-7 7-3-3z" />
+          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+          <path d="M2 2l7.586 7.586" />
+          <circle cx="11" cy="11" r="2" />
+        </svg>
+      );
+    case "code":
+      return (
+        <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+          <line x1="14" y1="4" x2="10" y2="20" />
+        </svg>
+      );
+    case "concept":
+      return (
+        <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+          <path d="M2 12h20" />
+        </svg>
+      );
+    case "work":
+      return (
+        <svg className={base} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+          <line x1="12" y1="12" x2="12" y2="12.01" />
+        </svg>
+      );
+  }
+}
+
 type Props = {
   snapshot: JobHealthSnapshot;
 };
+
+/* ── Tool / Trend carousel component ──────────────────────────── */
+function ToolCarousel({ keywords }: { keywords: { word: string; count: number }[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 2);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    const ro = new ResizeObserver(checkScroll);
+    ro.observe(el);
+    return () => { el.removeEventListener("scroll", checkScroll); ro.disconnect(); };
+  }, [checkScroll]);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = 200 + 16; // card width + gap
+    el.scrollBy({ left: dir === "left" ? -cardWidth * 2 : cardWidth * 2, behavior: "smooth" });
+  };
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-label-sm text-mid uppercase tracking-widest font-medium">
+          Tools &amp; Trends Detected
+        </span>
+        <div className="flex gap-2">
+          <button
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            aria-label="Scroll left"
+            className="w-8 h-8 flex items-center justify-center border border-light text-ink disabled:opacity-20 hover:bg-black/5 transition-colors cursor-pointer disabled:cursor-default"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            aria-label="Scroll right"
+            className="w-8 h-8 flex items-center justify-center border border-light text-ink disabled:opacity-20 hover:bg-black/5 transition-colors cursor-pointer disabled:cursor-default"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 6 15 12 9 18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div
+        ref={scrollRef}
+        data-tool-carousel=""
+        className="flex gap-4 overflow-x-auto scroll-smooth pb-2"
+        style={{ scrollbarWidth: "none" }}
+      >
+        <style>{`[data-tool-carousel]::-webkit-scrollbar { display: none; }`}</style>
+        {keywords.map((kw) => {
+          const ctx = TOOL_CONTEXT[kw.word];
+          const category = TOOL_CATEGORY[kw.word] ?? "concept";
+          return (
+            <div
+              key={kw.word}
+              className="flex-shrink-0 w-[200px] min-h-[300px] border border-light p-5 flex flex-col bg-paper"
+            >
+              {/* Icon area */}
+              <div className="flex items-center justify-center h-16 mb-4 text-mid/40">
+                <ToolIcon category={category} className="w-10 h-10" />
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-light mb-4" />
+
+              {/* Name + count */}
+              <div className="flex items-start justify-between mb-2 gap-2">
+                <span className="font-mono text-label-md font-medium text-ink leading-tight">
+                  {kw.word}
+                </span>
+                <span className="text-label-sm text-mid font-mono tabular-nums bg-black/10 px-2 py-0.5 flex-shrink-0">
+                  {kw.count}
+                </span>
+              </div>
+
+              {/* Synopsis */}
+              {ctx ? (
+                <>
+                  <p className="text-body-sm text-mid leading-relaxed flex-1 line-clamp-5">
+                    {ctx.synopsis}
+                  </p>
+                  <a
+                    href={ctx.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-label-sm font-mono text-ink underline underline-offset-2 mt-3 hover:text-mid transition-colors"
+                  >
+                    Learn more &rarr;
+                  </a>
+                </>
+              ) : (
+                <p className="text-body-sm text-mid leading-relaxed flex-1 italic line-clamp-5">
+                  A tool or trend mentioned in community discussions about this role.
+                </p>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function SentimentSection({ snapshot }: Props) {
   const { sentiment } = snapshot;
@@ -179,9 +368,11 @@ export default function SentimentSection({ snapshot }: Props) {
 
   return (
     <section>
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-start gap-3 mb-6">
         <SectionLabel>Industry Signals</SectionLabel>
-        <ConfidenceBadge sectionKey="sentiment" lastUpdated={snapshot.lastUpdated} />
+        <span className="ml-auto">
+          <ConfidenceBadge sectionKey="sentiment" lastUpdated={snapshot.lastUpdated} />
+        </span>
       </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         <div className="col-span-12">
@@ -277,52 +468,9 @@ export default function SentimentSection({ snapshot }: Props) {
               </div>
             )}
 
-            {/* Keyword cards */}
+            {/* Keyword cards — portrait / playing-card carousel */}
             {sentiment.communityKeywords.length > 0 && (
-              <div>
-                <span className="text-label-sm text-mid uppercase tracking-widest block mb-4 font-medium">
-                  Tools &amp; Trends Detected
-                </span>
-                <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
-                  {sentiment.communityKeywords.map((kw) => {
-                    const ctx = TOOL_CONTEXT[kw.word];
-                    return (
-                      <div
-                        key={kw.word}
-                        className="col-span-12 sm:col-span-6 md:col-span-4 border border-light p-4 flex flex-col"
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-mono text-label-md font-medium text-ink">
-                            {kw.word}
-                          </span>
-                          <span className="text-label-sm text-mid font-mono tabular-nums bg-black/10 px-2 py-0.5">
-                            {kw.count}
-                          </span>
-                        </div>
-                        {ctx ? (
-                          <>
-                            <p className="text-body-sm text-mid leading-relaxed flex-1">
-                              {ctx.synopsis}
-                            </p>
-                            <a
-                              href={ctx.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-label-sm font-mono text-ink underline underline-offset-2 mt-3 hover:text-mid transition-colors"
-                            >
-                              Learn more &rarr;
-                            </a>
-                          </>
-                        ) : (
-                          <p className="text-body-sm text-mid leading-relaxed flex-1 italic">
-                            A tool or trend mentioned in community discussions about this role.
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+              <ToolCarousel keywords={sentiment.communityKeywords} />
             )}
           </div>
         )}

@@ -118,9 +118,11 @@ export default function RoleIntelligence({ slug, lastUpdated }: Props) {
 
   return (
     <section>
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-start gap-3 mb-6">
         <SectionLabel>What the Data Actually Tells Us</SectionLabel>
-        <ConfidenceBadge sectionKey="roleIntelligence" lastUpdated={lastUpdated} />
+        <span className="ml-auto">
+          <ConfidenceBadge sectionKey="roleIntelligence" lastUpdated={lastUpdated} />
+        </span>
       </div>
 
       {/* Insight Cards — 3-up bordered grid */}

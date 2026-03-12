@@ -12,6 +12,7 @@ type Props = {
   frequencyPercent: number;
   changePercent?: number;
   classification: SkillClassification;
+  plain?: boolean;
 };
 
 const CLASS_CONFIG: Record<
@@ -30,12 +31,13 @@ export default function SkillGapBar({
   frequencyPercent,
   changePercent,
   classification,
+  plain,
 }: Props) {
   const cfg = CLASS_CONFIG[classification];
   const barWidth = Math.min(frequencyPercent, 100);
 
   return (
-    <div className={clsx("px-3 py-2", cfg.bg)}>
+    <div className={clsx("px-3 py-2", !plain && cfg.bg)}>
       <div className="flex items-center justify-between">
         <span className="font-sans text-body-sm text-dark">{skill}</span>
         <div className="flex items-center gap-2">
@@ -55,9 +57,9 @@ export default function SkillGapBar({
           )}
         </div>
       </div>
-      <div className="mt-1 w-full h-1 bg-paper">
+      <div className="mt-1 w-full h-1 bg-black/10">
         <div
-          className="h-full bg-ink"
+          className="h-full bg-black/15"
           style={{ width: `${barWidth}%` }}
         />
       </div>

@@ -22,14 +22,16 @@ export default function MarketView({ market, roleNEA, roleUpwork, roleTitle, las
     <div className="space-y-12">
       {/* Hero */}
       <div className="mb-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-start gap-3">
           <h2
             className="font-mono text-ink leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
             Beyond the Job Posting
           </h2>
-          <ConfidenceBadge sectionKey="enrichment" lastUpdated={lastUpdated} />
+          <span className="ml-auto">
+            <ConfidenceBadge sectionKey="enrichment" lastUpdated={lastUpdated} />
+          </span>
         </div>
         <p className="text-body text-mid mt-3 max-w-[65ch] leading-relaxed">
           How many {roleTitle}s actually exist, how many are freelance vs. staff,
