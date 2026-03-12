@@ -15,6 +15,7 @@ import RoleIntelligence from "@/components/RoleIntelligence";
 import SentimentSection from "@/components/SentimentSection";
 import PostingAnalysisSection from "@/components/PostingAnalysisSection";
 import MarketView from "@/components/MarketView";
+import SkillsGapSection from "@/components/SkillsGapSection";
 import HairlineRule from "@/components/ui/HairlineRule";
 import Footer from "@/components/Footer";
 
@@ -75,7 +76,7 @@ export default function RoleDeepDive() {
 
   return (
     <div className="min-h-screen bg-paper">
-      <Header lastUpdated={snapshot?.lastUpdated} />
+      <Header />
 
       <main
         className="grid grid-cols-12 gap-[var(--grid-gutter)] max-w-[1440px] mx-auto"
@@ -133,7 +134,7 @@ export default function RoleDeepDive() {
             <div className="col-span-12">
               <RoleVerdict
                 yoyChange={snapshot.demand.yoyChange}
-                fredIndexChangeYoY={marketEnrichment?.fred.indexChangeYoY}
+                fredIndexChangeYoY={marketEnrichment?.fred?.indexChangeYoY}
                 openingsCount={snapshot.demand.openingsCount}
                 medianSalaryUSD={snapshot.salary.medianUSD}
                 salaryYoYChange={snapshot.salary.yoyChange}
@@ -179,6 +180,7 @@ export default function RoleDeepDive() {
                     roleNEA={enrichment?.nea}
                     roleUpwork={enrichment?.upwork}
                     roleTitle={snapshot.title}
+                    lastUpdated={snapshot.lastUpdated}
                   />
                 </div>
                 <div className="col-span-12 my-4">
@@ -204,6 +206,11 @@ export default function RoleDeepDive() {
               </>
             )}
 
+            {/* 5.5. Skills Gap Analysis — synthesis of skills + postings */}
+            <div className="col-span-12">
+              <SkillsGapSection snapshot={snapshot} />
+            </div>
+
             {/* 6. Posting Analysis — what employers want */}
             {(snapshot.postingAnalysis.topSkills.length > 0 || snapshot.postingAnalysis.commonResponsibilities.length > 0) && (
               <>
@@ -221,7 +228,7 @@ export default function RoleDeepDive() {
               <HairlineRule />
             </div>
             <div className="col-span-12">
-              <RoleIntelligence slug={slug} />
+              <RoleIntelligence slug={slug} lastUpdated={snapshot.lastUpdated} />
             </div>
 
             {/* 8. Sentiment & News — closing color */}
@@ -240,7 +247,7 @@ export default function RoleDeepDive() {
         )}
       </main>
 
-      {snapshot && !loading && <Footer />}
+      {snapshot && !loading && <Footer lastUpdated={snapshot?.lastUpdated} />}
     </div>
   );
 }

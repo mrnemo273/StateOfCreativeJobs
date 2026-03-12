@@ -3,6 +3,7 @@
 import type { JobHealthSnapshot } from "@/types";
 import SectionLabel from "./ui/SectionLabel";
 import DataValue from "./ui/DataValue";
+import ConfidenceBadge from "./ui/ConfidenceBadge";
 
 type Props = {
   snapshot: JobHealthSnapshot;
@@ -17,7 +18,10 @@ export default function PostingAnalysisSection({ snapshot }: Props) {
 
   return (
     <section>
-      <SectionLabel className="mb-6">Posting Analysis</SectionLabel>
+      <div className="flex items-center gap-3 mb-6">
+        <SectionLabel>Posting Analysis</SectionLabel>
+        <ConfidenceBadge sectionKey="postingAnalysis" lastUpdated={snapshot.lastUpdated} />
+      </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         {/* Skills frequency table */}
         <div className="col-span-12 md:col-span-6">

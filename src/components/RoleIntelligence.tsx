@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import SectionLabel from "./ui/SectionLabel";
+import ConfidenceBadge from "./ui/ConfidenceBadge";
 
 interface ComparableRole {
   slug: string;
@@ -33,6 +34,7 @@ interface RoleIntelligenceData {
 
 interface Props {
   slug: string;
+  lastUpdated?: string;
 }
 
 function getRiskColor(label: string): string {
@@ -50,7 +52,7 @@ function getRiskColor(label: string): string {
   }
 }
 
-export default function RoleIntelligence({ slug }: Props) {
+export default function RoleIntelligence({ slug, lastUpdated }: Props) {
   const [data, setData] = useState<RoleIntelligenceData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -116,7 +118,10 @@ export default function RoleIntelligence({ slug }: Props) {
 
   return (
     <section>
-      <SectionLabel className="mb-6">What the Data Actually Tells Us</SectionLabel>
+      <div className="flex items-center gap-3 mb-6">
+        <SectionLabel>What the Data Actually Tells Us</SectionLabel>
+        <ConfidenceBadge sectionKey="roleIntelligence" lastUpdated={lastUpdated} />
+      </div>
 
       {/* Insight Cards — 3-up bordered grid */}
       {data.insightCards && data.insightCards.length > 0 && (

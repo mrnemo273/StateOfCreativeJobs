@@ -2,8 +2,23 @@
 
 import AuthorBio from "@/components/landing/AuthorBio";
 
-export default function Footer() {
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+interface FooterProps {
+  lastUpdated?: string; // ISO date string e.g. "2026-03-09"
+}
+
+export default function Footer({ lastUpdated }: FooterProps) {
   const year = new Date().getFullYear();
+
+  let dataDateStr: string | null = null;
+  if (lastUpdated) {
+    const d = new Date(lastUpdated + "T00:00:00");
+    dataDateStr = `${MONTH_NAMES[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  }
 
   return (
     <footer className="border-t border-ink mt-8 md:mt-12">
@@ -105,19 +120,26 @@ export default function Footer() {
           <AuthorBio />
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-light mt-6 md:mt-8 pt-4 flex justify-between items-center">
-          <span className="text-label-sm text-mid font-mono uppercase tracking-widest">
-            &copy; {year} STATE OF CREATIVE JOBS
-          </span>
-          <a
-            href="https://creative-jobs.juanemo.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-label-sm text-mid font-mono uppercase tracking-widest hover:text-ink transition-colors"
-          >
-            CREATIVE-JOBS.JUANEMO.COM
-          </a>
+        {/* Data freshness + Copyright */}
+        <div className="border-t border-light mt-6 md:mt-8 pt-4 flex flex-col gap-3 md:flex-row md:justify-between md:items-center">
+          {dataDateStr && (
+            <span className="text-label-sm text-mid font-mono uppercase tracking-widest">
+              Cached data from {dataDateStr}
+            </span>
+          )}
+          <div className="flex items-center justify-between gap-4 md:contents">
+            <span className="text-label-sm text-mid font-mono uppercase tracking-widest">
+              &copy; {year} STATE OF CREATIVE JOBS
+            </span>
+            <a
+              href="https://creative-jobs.juanemo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-label-sm text-mid font-mono uppercase tracking-widest hover:text-ink transition-colors"
+            >
+              CREATIVE-JOBS.JUANEMO.COM
+            </a>
+          </div>
         </div>
       </div>
     </footer>

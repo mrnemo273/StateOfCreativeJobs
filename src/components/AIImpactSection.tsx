@@ -4,6 +4,9 @@ import type { JobHealthSnapshot } from "@/types";
 import SectionLabel from "./ui/SectionLabel";
 import ScoreGauge from "./ui/ScoreGauge";
 import TrendChart from "./ui/TrendChart";
+import ConfidenceBadge from "./ui/ConfidenceBadge";
+import DataFootnote from "./ui/DataFootnote";
+import Link from "next/link";
 
 type Props = {
   snapshot: JobHealthSnapshot;
@@ -20,7 +23,10 @@ export default function AIImpactSection({ snapshot }: Props) {
 
   return (
     <section>
-      <SectionLabel className="mb-6">AI Impact Assessment</SectionLabel>
+      <div className="flex items-center gap-3 mb-6">
+        <SectionLabel>AI Impact Assessment</SectionLabel>
+        <ConfidenceBadge sectionKey="aiImpact" lastUpdated={snapshot.lastUpdated} />
+      </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         <div className="col-span-12 md:col-span-8">
           <ScoreGauge score={aiImpact.score} label={aiImpact.scoreLabel} />
@@ -89,7 +95,13 @@ export default function AIImpactSection({ snapshot }: Props) {
       <p className="mt-6 text-body-sm text-mid max-w-[65ch] leading-relaxed">
         {aiImpact.scoreExplainer}
       </p>
-
+      <DataFootnote>
+        Score includes editorial TDI assessment (60% weight). O*NET task
+        automability contributes 40%.{" "}
+        <Link href="/methodology" className="underline underline-offset-2 hover:text-ink transition-colors">
+          See Methodology &rarr;
+        </Link>
+      </DataFootnote>
     </section>
   );
 }

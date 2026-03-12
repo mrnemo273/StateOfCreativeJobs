@@ -3,6 +3,7 @@
 import type { JobHealthSnapshot } from "@/types";
 import SectionLabel from "./ui/SectionLabel";
 import SkillBar from "./ui/SkillBar";
+import ConfidenceBadge from "./ui/ConfidenceBadge";
 
 type Props = {
   snapshot: JobHealthSnapshot;
@@ -17,7 +18,10 @@ export default function SkillsSignalSection({ snapshot }: Props) {
 
   return (
     <section>
-      <SectionLabel className="mb-6">Skills Signal</SectionLabel>
+      <div className="flex items-center gap-3 mb-6">
+        <SectionLabel>Skills Signal</SectionLabel>
+        <ConfidenceBadge sectionKey="skills" lastUpdated={snapshot.lastUpdated} />
+      </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         <div className="col-span-12 md:col-span-6">
           <span className="text-label-sm text-up uppercase tracking-widest block mb-4 font-medium">

@@ -5,6 +5,7 @@ import type { JobHealthSnapshot } from "@/types";
 import SectionLabel from "./ui/SectionLabel";
 import DataValue from "./ui/DataValue";
 import NewsCard from "./ui/NewsCard";
+import ConfidenceBadge from "./ui/ConfidenceBadge";
 
 /* ── Tool / Trend context lookup ────────────────────────────────── */
 interface ToolContext {
@@ -178,7 +179,10 @@ export default function SentimentSection({ snapshot }: Props) {
 
   return (
     <section>
-      <SectionLabel className="mb-6">Industry Signals</SectionLabel>
+      <div className="flex items-center gap-3 mb-6">
+        <SectionLabel>Industry Signals</SectionLabel>
+        <ConfidenceBadge sectionKey="sentiment" lastUpdated={snapshot.lastUpdated} />
+      </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
         <div className="col-span-12">
           {/* Sentiment bar */}

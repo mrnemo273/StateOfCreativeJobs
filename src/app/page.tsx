@@ -14,7 +14,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-paper">
-      <Header lastUpdated={lastUpdated} />
+      <Header />
 
       <main
         className="max-w-[1440px] mx-auto"
@@ -128,7 +128,7 @@ export default function LandingPage() {
 
       </main>
 
-      <Footer />
+      <Footer lastUpdated={lastUpdated} />
     </div>
   );
 }

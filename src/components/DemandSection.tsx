@@ -7,6 +7,9 @@ import SourceBadge from "./ui/SourceBadge";
 import DataValue from "./ui/DataValue";
 import TrendBadge from "./ui/TrendBadge";
 import TrendChart from "./ui/TrendChart";
+import ConfidenceBadge from "./ui/ConfidenceBadge";
+import DataFootnote from "./ui/DataFootnote";
+import { getAnnotationsForRole, freshnessNote } from "@/data/annotations";
 
 type Props = {
   snapshot: JobHealthSnapshot;
@@ -16,11 +19,17 @@ type Props = {
 export default function DemandSection({ snapshot, fredMacro }: Props) {
   const { demand } = snapshot;
   const hasData = demand.openingsCount > 0;
+  const chartAnnotations = getAnnotationsForRole(snapshot.slug).map((a) => ({
+    date: a.date,
+    label: a.label,
+  }));
+  const staleNote = freshnessNote(snapshot.lastUpdated);
 
   return (
     <section>
       <div className="flex items-center gap-3 mb-6">
         <SectionLabel>Demand</SectionLabel>
+        <ConfidenceBadge sectionKey="demand" lastUpdated={snapshot.lastUpdated} />
         {fredMacro && <SourceBadge sources="BLS + FRED" isNew />}
       </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
@@ -31,6 +40,7 @@ export default function DemandSection({ snapshot, fredMacro }: Props) {
               height={280}
               yAxisFormatter={(v) => v.toLocaleString()}
               tooltipFormatter={(v) => `${v.toLocaleString()} openings`}
+              annotations={chartAnnotations}
             />
           ) : (
             <div className="h-[280px] bg-faint flex items-center justify-center">
@@ -99,6 +109,10 @@ export default function DemandSection({ snapshot, fredMacro }: Props) {
           )}
         </div>
       </div>
+      <DataFootnote>
+        Source: Adzuna job postings. Covers approximately 60% of US listings.
+        {staleNote && ` ${staleNote}`}
+      </DataFootnote>
     </section>
   );
 }

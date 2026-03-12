@@ -7,6 +7,8 @@ import SourceBadge from "./ui/SourceBadge";
 import DataValue from "./ui/DataValue";
 import TrendBadge from "./ui/TrendBadge";
 import TrendChart from "./ui/TrendChart";
+import ConfidenceBadge from "./ui/ConfidenceBadge";
+import DataFootnote from "./ui/DataFootnote";
 
 type Props = {
   snapshot: JobHealthSnapshot;
@@ -29,6 +31,7 @@ export default function SalarySection({ snapshot, acsDemographics }: Props) {
     <section>
       <div className="flex items-center gap-3 mb-6">
         <SectionLabel>Salary Trends</SectionLabel>
+        <ConfidenceBadge sectionKey="salary" lastUpdated={snapshot.lastUpdated} />
         {acsDemographics && <SourceBadge sources="BLS + ACS" isNew />}
       </div>
       <div className="grid grid-cols-12 gap-[var(--grid-gutter)]">
@@ -170,6 +173,10 @@ export default function SalarySection({ snapshot, acsDemographics }: Props) {
           ))}
         </div>
       )}
+      <DataFootnote>
+        Based on BLS Occupational Employment and Wage Statistics survey data.
+        Figures may lag current market by 12&ndash;18 months.
+      </DataFootnote>
     </section>
   );
 }

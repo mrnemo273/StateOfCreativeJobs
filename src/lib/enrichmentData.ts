@@ -85,7 +85,7 @@ export interface RoleEnrichment {
 
 /** Market-level enrichment data (FRED, aggregate NEA, aggregate Upwork). */
 export interface MarketEnrichment {
-  fred: FREDMacroContext;
+  fred: FREDMacroContext | null;
   aggregateNEA: {
     totalBLSCount: number;
     totalTrueSupply: number;

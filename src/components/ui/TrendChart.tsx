@@ -7,8 +7,14 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  ReferenceLine,
   ResponsiveContainer,
 } from 'recharts';
+
+type AnnotationData = {
+  date: string;
+  label: string;
+};
 
 type Props = {
   data: { date: string; value: number }[];
@@ -16,6 +22,7 @@ type Props = {
   color?: string;
   yAxisFormatter?: (value: number) => string;
   tooltipFormatter?: (value: number) => string;
+  annotations?: AnnotationData[];
 };
 
 function CustomTooltip({
@@ -48,6 +55,7 @@ export default function TrendChart({
   color,
   yAxisFormatter,
   tooltipFormatter,
+  annotations,
 }: Props) {
   const strokeColor = color || '#0A0A0A';
 
@@ -87,6 +95,21 @@ export default function TrendChart({
           dot={false}
           activeDot={{ r: 4, fill: strokeColor, stroke: 'none' }}
         />
+        {annotations?.slice(0, 3).map((a) => (
+          <ReferenceLine
+            key={a.date}
+            x={a.date}
+            stroke="var(--color-mid)"
+            strokeDasharray="4 4"
+            label={{
+              value: a.label,
+              position: 'top',
+              fill: 'var(--color-mid)',
+              fontSize: 10,
+              fontFamily: 'var(--font-mono)',
+            }}
+          />
+        ))}
       </LineChart>
     </ResponsiveContainer>
   );

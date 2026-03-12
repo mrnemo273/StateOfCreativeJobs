@@ -2,15 +2,17 @@
 
 import type { MarketEnrichment, NEASupplyContext, UpworkEmploymentStructure } from "@/lib/enrichmentData";
 import SectionLabel from "./ui/SectionLabel";
+import ConfidenceBadge from "./ui/ConfidenceBadge";
 
 interface Props {
   market: MarketEnrichment;
   roleNEA?: NEASupplyContext | null;
   roleUpwork?: UpworkEmploymentStructure | null;
   roleTitle: string;
+  lastUpdated?: string;
 }
 
-export default function MarketView({ market, roleNEA, roleUpwork, roleTitle }: Props) {
+export default function MarketView({ market, roleNEA, roleUpwork, roleTitle, lastUpdated }: Props) {
   const freelancePct = roleUpwork?.currentSplit.freelancePct ?? market.aggregateUpwork.avgFreelancePct;
 
   // "Bridge tax" = wage gap between staff & freelance (market aggregate or role-specific)
@@ -20,12 +22,15 @@ export default function MarketView({ market, roleNEA, roleUpwork, roleTitle }: P
     <div className="space-y-12">
       {/* Hero */}
       <div className="mb-4">
-        <h2
-          className="font-mono text-ink leading-tight"
-          style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
-        >
-          Beyond the Job Posting
-        </h2>
+        <div className="flex items-center gap-3">
+          <h2
+            className="font-mono text-ink leading-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+          >
+            Beyond the Job Posting
+          </h2>
+          <ConfidenceBadge sectionKey="enrichment" lastUpdated={lastUpdated} />
+        </div>
         <p className="text-body text-mid mt-3 max-w-[65ch] leading-relaxed">
           How many {roleTitle}s actually exist, how many are freelance vs. staff,
           and what the broader economy means for this role&apos;s future.
