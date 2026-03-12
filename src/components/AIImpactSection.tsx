@@ -6,6 +6,7 @@ import ScoreGauge from "./ui/ScoreGauge";
 import TrendChart from "./ui/TrendChart";
 import ConfidenceBadge from "./ui/ConfidenceBadge";
 import DataFootnote from "./ui/DataFootnote";
+import AITimeline from "./AITimeline";
 import Link from "next/link";
 
 type Props = {
@@ -97,6 +98,7 @@ export default function AIImpactSection({ snapshot }: Props) {
       <p className="mt-6 text-body-sm text-mid max-w-[65ch] leading-relaxed">
         {aiImpact.scoreExplainer}
       </p>
+      <AITimeline slug={snapshot.slug} />
       <DataFootnote>
         Score includes editorial TDI assessment (60% weight). O*NET task
         automability contributes 40%.{" "}
