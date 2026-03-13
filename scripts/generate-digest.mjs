@@ -69,28 +69,34 @@ function getRiskLabel(score) {
   return "High";
 }
 
-function buildRoleSection(snapshot) {
+function buildRoleSection(snapshot, slug, isLast = false) {
   const demand = snapshot.demand?.openingsCount ?? 0;
   const demandYoY = snapshot.demand?.yoyChange ?? 0;
   const salary = snapshot.salary?.medianUSD ?? 0;
   const salaryYoY = snapshot.salary?.yoyChange ?? 0;
   const aiRisk = snapshot.aiImpact?.score ?? 0;
   const riskLabel = getRiskLabel(aiRisk);
+  const roleUrl = `${SITE_URL}/role/${slug}`;
 
   // Get most notable headline
   const headline = snapshot.sentiment?.recentHeadlines?.[0];
   const notableText = headline
-    ? `"${headline.headline}" — ${headline.source}`
+    ? `"${headline.headline}" \u2014 ${headline.source}`
     : null;
+
+  const hrSeparator = isLast ? "" : `
+          <tr>
+            <td style="border-bottom: 1px solid #C8C4BC; font-size: 0; line-height: 0;">&nbsp;</td>
+          </tr>`;
 
   return `
           <tr>
-            <td class="role-section" style="padding: 20px 0; border-bottom: 1px solid #ECEAE4;">
+            <td class="role-section" style="padding: 24px 0;">
               <!-- Role name -->
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                  <td style="padding-bottom: 12px;">
-                    <span class="font-mono" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #0A0A0A; font-weight: 500;">
+                  <td style="padding-bottom: 14px;">
+                    <span style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 16px; text-transform: uppercase; letter-spacing: 0.1em; color: #0A0A0A; font-weight: 600;">
                       ${snapshot.title}
                     </span>
                   </td>
@@ -99,35 +105,40 @@ function buildRoleSection(snapshot) {
               <!-- Stats -->
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                  <td style="padding: 2px 0;">
-                    <span class="font-sans" style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #6B6B6B; display: inline-block; width: 60px;">Demand</span>
-                    <span class="font-mono" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #0A0A0A;">${demand.toLocaleString()} openings</span>
-                    <span class="font-mono" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: ${getYoYColor(demandYoY)};">(${getYoYArrow(demandYoY)} ${formatYoY(demandYoY)})</span>
+                  <td style="padding: 3px 0;">
+                    <span style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 13px; color: #6B6B6B; display: inline-block; width: 64px;">Demand</span>
+                    <span style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 14px; color: #0A0A0A;">${demand.toLocaleString()} openings</span>
+                    <span style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 14px; color: ${getYoYColor(demandYoY)};">(${getYoYArrow(demandYoY)} ${formatYoY(demandYoY)})</span>
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 2px 0;">
-                    <span class="font-sans" style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #6B6B6B; display: inline-block; width: 60px;">Salary</span>
-                    <span class="font-mono" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #0A0A0A;">${formatSalary(salary)}</span>
-                    <span class="font-mono" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: ${getYoYColor(salaryYoY)};">(${getYoYArrow(salaryYoY)} ${salaryYoY === 0 ? "flat" : formatYoY(salaryYoY)})</span>
+                  <td style="padding: 3px 0;">
+                    <span style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 13px; color: #6B6B6B; display: inline-block; width: 64px;">Salary</span>
+                    <span style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 14px; color: #0A0A0A;">${formatSalary(salary)}</span>
+                    <span style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 14px; color: ${getYoYColor(salaryYoY)};">(${getYoYArrow(salaryYoY)} ${salaryYoY === 0 ? "flat" : formatYoY(salaryYoY)})</span>
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 2px 0;">
-                    <span class="font-sans" style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #6B6B6B; display: inline-block; width: 60px;">AI Risk</span>
-                    <span class="font-mono" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #0A0A0A;">${aiRisk}/100 ${riskLabel}</span>
+                  <td style="padding: 3px 0;">
+                    <span style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 13px; color: #6B6B6B; display: inline-block; width: 64px;">AI Risk</span>
+                    <span style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 14px; color: #0A0A0A;">${aiRisk}/100 ${riskLabel}</span>
                   </td>
                 </tr>
                 ${notableText ? `
                 <tr>
-                  <td style="padding: 8px 0 0 0;">
-                    <span class="font-sans" style="font-family: 'DM Sans', sans-serif; font-size: 11px; color: #6B6B6B; font-style: italic;">${notableText}</span>
+                  <td style="padding: 10px 0 0 0;">
+                    <span style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 12px; color: #6B6B6B; font-style: italic;">${notableText}</span>
                   </td>
                 </tr>
                 ` : ""}
+                <tr>
+                  <td style="padding: 14px 0 0 0;">
+                    <a href="${roleUrl}" style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #0A0A0A; text-decoration: none; font-weight: 500;">View Role &rarr;</a>
+                  </td>
+                </tr>
               </table>
             </td>
-          </tr>`;
+          </tr>${hrSeparator}`;
 }
 
 async function main() {
@@ -196,13 +207,17 @@ async function main() {
     const roleSections = [];
     const subjectParts = [];
 
+    const validEntries = [];
     for (const slug of subscriber.roles) {
       const snapshot = readSnapshot(slug);
       if (!snapshot) continue;
-      roleSections.push(buildRoleSection(snapshot));
-
+      validEntries.push({ snapshot, slug });
       const yoy = snapshot.demand?.yoyChange ?? 0;
       subjectParts.push(`${snapshot.title} ${getYoYArrow(yoy)}${formatYoY(yoy)}`);
+    }
+
+    for (let i = 0; i < validEntries.length; i++) {
+      roleSections.push(buildRoleSection(validEntries[i].snapshot, validEntries[i].slug, i === validEntries.length - 1));
     }
 
     if (roleSections.length === 0) {
@@ -222,6 +237,8 @@ async function main() {
       .replace(/\{\{digestDate\}\}/g, dateStr)
       .replace(/\{\{roleSections\}\}/g, roleSections.join("\n"))
       .replace(/\{\{siteUrl\}\}/g, SITE_URL)
+      .replace(/\{\{privacyUrl\}\}/g, `${SITE_URL}/privacy`)
+      .replace(/\{\{year\}\}/g, String(now.getFullYear()))
       .replace(/\{\{unsubscribeUrl\}\}/g, `${SITE_URL}/api/digest/unsubscribe?email=${encodeURIComponent(subscriber.email)}`);
 
     // Editorial link (if exists)

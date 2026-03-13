@@ -146,6 +146,8 @@ export async function POST(req: Request) {
 }
 
 function confirmationEmailHtml(confirmUrl: string, siteUrl: string): string {
+  const unsubscribeUrl = `${siteUrl}/api/digest/unsubscribe`;
+  const privacyUrl = `${siteUrl}/privacy`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,38 +161,62 @@ function confirmationEmailHtml(confirmUrl: string, siteUrl: string): string {
       <td align="center" style="padding: 32px 16px;">
         <table role="presentation" width="560" cellspacing="0" cellpadding="0" border="0" style="max-width: 560px; width: 100%;">
 
-          <!-- Header -->
+          <!-- Header: big site title -->
           <tr>
-            <td style="padding-bottom: 24px; border-bottom: 1px solid #0A0A0A;">
-              <span style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: #0A0A0A; font-weight: 500;">
-                State of Creative Jobs
+            <td align="center" style="padding-bottom: 32px;">
+              <span style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 22px; text-transform: uppercase; letter-spacing: 0.12em; color: #0A0A0A; font-weight: 700; line-height: 1.3; display: block;">
+                State of<br>Creative Jobs
               </span>
             </td>
           </tr>
+          <tr><td style="border-bottom: 1px solid #0A0A0A; font-size: 0; line-height: 0;">&nbsp;</td></tr>
 
-          <!-- Body -->
+          <!-- Headline + body, all centered -->
           <tr>
-            <td style="padding: 32px 0;">
-              <p style="font-family: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; color: #1A1A1A; line-height: 1.6; margin: 0 0 16px 0;">
-                Confirm your subscription to start receiving digest updates on the roles you follow.
+            <td align="center" style="padding: 40px 0 32px 0;">
+              <h1 style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 36px; font-weight: 700; color: #0A0A0A; margin: 0 0 20px 0; line-height: 1.15;">
+                One More Step.
+              </h1>
+              <p style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 15px; color: #6B6B6B; line-height: 1.6; margin: 0 0 32px 0; max-width: 420px;">
+                Confirm your subscription to start receiving weekly digest updates on the creative roles you follow.
               </p>
-              <p style="margin: 0 0 32px 0;">
-                <a href="${confirmUrl}" style="display: inline-block; padding: 12px 24px; background-color: #0A0A0A; color: #F5F3EE; font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none;">
-                  Confirm Subscription
-                </a>
-              </p>
-              <p style="font-family: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; color: #6B6B6B; line-height: 1.6; margin: 0;">
-                If you didn't subscribe, you can ignore this email.
+              <a href="${confirmUrl}" style="display: inline-block; padding: 14px 32px; background-color: #0A0A0A; color: #F5F3EE; font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; font-weight: 500;">
+                Confirm Subscription
+              </a>
+              <p style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 13px; color: #999; line-height: 1.6; margin: 24px 0 0 0;">
+                Didn\u2019t subscribe? You can safely ignore this email.
               </p>
             </td>
           </tr>
 
           <!-- Footer -->
+          <tr><td style="border-bottom: 1px solid #C8C4BC; font-size: 0; line-height: 0;">&nbsp;</td></tr>
           <tr>
-            <td style="padding-top: 16px; border-top: 1px solid #C8C4BC;">
-              <p style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 9px; color: #6B6B6B; line-height: 1.6; margin: 0;">
-                <a href="${siteUrl}" style="color: #6B6B6B; text-decoration: underline;">State of Creative Jobs</a>
-              </p>
+            <td align="center" style="padding: 24px 0 8px 0;">
+              <span style="font-family: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #0A0A0A; font-weight: 600;">
+                State of Creative Jobs
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 0 0 4px 0;">
+              <span style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 12px; color: #999; line-height: 1.6;">
+                Data-driven insights for creative professionals.
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 8px 0 0 0;">
+              <a href="${privacyUrl}" style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 11px; color: #6B6B6B; text-decoration: underline;">Privacy Policy</a>
+              <span style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 11px; color: #C8C4BC; padding: 0 8px;">&middot;</span>
+              <a href="${unsubscribeUrl}" style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 11px; color: #6B6B6B; text-decoration: underline;">Unsubscribe</a>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 12px 0 0 0;">
+              <span style="font-family: 'DM Sans', 'Arial', 'Helvetica Neue', sans-serif; font-size: 10px; color: #C8C4BC;">
+                &copy; ${new Date().getFullYear()} State of Creative Jobs. All rights reserved.
+              </span>
             </td>
           </tr>
 
