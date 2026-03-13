@@ -31,7 +31,7 @@
   --color-accent-bg: #EAEAF7;
 
   /* Typography */
-  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-display: 'IBM Plex Mono', 'Andale Mono', 'Menlo', monospace;
   --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
   --font-sans: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
 

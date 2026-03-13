@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, IBM_Plex_Mono, DM_Sans } from "next/font/google";
+import { IBM_Plex_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
-
-const dmSerifDisplay = DM_Serif_Display({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
@@ -23,7 +16,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const siteUrl = "https://state-of-creative-jobs.vercel.app";
+const siteUrl = "https://creative-jobs.juanemo.com";
 const title = "State of Creative Jobs";
 const description = "Real-time health signals for creative roles";
 
@@ -63,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSerifDisplay.variable} ${ibmPlexMono.variable} ${dmSans.variable}`}
+        className={`${ibmPlexMono.variable} ${dmSans.variable}`}
       >
         {children}
       </body>

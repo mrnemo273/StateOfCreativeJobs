@@ -10,9 +10,10 @@ const config: Config = {
     extend: {
       fontFamily: {
         display: [
-          "var(--font-display)",
-          "Georgia",
-          "serif",
+          "var(--font-mono)",
+          "Andale Mono",
+          "Menlo",
+          "monospace",
         ],
         sans: [
           "var(--font-sans)",
