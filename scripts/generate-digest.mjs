@@ -3,7 +3,7 @@
 /**
  * generate-digest.mjs
  *
- * Reads subscribers from Vercel KV, builds per-subscriber emails
+ * Reads subscribers from Upstash Redis, builds per-subscriber emails
  * with tracked roles' data, sends via Resend.
  *
  * Usage:
@@ -22,7 +22,7 @@ const ROOT = path.resolve(__dirname, "..");
 const SNAPSHOTS_DIR = path.join(ROOT, "src", "data", "snapshots");
 const TEMPLATE_PATH = path.join(ROOT, "scripts", "templates", "digest-email.html");
 
-const SITE_URL = process.env.SITE_URL || "https://stateofcreativejobs.com";
+const SITE_URL = process.env.SITE_URL || "https://creative-jobs.juanemo.com";
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
@@ -143,11 +143,14 @@ async function main() {
   // Check for KV
   let kvStore;
   try {
-    const { kv } = await import("@vercel/kv");
-    await kv.ping();
-    kvStore = kv;
+    const { Redis } = await import("@upstash/redis");
+    kvStore = new Redis({
+      url: process.env.KV_REST_API_URL,
+      token: process.env.KV_REST_API_TOKEN,
+    });
+    await kvStore.ping();
   } catch {
-    console.error("Vercel KV not available. Cannot read subscribers.");
+    console.error("Upstash Redis not available. Cannot read subscribers.");
     process.exit(1);
   }
 
@@ -241,7 +244,7 @@ async function main() {
     } else {
       try {
         await resend.emails.send({
-          from: "State of Creative Jobs <digest@stateofcreativejobs.com>",
+          from: "State of Creative Jobs <digest@juanemo.com>",
           to: subscriber.email,
           subject: subjectLine,
           html: emailHtml,
